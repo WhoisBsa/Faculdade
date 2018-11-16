@@ -1,0 +1,19 @@
+# depslib dependency file v1.0
+1520360113 source:c:\users\mateus\desktop\programação\exercicios\struct hora.minuto\treino2\main.c
+	<stdio.h>
+	<stdlib.h>
+	<strings.h>
+	<locale.h>
+
+1520360188 source:c:\users\mateus\desktop\faculdade\2° período\nairon\aula 3\treino2\main.c
+	<stdio.h>
+	<stdlib.h>
+	<strings.h>
+	<locale.h>
+
+1520937319 source:c:\users\aula\desktop\lista\main.c
+	<stdio.h>
+	<stdlib.h>
+	<strings.h>
+	<locale.h>
+

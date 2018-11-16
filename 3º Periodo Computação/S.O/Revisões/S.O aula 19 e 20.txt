@@ -1,0 +1,59 @@
+Aula 19 e 20
+
+Escalonamento por fração justa (Fair-Share)
+
+	Os escalonamentos anteriores partem do pressuposto de escalonar os processos si próprios.
+	Não levam em consideração, por exemplo, o dono do processo.
+
+	Ex: 2 usuários
+
+		Usuário A -> 9 processos
+		Usuário B -> 1 processo
+		Resultado
+			Usuário 1 -> 90% do uso da CPU
+			Usuário 2 -> 10% do uso da CPU
+
+	No escalonamento fair-share a fração da CPU é distribuída com base na quantidade de usuários.
+	Cada usuário executa seus processos na sua fração de tempo.
+
+	Ex: 2 usuários -> 50% da CPU cada
+
+		Processos
+
+			Usuário 1: A, B, C, D
+			Usuário 2: E
+
+		Ordem de execução
+
+			A E B E C E D E A E B E...
+
+		Variação -> Fornecer o dobro de tempo de CPU ao usuário 1
+
+			A B E C D E A B E C D E...
+
+Escalonamento em sistemas de tempo real (STR)
+
+	STR -> Um sistema onde o tempo tem função principal. A resposta a um estímulo externo deve ser gerada dentro de um limite de tempo.
+	Ex: CD de música. (demora na conversão dos bits)
+
+	STR críticos -> Tempo das respostas deve ser cumprido.
+
+	STR não críticos -> Descumprimento do tempo é indesejável, mas tolerável.
+
+	Comportamento dos STR:	1 programa -> vários processos.
+				Processos -> Comportamento conhecido.
+					Curtos (max. 1 segundo).
+
+	Escalonamento: Os processos são escalonados, de forma que TODOS cumpram o tempo de resposta.
+	Escalonamento acontece quando ocorre algum evento.
+
+	Evento periódicos: Eventos conhecidos que sempre acontecem em um tempo previsto.
+	Evento aperiódicos: Não se sabe quando vão ocorrer.
+
+	Algoritmos de escalonamento de STR
+
+		Estáticos -> Decisões de escalonamento são tomadas antes do sistema começar a funcionar.
+
+		Dinâmicos -> A decisões são tomadas em tempo de execução.
+
+		Escalonamento estático em um STR só funciona com conhecimento prévio do sistema e dos eventos.

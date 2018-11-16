@@ -1,0 +1,5 @@
+Especialista(_codigo, nome, endereço, area)
+Participante(_codigo, nome, endereço)
+Membro do Comitê(_codigo, nome, endereço)
+
+Utilizar a generalizaçao total e subclasses COM ou SEM atributos. É uma maneira simples de montar o esquema.

@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1525394969 source:c:\users\mateus\desktop\faculdade\2° período\nairon\trabalho_aeroporto\main.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+
+1525474063 source:c:\users\mateus\desktop\trabalho_aeroporto\main.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+

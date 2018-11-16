@@ -1,0 +1,18 @@
+p {
+     border : 1px solid black ;
+     max-width : 600 px;
+     max-height : 250 px;
+     min-height : 100 px;
+    }
+
+ #p1 {
+     width : 200px;
+    }
+    
+ .p2 {
+     width : 400px;
+    }
+
+.p3{
+    width: 600px;
+}

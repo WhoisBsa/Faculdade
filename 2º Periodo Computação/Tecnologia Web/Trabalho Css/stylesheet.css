@@ -1,0 +1,49 @@
+
+.h1{
+	font-size: 3em;
+	color: red;
+	font-family: Arial, "Times New Roman", serif;
+	padding: 20px;
+	margin: 20px;
+	border: solid;
+	border-color: blue;
+	border-radius: 5px;
+	font-style: italic;
+	text-align: center;
+}
+
+.desor{
+	list-style-type: square;
+}
+
+#imgpos {
+	position: absolute;
+	top:70px;
+	left:380px;
+	
+}
+	
+.h2{
+	font-size: 20px;
+	color: white;
+	padding: 5px;
+	padding-top: 10px;
+	padding-bottom: 5px;
+	margin-top: 10px;
+	margin-right: 700;
+	margin-left: 100px;
+	border-bottom: dotted;
+	border-color: white;
+	border-radius: 3px;
+	background-color: black;
+}
+
+.h3{
+	font-size: 18px;
+	font-family: Times,"Arial", serif;
+	padding: 5px 10px 0px 10px;
+	margin: 10px 700px 0px 100px;
+	border: inset;
+	background-color: white	;
+	color: gray;
+}

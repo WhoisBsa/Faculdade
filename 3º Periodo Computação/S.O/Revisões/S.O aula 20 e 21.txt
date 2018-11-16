@@ -1,0 +1,180 @@
+Aula 20 e 21
+
+Alocação de recursos e impasses (Deadlock)
+	
+	S.O:
+
+		Garantir acesso exclusivo aos recursos.
+	
+
+	Recurso:
+
+		Objetos que podem ser acessados (Dispositivos, memória, etc.)
+		1 ou mais de um de cada tipo.
+		O processo requisita, usa e libera o recurso.
+
+
+	* Impasse (Deadlock):
+
+		É uma situação onde um processo A, espera um recurso do processo B, que por sua vez espera um recurso do processo A.
+
+
+	Recursos preenptiveis:
+
+		Recursos que podem ser retirados de um processo e passados para outro. Ex: Memória.
+	
+
+	Recursos não preenptiveis:
+
+		Não podem ser retirados do processo. A liberação do recurso é feita pelo próprio processo. Ex: Impressora, gravador de cd.
+
+
+	Utilização dos recursos:
+
+		- Requisitar o recurso
+		- Usar o recurso
+		- Liberar o recursos
+
+	Impasses:
+
+		Recursos não preemptíveis
+		Solicitação do recurso:
+			- Depende do S.O
+				¬ Chamada do Sistema
+				¬ Acesso a um monitor
+
+
+	* Condições para ocorrência de impasses:
+
+		1 - Exclusão Mútua -> Um recurso ou está disponível ou está alocado.
+		2 - Posse e Espera -> O processo já tem um recurso e requisita outros para executar.
+		3 - Condição de não Preenpção -> Apenas o próprio processo pode liberar o recurso.
+		4 - Espera Circular -> Um conjunto de processos espera o recurso do próximo processo.
+		Todas as 4 condições têm que ocorrer para acontecer um impasse.
+
+
+	Modelagem de impasses:
+
+		Usar um grafo (estrutura) com dois tipos de vértices:
+			Quadrado -> recurso
+			Círculo -> processo
+			Q -> C = Processo requisitou, alocou e está usando o recurso.
+			C -> Q = Processo bloqueado esperando a liberação do recurso.
+			Círculo -> Significa que existe um impasse.
+			Para impasses, essa modelagem so funciona se tiver 1 recurso de cada tipo.
+
+		Estratégias para lidar com impasses:
+
+			1 - Ignorar por completo o problema.
+			2 - Detecção e recuperação.
+			3 - Anulaççao dinâmica por meio de alocação ciudadosa de memória.
+			4 - Negar estruturalmente uma das 4 condições para ocorrência de impasses.
+
+			1 ¬ Algoritmo do avestruz: Enterrar a cabeça na terra. (ignorar o problema)
+
+				Razoável:
+					Ex: 1 impasse a cada 5 anos custo para prevenir ou recuperar o impasse é alto.
+
+				Depende de quanto a ocorrência do impasse afeta o sistema.
+
+			2 ¬ Detecção e recuperação:
+
+				Deixa o impasse ocorrer e recupera.
+				Detecção com 1 recurso de cada tipo.
+					¬ 1 impressora, 1 gravador de CD, etc.
+					¬ Construir o grafo de processos, recursos e requisições.
+					¬ Verificar se existe algum ciclo no grafo.
+					¬ Todos os processos em um ciclo estão em situação de impasse.
+
+
+	Atividades
+
+		Construa o frafo e verifique quais processos estão em situação de impasse (supondo apenas 1 recurso de cada tipo).
+
+		Caso 1:
+
+			Processos: A, B, C, D, E
+			Recursos: 6 (R1 ao R6)
+
+			Requisições:
+
+			 	A -> 1		B -> 2 		C -> 4 e 5 		D -> 6 		E -> 3
+
+			 Alocações:
+
+			 	1 -> B  	2 -> E 		3 -> C 			4 -> B		5 ->D
+
+
+			 	A -> 1 -> B -> 2 -> E -> 3 -> C -> 4 E 5 -> D -> 6
+
+
+		Detecção de impasses com múltiplos recursos de cada tipo
+
+			Ex: mais de uma impressora;
+				mais de um gravador de DVD.
+
+			E -> Vetor de recursos. (E1, E2, E3, ..., EN)
+
+			A -> Vetor de recursos disponíveis. (A1, A2, A3, ..., AN)
+
+			C -> Matriz de Alocação atual. 
+
+			R -> Matriz de Requisição.
+
+			Cij -> Quantos recursos da classe j foram alocados ao processo i.
+
+			Rij -> Quantos recursos de classe j o processo i necessita.
+
+
+		Recuperação de impasses
+
+			Recuperação por meio de preenpção
+
+				Intervenção manual.
+				Retirar o recurso de um preenpção e alocar para outro.
+
+			Recuperação por meio de retrocesso
+
+				Checkpoints. Salvar as informações do preenpção caso seja necessário retroceder para esse estado no futuro.
+				Em caso de impasse -> processo volta ao último checkpoint antes do impasse.
+				Cada checkpoint deve ser salvo em um arquivo diferente. Impede que um checkpoint esclua outro.
+					Gera um histórico de checkpoints.
+
+				Problema -> Em caso de retrocesso, todo o trabalho feito depois do checkpoint de que ser refeito.
+
+			Recuperação por eliminação de processos
+
+				Matar processos (grosseiro, simples)
+				Ideia -> mata o processos e torce para terminar o impasse.
+						 Pode ir matando processos até acabar o impasse.
+				O ideal é matar os processos que possuem os recursos necessárias para acabar com o impasse.
+
+
+		Evitanto impasses
+
+			Sistema deve ser capaz de decidir se liberar um recurso é seguro ou não.
+			Algumas informações devem estar disponíveis.
+
+			Estados seguros
+
+				Estado que não está em impasse e possui pelo menos 1 sequência de escalonamento que garante que todos os processos serão concluídos, mesmo que, em algum momento, todos requisitem os recursos simultaneamente.
+				Se ao alocar um recurso, o resultado for um estado inseguro, o S.O não aloca o recurso.
+				Estado inseguro NÃO é uma situação de impasse.
+				O S.O apenas não pode garantir que não vá ocorrer impasse.
+
+			ALgoritmo do banqueiro
+
+				banqueiro	-> 	S.O
+				Créditos 	-> 	Recursos
+
+				O S.O só vai fornecer os recursos, se for possível atender a todos os processos em algum momento.
+				Esse algoritmo é inútil!
+
+			* Prevenção de impasses
+
+				Atacar 1 das 4 condições para ocorrência de impasses.
+
+				Atacar a exclusão mútua
+
+					Usar um spool: área de espera antes de receber o recurso.
+					Problema -> se dois processos preencher 50% do spool, eles não poderão continuar. Impasse de disco.

@@ -1,0 +1,198 @@
+﻿07/08/2018
+
+
+Introdução
+        * o que é sistema operacional?
+                
+                Tenembaum:
+                        Máquina estendida:
+                                Oculta detalhes;
+                                Máquina virtual mais simples de utilizar;
+                        Gerenciador de recursos:
+                                Cada programa tem um espaço no recurso;
+                                Cada programa tem um tempo com o recurso;
+                                
+                Silberschatz:
+                        Programa que vai atuar como intermediário entre o usuário e o hardware;
+                        
+        * função do sistema operacional
+                Executar os programas do usuário e facilitar a resolução dos problemas;
+                Tornar o uso do computador conveniente;
+                Usar o hardware de maneira eficiente;
+                Manter a integridade di sistema
+                
+        
+        * subdivisões
+                usuários - programadores, usuários comuns, programas e aplicativos.
+                ˄˅
+                S.O.
+                ˄˅
+                hardware - impressora, RAM, HD, monitor.
+        
+        * estrutura de um S.O.
+                programas de aplicação(alto nível):
+                        sistema bancário, sistema de venda de passagem, navegador
+                programas de sistema:
+                        compiladores, interpretadores, editores;
+                        sistema operacional;
+                hardware:
+                        linguagem de máquina:
+                                Linguagem de programação que o processador realmente entende, 
+                                sem necessidade de compilação ou qualquer tipo de tradução.
+                        microarquitetura:
+                                conjunto de dispositivos agrupados em unidades funcionais. Ex.:Registradores, ALU;
+                        dispositivos físicos:
+                        
+        * S.O's importantes:
+                1969 - Unix
+                1977 - Apple II
+                1978 - Apple DOS
+                1980 - Apple SOS
+                1981 - MS DOS
+                1981 - 1º SO com interface gráfica - Pilot (XEROX)
+                1983 - Lisa OS
+                1984 - Mac OS
+                1985 - Windows 1.0
+                
+        * kernel(núcleo):
+                responsável pela comunicação entre as aplicações e o hardware;
+                
+        * Linux é um kernel, não um SO.
+        
+        * categorias de sistemas:
+                Sistema monotarefa/monousuário:
+                        Uma tarefa por vez;
+                Sistema multitarefa/multiusuário:
+                        Mais de uma tareffa executando ao mesmo tempo;
+                Sistema com multiplos processadores:
+                        Tipos:
+                                Fortemente acoplados:
+                                
+                                Fracamente acoplados:
+                                
+                                Multiprogramação:
+                                        Dar a impressão de que todas as tarefas 
+                                        estão sendo executadas ao mesmo tempo;
+                                        
+                                        
+08/08/2018
+
+
+        CPU:
+                Executar os programas armazenados na memória principal;
+                A CPU busca a instrução na memória, verifica seu tipo e a executa;
+                
+        A função do SO é gerenciar as tarefas executadas pela CPU.
+        
+        Registradores:
+                Contador de programa(PC);
+                        Indica qual a próxima instrução a ser executada;
+                Registrador de Instrução:
+                        Contém a instrução que está sendo executada;
+                        
+        Passos da Execução de uma instrução:
+                1 - Trazer a instrução da memória para a CPU;
+                2 - Alterar o Contador de Programa(PC) para apontar a próxima instrução;
+                3 - Determinar o tipo da instrução que está no registrador de instrução;
+                4 - Verificar se existe algum dado na memória necessário a execução da instrução;
+                5 - Se necessário, buscar os dados na memória;
+                6 - Executar a instrução;
+                
+        Memórias:
+                Seguem uma hierarquia;
+                        Registradores:
+                                Alta velocidade, internos à CPU;
+                        Memória Cache:
+                                Alta velocidade, processador busca nessa memória;
+                        Memória RAM:
+                                Consultada casa uma requisição não possa ser atendida pela cache;
+                        Memória Secundária:
+                                HD, CD, DVD, pendrive, SSD...
+                        
+        Entradas/Saída(E/S):
+                Dispositivo de E/S:
+                        Dispositivo físico;
+                        Controlador;
+                        
+                Driver:
+                        Programa responsável por comunicar com o controlador de dispositivo;
+                        
+                        
+                E/S acontecem de duas formas:
+                        1 - Execução;
+                        2 - Interrupção;
+                                Instrução gerada pelo dispositivo;
+                                
+                Etapas da interrupção:
+                        1 - Enviar sinal de interrupção para o processador;
+                        2 - CPU termina de executar a instrução atual e analiza a interrupção recebida;
+                        3 - Salvar os conteúdos dos registradores, status, etc..
+                        4 - CPU verifica qual a rotina para aquela interrupção
+                                e carrega o endereço da rotina;
+                        5 - A rotina de interrupção é executada;
+                        6 - Restaurar os conteúdos dos registradores;
+                        
+                Interrupção mascarável:
+                        É a interrupção que a CPU pode ignorar, ou adiar a execução;
+                        
+                Acesso direto a memória(DMA):
+                        
+                
+15/08/2018
+
+
+        Modos de acesso:
+                Modo usuário:
+                        A aplicação só pode executar instruções conhecidas e em número reduzido.
+                Modo Kernel ou supervisor:
+                        A aplicação tem acesso a todo o conjunto de instruções sem limites.
+                        
+                        
+*Introdução a processos e chamadas de sistema
+        
+        Processo:
+                Pode ser entendido como um programa em execução. É o conjunto de informações necessárias para que o SO implemente a concorrência entre programas.
+                Para funcionar os processos necessitam de acesso aos recursos.(tempo de CPU, memória, dispositivos E/S)
+                
+        Espaço de endereçamento:
+                É uma lista de locais da memória onde o processo pode ler e escrever.
+                Contém o programa, os dados e uma pilha.
+                
+        O processo tem alguns registradores disponíveis. Por exemplo, o contador de programa, usa ponteiro para pilha
+        e outros registradores.
+        
+        Tabela de processos:
+                É uma matriz contendo informações sobre o processo, cada processo tem uma entrada na tabela.
+                
+        Gerenciamento de processos:
+                Criar e excluir processos.
+                Suspender e retomar processos.
+                Oferecer mecanismos para:
+                        Sincronismo entre processos.
+                        Comunicação entre processos.
+                
+        Chamadas de sistema(System calls):
+                São uma interface entre o programa e o SO.
+                
+        Parâmetros entre o SO e a aplicação.
+                Maneiras de armazenar os parâmetros:
+                        Enviar parâmetros por registradores.
+                        Guardar endereço do registrador e acessar o parâmetro pelo endereço.(Ponteiro)
+                        Pilha, a aplicação empilha(push) e o SO desempilha(pop).
+                        
+        Foto 15/08/2018 21:58
+        
+        Diretórios:
+                É um espaço reservado em um dispositivo de armazenamento.
+                Processos podem alterar os seus diretórios por meio de chamadas de sistema.
+                
+        Arquivo:
+                Caminho:
+                        Diretório raiz -> ... -> arquivo
+        
+        Categorias de chamadas de sistema:
+                Chamadas de sistema para gerenciamento de processos:
+                        Criar processos, excluir processos, retornar o id do processo(PID)
+        
+                Chamadas de sistema para sinalização:
+                        Interrupção de processo, exceção (instrução ilegal ou timeout)

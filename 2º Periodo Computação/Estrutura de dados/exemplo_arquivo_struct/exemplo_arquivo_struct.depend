@@ -1,0 +1,16 @@
+# depslib dependency file v1.0
+1461783538 source:c:\users\nairon\documents\ciência da computação\edii\projetos\exemplo_arquivo_struct\main.c
+	<stdio.h>
+	<stdlib.h>
+	<locale.h>
+
+1529364408 source:c:\users\nairo\documents\ciência da computação\estrutura de dados\projetos\exemplo_arquivo_struct\main.c
+	<stdio.h>
+	<stdlib.h>
+	<locale.h>
+
+1529370376 source:c:\users\aula\downloads\exemplo_arquivo_struct\main.c
+	<stdio.h>
+	<stdlib.h>
+	<locale.h>
+

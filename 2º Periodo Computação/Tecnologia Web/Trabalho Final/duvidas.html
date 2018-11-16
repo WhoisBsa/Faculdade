@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+
+        <meta charset="utf-8" />
+        <title>Junho Vermelho</title>
+        <link rel="stylesheet" type="text/css"  href="stylesheet.css" />
+        <div class="titulo">Campanha Junho Vermelho</div>  
+        <style>
+
+            a {
+              text-decoration: none;
+              color: aliceblue;
+              font-size: 24px;
+              padding: 15px;
+              display:inline-block;
+              font-family: 'Times New Roman', Times, serif;
+            }
+            a:hover{color: black;}
+
+            ul {
+              display: inline;
+              margin: 0;
+              padding: 0;                  
+            }
+
+            ul li {display: inline-block;}
+            ul li:hover {background: darkred;}
+
+            ul li:hover ul {display: block;}
+            ul li ul {
+              position: absolute;
+              width: 230px;
+              padding-left: 20px;
+              margin-left: -15px;  
+              display: none;
+            }
+            
+            ul li ul li { 
+              background: darkred; 
+              display: block; 
+            }
+            ul li ul li a {display:block;} 
+            ul li ul li:hover {background: darkred;}
+
+        </style>
+
+    </head>
+
+    <body>
+                
+        <div class="menu">
+          <div id="divBusca">
+            <img src="search.png" id="search" alt="">
+            <input type="text" id="txtBusca" placeholder="Pesquisar..."/>
+          </div>
+
+            <ul>
+              <li>
+                <a href="#">&#9776; Menu</a>
+                <ul>
+                  <li><a href="quemnpodedoar.html">Quem não pode Doar</a></li>
+                  <li><a href="importancia.html">Importância</a></li>
+                  <li><a href="duvidas.html">Dúvidas Frequentes</a></li>
+                </ul>
+              </li>
+            </ul>
+            
+            <a href="index.html">Home</a>
+            <a href="sejaumdoador.html">Seja um Doador</a>
+            <a href="orientacao.html">Orientações</a>
+        </div>
+        
+        <div class="texto">
+            <fieldset><legend><b>João das Couve perguntou:</b></legend>
+                <pre>Quanto tempo esperar até a próxima doação?</pre> <br>
+              <fieldset>
+                <legend>Resposta</legend>
+              <pre>• Homens podem fazer doação de sangue a cada 60 dias, 
+com máximo de 4 doações a cada 12 meses. <br>
+• Mulheres devem esperar 90 dias entre uma doação
+de sangue e outra, com máximo de 3 doações no período de 12 meses.</pre>
+              </fieldset>
+              <textarea name="pergunta" id="txtarea2" cols="30" rows="10" placeholder="Envie uma Resposta"></textarea>
+              <input type="button" id="btntxtarea2" value="Enviar">
+            </fieldset>
+            <textarea name="pergunta" id="txtarea1" cols="30" rows="10" placeholder="Deixe sua mensagem"></textarea>
+            <input type="button" id="btntxtarea1" value="Enviar">
+        </div>
+
+    </body>
+
+</html>

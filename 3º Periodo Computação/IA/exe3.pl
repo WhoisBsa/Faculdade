@@ -1,0 +1,13 @@
+doa(a,a).
+doa(a,ab).
+doa(b,b).
+doa(b,ab).
+doa(o,a).
+doa(o,ab).
+doa(o,ab).
+doa(o,o).
+recebe(a,a).
+recebe(a,o).
+recebe(b,b).
+recebe(b,o).
+recebe(o,o).

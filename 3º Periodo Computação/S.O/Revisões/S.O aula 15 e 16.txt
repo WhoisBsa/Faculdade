@@ -1,0 +1,24 @@
+Sistemas Operacionais
+
+Comunicação entre processos
+
+Comunicação entre processos deve ser feita sem interrupções, onde os processos precisam ser capazes de se comunicar e trocar essas informações.
+
+CIP - Três questões inportantes:
+	Como um processo pode passar as informações um para o outro;
+	Certifircar-se de que dois ou mais processos não interfirão um com o outro em atividades críticas;
+	Sequenciamento adequado em caso de dependência.
+
+Condições de Corrida - Quando há um processo, por exemplo, que precisa guardar o nome de um arquivo para impressão e outro processo chega e o primeiro processo é interrompido antes de atualizar seu índice e libera a execução do segundo processo. Como o índice não foi atualizado, o segundo processo receberá o mesmo índice sobrepondo o primeiro, ou ele excluirá o arquivo ou nem vai imprimi-lo.
+
+Exclusão Mútua - Quando se está usando um arquivo ou memória compartilhada o processo se torna exclusivo impedindo que outros processos façam a mesma coisa. (Exclusividade do processo quando se usa um arquivo ou memória compartilhada)
+
+Condições da exclusão mútua:
+	Nunca dois processos podem estar simultaneamente na região crítica;
+	Processo fora da região crítica está impedido de bloquear outro dentro da mesma;
+	Processo nao pode esperar eternamente para entrar em sua região crítica;
+	Sem suposições sobre velocidades ou números de CPUs.
+
+Semáforo - Indica se o processo fica na fila de espera ou se acessa a região crítica, evita a "espera ocupada" (quando um processo espera para entrar na região crítica mas outro processo ja está lá fazendo com que o processo fique em looping ate que possa entrar).
+
+Monitores - Manipulam um determinado recurso compartilhado.

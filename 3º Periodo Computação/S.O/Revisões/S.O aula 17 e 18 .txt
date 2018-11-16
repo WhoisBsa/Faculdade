@@ -1,0 +1,51 @@
+Aula 17 e 18
+
+Escalonamento por prioridades
+	
+	Esse escalomento surge da necessidade de se considerar fatores externos.
+	A cada processo é associada um valor de prioridade.
+	O processo com prioriade mais alta executa primeiro.
+	Se um processo chegar e a sua prioridade for mais alta, ele vai para o ínicio da fila.
+
+	Problema: Um processo com prioridade muito baixa pode nunca ser executado.
+
+	Soluções: 
+		*Reduzir a prioridade de um processo ao final de cada execução.
+		*Forçar um processo com prioridade alta a dar lugar a um processo de prioridade mais baixa a cada interrupção.
+
+	Atribuição das prioridades:
+		- Estaticamente.
+		- Dinamicamente
+			-> Exemplo: Processo altamente orientado a E/S.
+						Prioridade baseada na fração do ciclo de CPU usado na última execução.
+
+						Prioridade -> 1/f. Ex: cilo de clock de  100ms.
+
+						P1 -> 2ms (2% do ciclo)
+								prioridade = 1/0,05 = 50
+						P2 -> 50ms (50% do ciclo)
+								prioridade = 1/0,5 = 2
+						P3 -> 100ms (100% do ciclo)
+								prioridade = 1/1 = 1
+
+	Classes de prioridades:
+		Prioridade é atribuída às classes de processos.
+		Escalonamento por prioridades define as classes.
+		Dentro das classes podemos ter outro escalonamento. Ex: Circular.
+
+Escalonamento garantido
+	
+	Faz promessas e tenta cumprir essas promessas.
+	Ex: 
+		N processos.
+		Cada processo receberá 1/N do ciclo de CPU. (promessa do exemplo)
+
+Escalonamento por loteria:
+	
+	A cada processo é dado um "bilhete".
+	Os "prêmios" são os  recursos do sistema.
+	No escalonamento um bilhete é sorteado e o processo que possui um bilhete recebe o recurso.
+	Variações:
+		Processo com alta prioridade pode ganhar mais "bilhetes".
+		Processo cooperativo podem "trocar bilhetes".
+	Usado em casos em que o problema é muito complexo para ser resolvido com soluções tradicionais.

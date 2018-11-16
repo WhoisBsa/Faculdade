@@ -1,0 +1,154 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+typedef struct {
+    int chave;
+    /* outros componentes*/
+}TipoItem;
+
+typedef struct celula_str *Apontador;
+
+typedef struct{
+    TipoItem Item;
+    Apontador Prox;
+}Celula;
+
+typedef struct {
+    Apontador Primeiro, Ultimo;
+} TipoLista;
+
+/*Função para criar Lista Vazia*/
+void FLVazia (TipoLista *Lista){
+    Lista->Primeiro = (Apontador) malloc(sizeof(Celula));
+    Lista->Ultimo = Lista->Primeiro;
+    Lista->Primeiro->Prox = NULL;
+}
+
+/*Função que retorna 1 se a lista estiver vazia*/
+int Vazia (TipoLista Lista){
+    return (Lista.Primeiro == Lista.Ultimo);
+}
+
+void Insere (TipoItem x, TipoLista *Lista){
+    Lista->Ultimo->Prox = (Apontador) malloc(sizeof(Celula));
+    Lista->Ultimo = Lista->Ultimo->Prox;
+    Lista->Ultimo->Item = x;
+    Lista->Ultimo->Prox = NULL;
+}
+
+void Imprime (TipoLista Lista){
+    Apontador Aux;
+    Aux = Lista.Primeiro->Prox;
+
+    while (Aux != NULL){
+        printf("%d \n", Aux->Item.chave);
+        Aux = Aux->Prox;
+    }
+}
+
+
+int Consulta (TipoLista Lista, int x){
+    Apontador Aux;
+    Aux = Lista.Primeiro->Prox;
+    while (Aux != NULL){
+        if (Aux->Item.chave == x)
+            return 1;
+        Aux = Aux->Prox;
+    }
+    return 0;
+}
+
+//consulta um determinado registro e retorna o anterior
+Apontador ConsultaR (TipoLista Lista, int x){
+    Apontador Aux, Anterior;
+    Anterior = Lista.Primeiro;
+    Aux = Lista.Primeiro->Prox;
+    while (Aux != NULL){
+        if (Aux->Item.chave == x)
+            return Anterior;
+        Anterior = Aux;
+        Aux = Aux->Prox;
+    }
+    return NULL;
+}
+
+void Retira (Apontador p, TipoLista *Lista){
+    /*o item a ser retirado é o seguinte apontado por p*/
+    Apontador q;
+    if (Vazia(*Lista) || p==NULL || p->Prox==NULL){
+        printf("Erro: Lista vazia ou posicao nao existe");
+        return;
+    }
+    q = p->Prox;
+    p->Prox = q->Prox;
+
+    if (p->Prox == NULL)
+        Lista->Ultimo = p;
+
+    free(q);
+}
+
+int main(int argc, char *argv[]){
+
+    TipoLista minhaLista;
+    TipoItem itemAux;
+    Apontador apontadorAux;
+    int op, codigo;
+    FLVazia(&minhaLista);
+
+    do{
+        system("cls");
+        printf(" 1 - Inserir \n 2 - Consultar \n 3 - Imprimir\n 4 - Excluir \n-1 - Sair \n\n Sua opcao: ");
+        scanf("%d", &op);
+
+        switch (op){
+            /*Opção de Inserir*/
+            case 1:
+                printf("\nChave: ");
+                scanf("%d", &itemAux.chave);
+                Insere(itemAux,&minhaLista);
+            break;
+
+            /*Opção de Consultar*/
+            case 2:
+                printf("\nChave a ser consultada: ");
+                scanf("%d", &codigo);
+                if (Consulta(minhaLista,codigo)==0)
+                    printf("\nNao existe elemento com o codigo informado.\n");
+                else
+                    printf("\nCodigo encontrado.\n");
+                system("Pause");
+            break;
+
+            /*Opção de imprimir*/
+            case 3:
+                if (Vazia(minhaLista))
+                    printf("\nLista vazia!");
+                else{
+                    printf("\nElementos da Lista\n");
+                    Imprime(minhaLista);
+                    system("Pause");
+                }
+            break;
+
+
+            /*Opção de Excluir*/
+            case 4:
+                printf("\nChave a ser excluida: ");
+                scanf("%d", &codigo);
+                apontadorAux = ConsultaR(minhaLista,codigo);
+                if (apontadorAux == NULL)
+                    printf("\nNao existe elemento com o codigo informado.\n");
+                else{
+                    Retira(apontadorAux, &minhaLista);
+                    printf("\nCodigo encontrado.\n");
+                }
+                system("Pause");
+            break;
+
+        } //SWTICH
+    }while (op != -1); //DO .. WHILE
+    system("PAUSE");
+    return 0;
+} //FINALIZANDO O MAIN
+
