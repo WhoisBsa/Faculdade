@@ -5,13 +5,17 @@
  
 ## 1º Semestre:
   > Introdução à Programação
+  >
   > Organização de Computadores
 
 ## 2º Semestre:
   > Estrutura de Dados
+  >
   > Tecnologia Web
 
 ## 3º Semestre:
   > Banco de Dados
+  >
   > Inteligência Artificial
+  >
   > Sistemas Operacionais
