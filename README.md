@@ -1,6 +1,7 @@
-<a href="http://barbacena.site.unipac.br/"><img src="http://cursosgratuitoscertificado.com//HLIC/fa1f9409ff4841958ad1b5a30de2d26f.gif" align="center" height="15%" width="15%"></a>
+<a href="http://barbacena.site.unipac.br/"><img src="http://cursosgratuitoscertificado.com//HLIC/fa1f9409ff4841958ad1b5a30de2d26f.gif" align="center" height="15%" width="15%"></a> 
 
-## [Universidade Presidente Antônio Carlos](http://barbacena.site.unipac.br/), _02-2017/02-2021_.
+
+## [Universidade Presidente Antônio Carlos](http://barbacena.site.unipac.br/), _02-2017/02-2021_. 
 
 # _Arquivos das atividades de todos os semestres._
  
@@ -21,4 +22,4 @@
   >
   > [Sistemas Operacionais](https://github.com/WhoisBsa/Faculdade/tree/master/3%C2%BA%20Periodo%20Computa%C3%A7%C3%A3o/S.O)
 
-<img src="https://github.com/favicon.ico" align="center" float:center textalign="center" width="48">
+<img src="https://github.com/favicon.ico" align="center" float:center textalign="center" width="32">
