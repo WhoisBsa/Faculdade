@@ -1,4 +1,5 @@
-[![unipac](http://cursosgratuitoscertificado.com//HLIC/fa1f9409ff4841958ad1b5a30de2d26f.gif "UNIPAC")](http://barbacena.site.unipac.br/)
+<a href="http://barbacena.site.unipac.br/"><img align="center" src="http://cursosgratuitoscertificado.com//HLIC/fa1f9409ff4841958ad1b5a30de2d26f.gif"></a>
+
 ## [Universidade Presidente Antônio Carlos](http://barbacena.site.unipac.br/), _02-2018/02-2021_.
 
 # _Arquivos das atividades de todos os semestres._
