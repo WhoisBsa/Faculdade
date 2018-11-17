@@ -67,4 +67,3 @@ ON
 ON
 	ingrediente.codigo_receita = receita.codigo_receita;
 END $$ DELIMITER;
-matheus
