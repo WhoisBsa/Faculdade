@@ -20,5 +20,3 @@
   > [Inteligência Artificial](https://github.com/WhoisBsa/Faculdade/tree/master/3%C2%BA%20Periodo%20Computa%C3%A7%C3%A3o/IA)
   >
   > [Sistemas Operacionais](https://github.com/WhoisBsa/Faculdade/tree/master/3%C2%BA%20Periodo%20Computa%C3%A7%C3%A3o/S.O)
-
-<img src="https://github.com/favicon.ico" align="center" float:center textalign="center" width="32">
