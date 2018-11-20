@@ -1,0 +1,99 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{dsfont} 
+\usepackage[brazilian]{babel}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[top=1in, bottom=1.5in, left=1.25in, right=1.25in]{geometry}
+
+\usepackage{subfig}
+\usepackage{multirow}
+\usepackage{multicol}
+\graphicspath{{Imagens/}}
+\usepackage{xcolor,colortbl}
+\usepackage{float}
+
+\newcommand \comment[1]{\textbf{\textcolor{red}{#1}}}
+
+%\usepackage{float}
+\usepackage{fancyhdr} % Required for custom headers
+\usepackage{lastpage} % Required to determine the last page for the footer
+\usepackage{extramarks} % Required for headers and footers
+\usepackage{indentfirst}
+\usepackage{placeins}
+\usepackage{scalefnt}
+
+% Margins
+\addtolength{\footskip}{0cm}
+\addtolength{\textwidth}{1.4cm}
+\addtolength{\oddsidemargin}{-.7cm}
+
+\addtolength{\textheight}{1.6cm}
+%\addtolength{\topmargin}{-2cm}
+
+% paragrafo
+\addtolength{\parskip}{.2cm}
+
+% Set up the header and footer
+\pagestyle{fancy}
+%\rhead{\hmwkAuthorName} % Top left header
+%\lhead{\hmwkClass: \hmwkTitle} % Top center header
+%\rhead{\firstxmark} % Top right header
+\lfoot{Lucas Santos, Matheus Barbosa, Rafael Sidnei} % Bottom left footer
+\cfoot{} % Bottom center footer
+\rfoot{} % Bottom right footer
+\renewcommand{\headrulewidth}{1pt}
+\renewcommand{\footrulewidth}{1pt}
+%----------------------------------------------------------------------------------------
+%	Nome e Disciplina
+%----------------------------------------------------------------------------------------
+    
+\newcommand{\hmwkTitle}{Hadoop vs Spark} % Assignment title
+\newcommand{\hmwkDueDate}{Dezembro de 2018} % Due date
+\newcommand{\hmwkClass}{Banco de Dados} % Course/class
+\newcommand{\hmwkAuthorName}{Lucas Santos, Matheus Barbosa, Rafael Sidnei} % Your name
+
+% trabalho 
+\begin{document}
+% capa
+\begin{titlepage}
+    \vfill
+	\begin{center}
+    \includegraphics[scale=1.0]{imagens/logo.png}\\
+	\textbf{UNIVERSIDADE PRESIDENTE ANTÔNIO CARLOS \\ [0.05cm]CIÊNCIA DA COMPUTAÇÃO}
+
+	\vspace{0.6cm}
+	\vspace{4cm}
+	{\huge \textbf{Hadoop vs Spark}}\vspace{8mm}
+	
+	{\large \textbf{Lucas Santos \\Matheus Barbosa \\[0.1cm]Rafael Sidnei}}\\[3cm]
+	
+		\hspace{.45\textwidth} %posiciona a minipage
+	   \begin{minipage}{.5\textwidth}
+	   Trabalho teórico apresentado à disciplina de Banco de Dados do curso de Ciência da Computação da Universidade Presidente Antônio Carlos.\\[0.1cm]
+	  \end{minipage}
+	  \vfill
+	%\vspace{2cm}
+	
+	\textbf{Barbacena}
+	
+	\textbf{Dezembro de 2018}
+	\end{center}
+	
+\end{titlepage}
+
+% Sumario
+\newpage
+\setcounter{secnumdepth}{5}
+\tableofcontents
+\newpage
+
+\input{sections/introducao}
+\input{sections/hadoopvsspark}
+\bibliographystyle{plain}
+\bibliography{references.bib}
+\cite{gu2013memory}
+\cite{logz.io}
+\cite{quora}
+
+\end{document}
