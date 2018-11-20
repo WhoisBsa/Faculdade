@@ -174,4 +174,4 @@ Gerência de memória
 				A divisão das partições é feita sob demanda.
 				Elimina a Fragmentação interna.
 
-			a
+			
