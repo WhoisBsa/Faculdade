@@ -1,0 +1,175 @@
+3ª Etapa
+
+Gerência de memória
+
+	Memória virtual - Combinação de memória primcipal e secundária para "simular" que o computador tem mais memória do que realmente tem.
+	 ___________	     ___
+	|	   |    |  ->	| R |
+	|  HD  | MV |		| A |
+	|______|____|  <-	|_M_|
+
+	Unidade de Gerenciamento de Memória (ULA)
+		¬ Responsável pela memória virtual.
+		¬ Dentro do processador.
+		Processador busca na MP, se o dado estiver lá, executa. Senão, o dado é trazido da memória secundária para a MP.
+
+	Memória Virtual (Possibilita)
+		¬ Usar mais endereços de memória que a quantidade real.
+		¬ Possibilita que o programador utilize endereços virtuais sem se preocupar com os endereços reais da memória.
+
+	Espaço de Endereçamento
+		¬ Representa todos os endereços virtuais da memória.
+
+	Espaço de Memória
+		¬ Os endereços físicos reais da memória.
+
+	Paginação
+		¬ Espaço de endereçamento (Páginas).
+
+	Espaço de Memória
+		¬ Molduras de páginas.
+
+	Mecanismo de paginação
+		¬ Mapeamento dos endereços virtuais para os reais.
+		¬ Transferência de páginas entre MS e MP.
+		Além do endereço é preciso indicar o byte que se quer acessar.
+
+	Tabela de Páginas
+		¬ Mapeamento entre páginas e molduras de páginas p-ésima entrada na tabela de entradas, contém o número P da moldura de página correspondente.
+			F(e) = F(p,g) = p' + g
+			e - endereço virtual
+			p - número da página
+			g - byte a ser acessado
+
+	Função da Tabela de Páginas
+		¬ Mapeamento das páginas para suas respectivas molduras.
+		Matematicamente - Tabela de páginas é uma função onde o parâmetro é o número de parâmetro (p) e o retorno é a moldura da página (p').
+		Problemas:
+			¬ Tabelas de páginas e páginas podem ficar muito grandes
+			Ex: páginas de 32kb.
+				Promador precisa de 32 bites - 4 bytes
+				32kb na memória
+				4b em uso
+				32764 bytes ocupando a memória atoa.
+
+	Algoritmos de Substituição de Página
+	
+		¬ Memória Principal é pequena
+		¬ Memória Principal fica cheia
+
+		Algoritimo Otimo - Sempre substituir a página menos referenciada.
+		Problema 		 - Não se sabe o futuro.
+
+		Algoritimo Aleatório - Escolhe uma página de forma aletatória e substitui.
+		Vantagem - Fácil de implementar.
+		Desvantagem - Ineficiente.
+
+		Não recentemente utilizada
+			2 bits em cada página:
+			R - Referenciada
+			M - Modificada
+			Sempre que a página é referenciada, o bit R vira 1.
+			Sempre que a página é modificada, o bit M vira 1.
+			Em certos períodos de tempo, uma  página não referenciada volta o bit R para 0.
+			Quando ocorre uma falha de página (page fault), o S.O divide as páginas em 4 classes:
+				0 - Página não referenciada e não modificada.
+				1 - Página não referenciada mas foi modificada.
+				2 - Página referenciada e não modificada.
+				3 - Página referenciada e modificada.
+				O algoritmo substitui alguma página com a classe mais baixa.
+				Vantagens - Simples de entender e implementar. Boa aproximação do algoritmo ótimo.
+
+		F I F O
+			Fila de páginas
+			Início da fila - páginas mais antigas.
+						   ¬ página que será substituída.
+			Desvantagem - página muito referenciada no início da fila.
+
+		Algoritmo da segunda chance
+			FIFO com bit R.
+			Se o bit R da 1ª página da fila fo 0, substitui.
+			Se o bit R da 1ª página da fila fo 1, a ágina vai para o final da fila e o bit R vira 0.
+			Problema - Se todas as páginas forem referenciadas vira um FIFO puro.
+
+		Algoritmo do Relógio
+			Mesma lógica da segunda chance.
+			Ao invés de usar uma lista linear, usa uma circular.
+			Ao invés de deslocar a página, desloca um ponteiro.
+
+		Última Menos Recentemente Utilizada (LRU)
+			Escolhe a página que tem mais tempo sem uso.
+			Aparentemente é um algoritmo muito bom.
+			Porem o custo é muito alto.
+			Forma mais simples de implementar esse algoritmo:
+				¬ Um contador para cada página.
+				¬ O contador representa a quantidade de referências à página.
+				¬ A página com menor valor de contador é substituida.
+
+	Alocação de Memória
+
+		A memória tem que ser alocada de maneira eficiente.
+		Cada programa necessita de uma quantidade de memória.
+		O objetivo é tentar manter na memória o máximo de programas 
+		e proteger as áreas de memória alocadas em cada programa.
+
+		Alocação Contígua Simples
+			Divide a memória em apenas 2 partes: S.O e área do programa.
+			O usuário tem total controle da memória (com exceção da área do S.O).
+			A área do S.O é protegida por um registrador, que indica onde ela acaba.
+			Só funciona em sistemas monotarefa.
+			Desvantagens:
+				¬ Uso ineficiente dos recursos.
+				¬ Só permite um programa por vez.
+			Solução:
+				¬ Dividir a área do programa em partições de tamanho fixo iguais ou nao.
+				¬ É necessário o uso de mais registradores para indicar os limites das partições.
+				Alocação Particionada.
+
+			Alocação Contígua Particionada Estática
+				A memória é dividida em blocos de tamanho fixo.
+				O tamanho das partições é definido na inicialização.
+				Memória
+				 _______
+				|__S.O__|         Grau de multitarefa
+				|__2KB__|		  depende da quantidade de partições.
+				|__5KB__| 15KB
+				|__8KB__|
+
+				Problema:
+					¬ Fragmentação interna
+				     _______
+					|__S.O__|
+					|_______| 2KB
+					|__3KB__| 5KB 	<¬	
+					|__6KB__| 8KB 	  Ou seja, sobram espaços nas partições que nao podem ser usados por outros programas.
+
+				Alocação Particionada Estática Absoluta
+					O S.O define uma partição fixa onde cada programa pode ser alocado.
+					Ex:
+						¬ Programas
+							2kb 4KB 8KB 5KB 1KB
+							 A - B - C - D - E
+							 	 _______
+							 	|__S.O__|
+						A - E - |__2KB__|
+								|		|
+						B - D - |__5KB__|
+								|		|
+							C -	|  9KB  |
+								|_______|
+
+				Alocação Particionada Estática Realocável
+					O programa pode ser alocado na primeira partição livre que o couber.
+							 	 _______
+							 	|__S.O__|
+								|__2KB__|
+								|		|
+						B - D - |__5KB__|
+							  ¬	|		|
+								|  9KB  |
+								|_______|
+
+			Alocação Particionada Dinâmica
+				Os programas alocam a memória conforme a sua necessidade.
+				A divisão das partições é feita sob demanda.
+				Elimina a Fragmentação interna.
