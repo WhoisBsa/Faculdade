@@ -1,4 +1,4 @@
-3ª Etapa
+﻿3ª Etapa
 
 Gerência de memória
 
@@ -173,3 +173,5 @@ Gerência de memória
 				Os programas alocam a memória conforme a sua necessidade.
 				A divisão das partições é feita sob demanda.
 				Elimina a Fragmentação interna.
+
+			a
