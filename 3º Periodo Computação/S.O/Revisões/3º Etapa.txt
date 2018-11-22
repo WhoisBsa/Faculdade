@@ -173,3 +173,7 @@ Gerência de memória
 				Os programas alocam a memória conforme a sua necessidade.
 				A divisão das partições é feita sob demanda.
 				Elimina a Fragmentação interna.
+
+	Atributos de arquivos
+		Além do nome e dos dados, o S.O atribui outras informações aos arquivos, essas informações são chamadas de atributos do arquivo.
+		Ex: Senha, sinalizadores (arquivos ocultos), data de criação, 
