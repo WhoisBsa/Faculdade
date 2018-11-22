@@ -174,49 +174,96 @@ Gerência de memória
 				A divisão das partições é feita sob demanda.
 				Elimina a Fragmentação interna.
 
-	Atributos de arquivos
-		Além do nome e dos dados, o S.O atribui outras informações aos arquivos, essas informações são chamadas de atributos do arquivo.
-		Ex: Senha, sinalizadores (arquivos ocultos), data de criação, etc.
+		Estrategias de alocações de partições
+			Best-Fit
+				¬ Alocar os ddaos na mesma partição que couber
+				¬ Problem - Os pequenos espaços vagos aumentam muito rápido
 
-	Diretórios
-		Organização.
-		Um diretório pode ser visto  como um confunto de registros (entrada), cada entrada representa um arquivo.
-		2 formas
-			1 ¬ Cada entrada tem o nome do arquivo, os dados e os aatributos e cada registro tem tamanho fixo;
-				Ex: Diretório: S.O `tabela de arquivos`.
-			2 ¬ Cada entrada tem o nome do arquivo e um ponteiro para uma estrutura que guarda o resto das informações.
+			Worst-Fit
+				¬ Alocar o programa na maior partição disponível
 
-		No sistema operacional existem algumas formas para implementar a estrutura de diretórios:
-			um único diretório:
-				¬ Problema para múltiplos usuários;
-				¬ Desorganizado.
-			um diretório por usuário:
-				¬ Continua desorganizado.
-			uma árvore de diretórios:
-				¬ Resolve todos os problemas anteriores.
+			First-Fit
+				¬ Aloca o programa na 1ª partição que o couber
+				¬ Tem o melhor desempenho computacional
 
-		Caminhos de diretórios:
-			raiz/cliente1/faculdade/S.O/aula.pdf
-		Nome de camino absoluto:
-			./cliente1/faculdade/S.O/aula.pdf
-		Nome de caminho relativo:
-			¬ Usa o conceito de diretório atual.
-			Ex: Diretório atual -> Faculdade
-				S.O/aula.pdf
+	Sistemas de Arquivos
+		Nescessidade de armazenar os dados a longo prazo 
+		Nescessidade de mais de processo acessar o mesmo dado
+		Nescessidade de acesso a um dado criado por um processo que já terminou
 
-	Busca de dados
-		Busca sequencial
-			¬Posição por posição.
-			¬ Ex: Encontrar 'C'
-				B D A F \C/ E D
-			¬ Vantagem: Simples.
-			¬ Desvantagem: Custo computacional alto.
+		Os dados são salvos em unidades de S.O
 
-		Busca binária
-			¬ Os dados devem estar ordenados.
-				A C G H P | R T V X Y Z
-			¬ Vantagem: mais eficiente
-			¬ Desvantagem: o custo pra manter ordenado é alto
+		Nomes de arquivos
+			Arquivos - mecanismos de abstração. Nomes variam de sistema para sistema, geralmente os S.Os permitem nomes com até 255 caracteres.
 
-		Árvores binárias de busca
+			Outro processo pode acessar um arquivo já criado por meio do seu nome.
+
+			Alguns S.Os suportam formatos 
+				¬ Normalmente 3 caracteres após o nome do arquivo separado por um ponto.
+
+			Em alguns casos, o formato pode ser uma converção e pode ser opcional.
+
+		Estrutura de arquivos
+			Sequencia de bytes
+				O S.O interpreta cada arquivo como uma seqência de bytes. Mais flexibilidade.
+				A interpretação de bytes é responsabilidade dos programas de usuário.
+
+			Sequencia de registros
+				Cada arquivo corresponde a um conjundo de registros de tempo fixo.
+
+			Arvores
+				Cada arquivo é uma árvore com conjunto de registros.
+				Cada registro consiste em um campo de chave
+				A ideia básica é pesquisar o registro que tenha a chave desejada.
+
+		Pesquisa em arquivos
+			Acesso sequencial - O arquivo só pode ser lido sequencialmente
+			Acesso aleátorio - pode acessar posições aletatórias dos arquibos
 			
+		Atributos de arquivos
+			Além do nome e dos dados, o S.O atribui outras informações aos arquivos, essas informações são chamadas de atributos do arquivo.
+			Ex: Senha, sinalizadores (arquivos ocultos), data de criação, etc.
+
+		Diretórios
+			Organização.
+			Um diretório pode ser visto  como um confunto de registros (entrada), cada entrada representa um arquivo.
+			2 formas
+				1 ¬ Cada entrada tem o nome do arquivo, os dados e os aatributos e cada registro tem tamanho fixo;
+					Ex: Diretório: S.O `tabela de arquivos`.
+				2 ¬ Cada entrada tem o nome do arquivo e um ponteiro para uma estrutura que guarda o resto das informações.
+					Ex: Nome `tabela de arquivos` com ponteiros.
+
+			No sistema operacional existem algumas formas para implementar a estrutura de diretórios:
+				um único diretório:
+					¬ Problema para múltiplos usuários;
+					¬ Desorganizado.
+				um diretório por usuário:
+					¬ Continua desorganizado.
+				uma árvore de diretórios:
+					¬ Resolve todos os problemas anteriores.
+
+			Caminhos de diretórios:
+				raiz/cliente1/faculdade/S.O/aula.pdf
+			Nome de camino absoluto:
+				./cliente1/faculdade/S.O/aula.pdf
+			Nome de caminho relativo:
+				¬ Usa o conceito de diretório atual.
+				Ex: Diretório atual -> Faculdade
+					S.O/aula.pdf
+
+		Busca de dados
+			Busca sequencial
+				¬Posição por posição.
+				¬ Ex: Encontrar 'C'
+					B D A F \C/ E D
+				¬ Vantagem: Simples.
+				¬ Desvantagem: Custo computacional alto.
+
+			Busca binária
+				¬ Os dados devem estar ordenados.
+					A C G H P | R T V X Y Z
+				¬ Vantagem: mais eficiente
+				¬ Desvantagem: o custo pra manter ordenado é alto
+
+			Árvores binárias de busca
+				
