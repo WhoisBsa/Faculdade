@@ -2,7 +2,7 @@
 
 Gerência de memória
 
-	Memória virtual - Combinação de memória primcipal e secundária para "simular" que o computador tem mais memória do que realmente tem.
+	Memória virtual - Combinação de memória principal e secundária para "simular" que o computador tem mais memória do que realmente tem.
 	 ___________	     ___
 	|	   |    |  ->	| R |
 	|  HD  | MV |		| A |
