@@ -1,0 +1,82 @@
+Quem é Andrew Stuart Tanenbaum?
+	img1.png
+	Nasceu 16 de março 1944 em nova iorque;
+	
+	Bacharel em Física pelo MIT - 1965;
+	Doutor em Astrofísica pela Berkley - 1971;
+	
+	Atualmente chefe do departamento de sistemas da computação universidade Vrije(livre em holandes) em amsterdã
+		link da faculdade: https://www.vu.nl/en/
+		link pessoal: https://www.cs.vu.nl/~ast/
+		
+Projetos:
+	Kit Compilador Amsterdã
+		Ferramenta para produzir compiladores portáteis - 1981.
+		Arquiteto até a versão 5.5.
+		
+	Amoeba
+		Sistema operacional baseado em micronúcleo criado por Andrew S. Tanenbaum 
+		e outros na Universidade Vrije na Holanda.
+		O objetivo era construir um sistema de tempo compartilhado em que vários computadores
+		em rede trabalhem como um único computador para o usuário.
+		
+		Python foi originalmente desenvolvida nesse sistema operacional.
+		
+		link do projeto: https://www.cs.vu.nl/pub/amoeba/
+		
+	MINIX
+		Sistema operacional gratuito, multitarefa e escrito em C e assembly para explicar 
+		os princípios de seu livro Sistemas Operacionais: Projeto e Implementação(1987).
+		
+		Linux foi baseado no MINIX apesar de ter sido todo reescrito.
+		
+		link do projeto: http://www.minix3.org/
+		
+Publicações:
+		Redes de computadores
+			ISBN 0-13-066102-3
+		
+			img2.jpeg
+			
+			Editora: Pearson; Edição: 5 (11 de maio de 2011)
+			
+		Sistemas Operacionais: Projeto e Implementação
+			co-autor: Albert Woodhull
+			
+			ISBN 0-13-142938-8
+			
+			img3.jpeg
+			
+			Editora: Bookman; Edição: 3ª (26 de março de 2008)
+			
+		Sistemas Operacionais Modernos
+			ISBN 0-13-031358-0
+			
+			img4.jpg
+			
+			Editora: Pearson; Edição: 4ª (7 de dezembro de 2015)
+			
+		Organização Estruturada de Computadores
+			ISBN 0-13-148521-0
+			
+			img5.jpeg
+			
+			Editora: Pearson; Edição: 6ª (30 de maio de 2013)
+		
+		Sistemas Distribuídos: Princípios e Paradigmas
+			co-autor: Maarten van Steen
+			
+			ISBN 0-13-239227-5
+			
+			img6.jpeg
+			
+			Editora: Pearson; Edição: 2 (7 de abril de 2015)
+			
+		[POR ENQUNATO ISTO É O FINAL]
+
+		
+links interessantes:	
+https://en.wikipedia.org/wiki/Tanenbaum%E2%80%93Torvalds_debate
+https://groups.google.com/forum/#!topic/comp.os.minix/wlhw16QWltI%5B1-25%5D
+https://github.com/xstpl/Livros-1/blob/master/Sistemas%20Operacionais%20-%20Projeto%20e%20Implementa%C3%A7%C3%A3o%20-%20Inclui%20CD-ROM%20-%203%C2%AA%20Ed.pdf
+https://www.cs.vu.nl/~ast/home/faq.html
