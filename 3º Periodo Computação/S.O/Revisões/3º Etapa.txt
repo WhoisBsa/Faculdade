@@ -174,7 +174,7 @@
 					A divisão das partições é feita sob demanda.
 					Elimina a Fragmentação interna.
 
-			Estrategias de alocações de partições
+			Estratégias de alocações de partições
 				Best-Fit
 					¬ Alocar os dados na mesma partição que couber
 					¬ Problema - Os pequenos espaços vagos aumentam muito rápido
