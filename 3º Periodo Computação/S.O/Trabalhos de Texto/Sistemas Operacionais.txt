@@ -148,7 +148,7 @@ Introdução
                         A aplicação tem acesso a todo o conjunto de instruções sem limites.
                         
                         
-*Introdução a processos e chamadas de sistema
+Introdução a processos e chamadas de sistema
         
         Processo:
                 Pode ser entendido como um programa em execução. É o conjunto de informações necessárias para que o SO implemente a concorrência entre programas.
