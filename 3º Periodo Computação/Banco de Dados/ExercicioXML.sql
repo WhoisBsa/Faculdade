@@ -1,3 +1,14 @@
+create database HOSPITAL;
+
+create table Hospital(
+	idHospital	int 	not null	primary key,
+	Ambulatorio	xml,
+	Medico		xml,
+	Paciente	xml,
+	Consulta	xml,
+	Funcionario	xml
+);
+
 insert into Hospital(idHospital, Ambulatorio, Medico, Paciente, Consulta, Funcionario) 
 values(1,
 '<ambulatorios>
