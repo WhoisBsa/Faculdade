@@ -1,7 +1,7 @@
 create database HOSPITAL;
 
 create table Hospital(
-	idHospital	int 	not null	primary key,
+	idHospital	int	not null    primary key,
 	Ambulatorio	xml,
 	Medico		xml,
 	Paciente	xml,
