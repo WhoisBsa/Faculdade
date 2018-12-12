@@ -4,19 +4,19 @@
 
 # _Arquivos das atividades de todos os semestres._
 
-## [3º Semestre:](https://github.com/WhoisBsa/Faculdade/tree/master/3%C2%BA%20Periodo%20Computa%C3%A7%C3%A3o)
-  > [Banco de Dados](https://github.com/WhoisBsa/Faculdade/tree/master/3%C2%BA%20Periodo%20Computa%C3%A7%C3%A3o/Banco%20de%20Dados)
+## [3º Semestre:](https://github.com/WhoisBsa/Faculdade/tree/master/3%C2%BA%20Periodo%20Computacao)
+  > [Banco de Dados](https://github.com/WhoisBsa/Faculdade/tree/master/3%C2%BA%20Periodo%20Computacao/Banco%20de%20Dados)
   >
-  > [Inteligência Artificial](https://github.com/WhoisBsa/Faculdade/tree/master/3%C2%BA%20Periodo%20Computa%C3%A7%C3%A3o/IA)
+  > [Inteligência Artificial](https://github.com/WhoisBsa/Faculdade/tree/master/3%C2%BA%20Periodo%20Computacao/IA)
   >
-  > [Sistemas Operacionais](https://github.com/WhoisBsa/Faculdade/tree/master/3%C2%BA%20Periodo%20Computa%C3%A7%C3%A3o/S.O)
+  > [Sistemas Operacionais](https://github.com/WhoisBsa/Faculdade/tree/master/3%C2%BA%20Periodo%20Computacao/S.O)
 
-## [2º Semestre:](https://github.com/WhoisBsa/Faculdade/tree/master/2%C2%BA%20Periodo%20Computa%C3%A7%C3%A3o)
-  > [Estrutura de Dados](https://github.com/WhoisBsa/Faculdade/tree/master/2%C2%BA%20Periodo%20Computa%C3%A7%C3%A3o/Estrutura%20de%20dados)
+## [2º Semestre:](https://github.com/WhoisBsa/Faculdade/tree/master/2%C2%BA%20Periodo%20Computacao)
+  > [Estrutura de Dados](https://github.com/WhoisBsa/Faculdade/tree/master/2%C2%BA%20Periodo%20Computacao/Estrutura%20de%20dados)
   >
-  > [Tecnologia Web](https://github.com/WhoisBsa/Faculdade/tree/master/2%C2%BA%20Periodo%20Computa%C3%A7%C3%A3o/Tecnologia%20Web)
+  > [Tecnologia Web](https://github.com/WhoisBsa/Faculdade/tree/master/2%C2%BA%20Periodo%20Computacao/Tecnologia%20Web)
   
-## [1º Semestre:](https://github.com/WhoisBsa/Faculdade/tree/master/1%C2%BA%20Periodo%20Computa%C3%A7%C3%A3o)
-  > [Introdução à Programação](https://github.com/WhoisBsa/Faculdade/tree/master/1%C2%BA%20Periodo%20Computa%C3%A7%C3%A3o/Programa%C3%A7%C3%A3o)
+## [1º Semestre:](https://github.com/WhoisBsa/Faculdade/tree/master/1%C2%BA%20Periodo%20Computacao)
+  > [Introdução à Programação](https://github.com/WhoisBsa/Faculdade/tree/master/1%C2%BA%20Periodo%20Computacao/Programa%C3%A7%C3%A3o)
   >
-  > [Organização de Computadores](https://github.com/WhoisBsa/Faculdade/tree/master/1%C2%BA%20Periodo%20Computa%C3%A7%C3%A3o/Organiza%C3%A7%C3%A3o%20de%20Computadores)
+  > [Organização de Computadores](https://github.com/WhoisBsa/Faculdade/tree/master/1%C2%BA%20Periodo%20Computacao/Organiza%C3%A7%C3%A3o%20de%20Computadores)
