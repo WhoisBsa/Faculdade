@@ -188,7 +188,7 @@ Comutação de pacotes
 
 **INTERFACES**
 
-    Diz aos serviços qua a camada inferior tem a oferecer à camada superior, mas não especifica como isso será feito.
+    Diz aos serviços o que a camada inferior tem a oferecer à camada superior, mas não especifica como isso será feito.
 
     Quando se tem um conjunto de camadas e protocolos definidos, tem-se uma arquitetura de rede.
 
@@ -206,8 +206,9 @@ Comutação de pacotes
 
     O protocolo define o formato e o significado das mensagens.
 
-    O protocolo e os serviços são independentes um do outro.
-     O protocolo pode ser alterado desde que não altere o serviço.
+    O protocolo e os serviços são independentes um do outro.  
+    
+    O protocolo pode ser alterado desde que não altere o serviço.
 
 |Orientada a Conexão| X | Não Orientada a Conexão |
 ---| --- |---
