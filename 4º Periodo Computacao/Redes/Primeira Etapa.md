@@ -268,12 +268,85 @@ Comutação de pacotes
 
 5. O número de camadas deve ser grande o suficiente para que funções completamente distintas não estejam na mesma camada e deve ser pequeno o suficiente para que a  arquitetura não se torne difícil de controlar.
 
-|Camada   |Nome   |
-|---|---:|
-|7  |Aplicação
-|6  |Apresentação
-|5  |Sessão
-|4  |Transporte
-|3  |Rede
-|2  |Enlace
-|1  |Física
+    |Camada   |Nome   |
+    |---|---:|
+    |7  |Aplicação
+    |6  |Apresentação
+    |5  |Sessão
+    |4  |Transporte
+    |3  |Rede
+    |2  |Enlace
+    |1  |Física
+
+**Aplicação**
+
+    Alto nível, ligação com os usuários.
+    
+    Protocolos que rodam no cliente e no servidor.
+
+    Protocolos sáo das próprias aplicações
+
+    Ex: - HTTP
+        - DNS
+        - SMTP
+  
+**Apresentação**
+
+    É uma camada de tradução.
+
+    Ligada à sintaxe e semãntica.
+
+    A função é converter a mensagem quando o padrão de caracteres entre as partes é diferente, de modo que ambas possam se entender.
+
+    Compressão (transferência mais rápida) e Criptografia (mais segurança)
+
+    Ex: - SSH
+        - WPA2-PSK
+
+**Sessão**
+
+    Responsável por estabelecer sessões entre os usuários.
+
+    Comunicação entre os processos das máquinas. 
+
+    Controle de diálogo.
+
+    Controle de início, fim e reinício da comunicação.
+
+**Transporte**
+
+    Responsável por receber os dados da camada de cima, dividir se necessário, enviar para a camada de rede e remontar o pacote no destino.
+
+    Garante que os dados chegaram corretamente.
+
+    Responsável pela sequência dos pacotes.
+
+    Faz controle de fluxo da origem até o destino.
+
+    Correção de erros que possam ter ocorrido em camadas inferiores.
+
+    Estabelece uma conexão FIM-A-FIM entre transmissor e receptor.
+
+**Rede**
+
+    Responsável pelo endereçamento e rotas que o pacote deve tornar da origem até o destino.
+
+    Faz o controle de congestionamento.
+
+**Enlace**
+
+    A função dessa camada é transformar um canal bruto de transmissão em um linha que pareça livre de erros para a camada de rede.
+
+    Faz o controle de fluxo nas duas maquinas conectadas.
+
+**Física**
+
+    É onde a comunicação real acontece.
+
+    Transferencia de bits brutos por um canal de comunicação.
+
+    Garantir que se sair 1 vai chegar 1.
+    
+    Ex: Frequência
+        2200Hz -> 1
+        1200Hz -> 0
