@@ -228,3 +228,52 @@ Comutação de pacotes
 **Serviços Confiáveis**
 
     Nunca perdem os dados (+ retorno).
+
+# Modelos de Referência
+
+    Responsável por padronizar e representar a comunicação em camadas.
+
+    O modelo não especifica como as camadas devem executar suas funções.
+
+**Modelo x Arquitetura**
+
+    O modelo não precisa especificar os protocolos.
+
+    A arquitetura define os protocolos a serem utilizados. É um conjunto/pilha de protocolos.
+
+**Modelo OSI/ISO**
+
+    OSI -> Open Systems Interconnection.
+    
+    Não é uma arquitetura.
+
+    Trata da interconexão entre sistemas que estão abertos à comunicação. Independente de hardware ou software.
+
+    Não especifica como as camadas devem executar suas funções.
+
+    Estabelece uma série de regras ou orientações para que a comunicação ocorra.
+
+    Cada camada é responsável por parte da comunicação.
+
+    
+**Princípios p/ criação do modelo OSI**
+
+1. Uma nova camada deve ser criada sempre que ouver necessidade de um novo grau de abstração.
+   
+2. Cada camada deve executar uma função bem definida.
+   
+3. As funções das camadas devem ser escolhidas baseadas na definição de protocolos padronizados internacionalmente.
+
+4. O limite entre as camadas deve ser definido visando minimizar o fluxo de informações entre as interfaces.
+
+5. O número de camadas deve ser grande o suficiente para que funções completamente distintas não estejam na mesma camada e deve ser pequeno o suficiente para que a  arquitetura não se torne difícil de controlar.
+
+|Camada   |Nome   |
+|---|---:|
+|7  |Aplicação
+|6  |Apresentação
+|5  |Sessão
+|4  |Transporte
+|3  |Rede
+|2  |Enlace
+|1  |Física
