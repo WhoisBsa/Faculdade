@@ -329,13 +329,13 @@ Comutação de pacotes
 
 **Rede**
 
-    Responsável pelo endereçamento e rotas que o pacote deve tornar da origem até o destino.
+    Responsável pelo endereçamento e rotas que o pacote deve tomar da origem até o destino.
 
     Faz o controle de congestionamento.
 
 **Enlace**
 
-    A função dessa camada é transformar um canal bruto de transmissão em um linha que pareça livre de erros para a camada de rede.
+    A função dessa camada é transformar um canal bruto de transmissão em uma linha que pareça livre de erros para a camada de rede.
 
     Faz o controle de fluxo nas duas maquinas conectadas.
 
