@@ -50,12 +50,12 @@ Redes de Computadores
 
 ### **Redes sem fio x Redes móveis**
 
-Sem Fio   |  Móvel  |  Exemplo
-:-------: |:-------:| :-------
-NÃO       | NÃO   | Rede Local Cabeada
-NÃO       | SIM   | Rede de hotel com cabo
-SIM       | NÃO   | Rede local com roteador wifi
-SIM       | SIM   | 3G, 4G, etc. 
+| Sem Fio | Móvel | Exemplo                      |
+| :-----: | :---: | :--------------------------- |
+|   NÃO   |  NÃO  | Rede Local Cabeada           |
+|   NÃO   |  SIM  | Rede de hotel com cabo       |
+|   SIM   |  NÃO  | Rede local com roteador wifi |
+|   SIM   |  SIM  | 3G, 4G, etc.                 |
 
 
 **Hardware de Rede**
@@ -82,23 +82,23 @@ SIM       | SIM   | 3G, 4G, etc.
     >     Geralmente tem 2 partes (host e sub-rede de comunicação).
 
 ---
-Distãncia entre os Processadores | Processadores no(a) mesmo(a) | Exemplo
-|:----: | :----: | :----:|
-1m     | m²     | Rede Pessoal
-10m    | Casa   | Rede Local
-100m   | Prédio | Rede Local
-1km    | Campus | Rede Local
-10km   | Cidade | MAN
-100km  | País   | WAN
-1000km | Continente | WAN
-10000km| Planeta    | Internet  
+| Distãncia entre os Processadores | Processadores no(a) mesmo(a) |   Exemplo    |
+| :------------------------------: | :--------------------------: | :----------: |
+|                1m                |              m²              | Rede Pessoal |
+|               10m                |             Casa             |  Rede Local  |
+|               100m               |            Prédio            |  Rede Local  |
+|               1km                |            Campus            |  Rede Local  |
+|               10km               |            Cidade            |     MAN      |
+|              100km               |             País             |     WAN      |
+|              1000km              |          Continente          |     WAN      |
+|             10000km              |           Planeta            |   Internet   |
 ---
 
 **TOPOLOGIA**  
 **Como a Rede é estruturada**  
-TOPOLOGIA FÍSICA | TOPOLOGIA LÓGICA
---- | ---
-Como o hardware da rede é estruturado | Como os dados transmitem de fato na rede
+| TOPOLOGIA FÍSICA                      | TOPOLOGIA LÓGICA                         |
+| ------------------------------------- | ---------------------------------------- |
+| Como o hardware da rede é estruturado | Como os dados transmitem de fato na rede |
 
 **Barramento:**
     
@@ -172,14 +172,14 @@ Comutação de pacotes
     Cada camada deve execuar uma função específica.
 
     
-| | |  |
-:---:|:---:|:---:
-|Camada 5| <----> |Camada 5|
-|Camada 4| <----> |Camada 4|
-|Camada 3| <----> |Camada 3| 
-|Camada 2| <----> |Camada 2|
-|Camada 1| <----> |Camada 1|
-|      |Usuário Físico|    |
+|          |                |          |
+| :------: | :------------: | :------: |
+| Camada 5 |     <---->     | Camada 5 |
+| Camada 4 |     <---->     | Camada 4 |
+| Camada 3 |     <---->     | Camada 3 |
+| Camada 2 |     <---->     | Camada 2 |
+| Camada 1 |     <---->     | Camada 1 |
+|          | Usuário Físico |          |
 
 
     A camada N de uma máquina NÃO se comunica diretamente com a camada N de outra máquina.
@@ -210,8 +210,8 @@ Comutação de pacotes
     
     O protocolo pode ser alterado desde que não altere o serviço.
 
-|Orientada a Conexão| X | Não Orientada a Conexão |
----| --- |---
+| Orientada a Conexão | X   | Não Orientada a Conexão |
+| ------------------- | --- | ----------------------- |
 
 **Orientada a Conexão**
 
@@ -268,15 +268,15 @@ Comutação de pacotes
 
 5. O número de camadas deve ser grande o suficiente para que funções completamente distintas não estejam na mesma camada e deve ser pequeno o suficiente para que a  arquitetura não se torne difícil de controlar.
 
-    |Camada   |Nome   |
-    |---|---:|
-    |7  |Aplicação
-    |6  |Apresentação
-    |5  |Sessão
-    |4  |Transporte
-    |3  |Rede
-    |2  |Enlace
-    |1  |Física
+    | Camada |         Nome |
+    | ------ | -----------: |
+    | 7      |    Aplicação |
+    | 6      | Apresentação |
+    | 5      |       Sessão |
+    | 4      |   Transporte |
+    | 3      |         Rede |
+    | 2      |       Enlace |
+    | 1      |       Física |
 
 **Aplicação**
 
@@ -350,3 +350,68 @@ Comutação de pacotes
     Ex: Frequência
         2200Hz -> 1
         1200Hz -> 0
+
+**Modelo TCP/IP**
+
+_Arpanet:_    
+> Rede de pesquisa patrocinada pelo departamento de defesa dos EUA e ligava repartições públicas e universidades.
+
+    O modelo TCP/IP surge da necessidade de se estabelecer uma comunicação entre redes distintas.
+
+| Camada | Nome       |
+| ------ | :--------- |
+| 4      | Aplicação  |
+| 3      | Transporte |
+| 2      | Internet   |
+| 1      | Host/Rede  |
+
+**Aplicação**
+
+    Não tem Apresentação e sessão.
+
+    Essas camadas não são utilizadas na maioria das aplicações.
+
+    Protocolos de alto nível.
+
+    Ex: HTTP; SMTP; DNS.
+
+**Transporte**
+
+    Resposável pela comunicação entre pares de máquinas.
+
+    Comunicação entre processos.
+
+    Dois protocolos principais FIA-A-FIM.
+
+    TCP -> Orientado a conexão, entrega confiável e sem erros, faz controle de fluxo.
+
+    UDP -> Sem conexão, sem entrega confiável e sem controle de fluxo.
+
+**Internet**
+
+    Integra toda a arquitetura.
+
+    Permite que um pacote seja injetado em qualquer rede e garante que ele  vai trafegar até o destino.
+
+    Define um formato de pacote e um protocolo IP.
+
+    A função dessa camada é entregar pacotes IP onde for necessário.
+
+*Comutação de Pacotes*
+
+    Pacote é divido.
+    O endereço de destino tem de ser inserido.
+    Os roteadores lêem os endereços e armazenam o do remetente e destinatário.
+    Os pacotes podem chegar fora de ordem.
+
+*Comutação de Circuitos (Circuitos vituais)*
+
+    Usa um canal dedicado para cada conexão.
+    A gerência da rede faz isso.
+    O IP trabalha com comutação de pacotes.
+
+*Host/Red*
+
+    É necessário algum protocolo para permitir que um componente insira os pacotes na rede.
+    Esse protocolo varia de host pra host e de rede pra rede.
+    O modelo TCP/IP não especifica muito bem o que ocorre nessa camada.
