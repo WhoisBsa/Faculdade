@@ -410,7 +410,7 @@ _Arpanet:_
     A gerência da rede faz isso.
     O IP trabalha com comutação de pacotes.
 
-*Host/Red*
+**Host/Red**
 
     É necessário algum protocolo para permitir que um componente insira os pacotes na rede.
     Esse protocolo varia de host pra host e de rede pra rede.
