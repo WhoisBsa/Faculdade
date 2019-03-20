@@ -415,3 +415,32 @@ _Arpanet:_
     É necessário algum protocolo para permitir que um componente insira os pacotes na rede.
     Esse protocolo varia de host pra host e de rede pra rede.
     O modelo TCP/IP não especifica muito bem o que ocorre nessa camada.
+Eu sou muito gay
+
+
+---
+Materia dia 19
+---
+---
+
+**Domínios**
+
+    A internet possui muitos domínios de nível superior.
+    
+    Cada domínio pode ter vários sub domínios e seguem uma hierarquia.
+    Ex: maps.google.com
+
+**Registros de Recursos**
+
+    O DNS deve retornar um pacote com várias informações além do IP de destino.
+
+    São os registros de recurso.
+
+    A tarefa do DNS é receber um nome de domínio e responder um registro de recurso.
+    Ex: nome do domínio; tempo de vida (TTL); classe; tipo; valor.
+
+
+---
+    Servidor DNS\ Servidor Local\ Servidor com Autoridade\ T.L.D\ ./
+
+    Servidor raiz não resolve domínios mas sabe quem resolve.
