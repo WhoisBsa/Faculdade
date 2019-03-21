@@ -241,7 +241,7 @@ Comutação de pacotes
 
     A arquitetura define os protocolos a serem utilizados. É um conjunto/pilha de protocolos.
 
-**Modelo OSI/ISO**
+## Modelo OSI/ISO
 
     OSI -> Open Systems Interconnection.
     
@@ -351,7 +351,7 @@ Comutação de pacotes
         2200Hz -> 1
         1200Hz -> 0
 
-**Modelo TCP/IP**
+## Modelo TCP/IP
 
 _Arpanet:_    
 > Rede de pesquisa patrocinada pelo departamento de defesa dos EUA e ligava repartições públicas e universidades.
@@ -415,13 +415,51 @@ _Arpanet:_
     É necessário algum protocolo para permitir que um componente insira os pacotes na rede.
     Esse protocolo varia de host pra host e de rede pra rede.
     O modelo TCP/IP não especifica muito bem o que ocorre nessa camada.
-Eu sou muito gay
 
+## Modelo Híbrido Focado no TCP/IP
 
----
-Materia dia 19
----
----
+| |  |
+--|--|
+5 | Aplicação
+4 | Transpote
+3 | Rede
+2 | Enlace
+1 | Física
+
+*PCI - Informações de Controle de Protocolo*  
+*SDU - Unidade de Dados de Serviço*  
+*PDU - Unidade de Dados do Protocolo*
+
+> 1. O modelo OSI surgiu antes dos protocolos.
+> 2. O modelo TCP/IP surgiu depois dos principais protocolos.
+> 3. O modelo OSI só permite serviços orientados à conexão na camada de transporte mesmo com a camada de rede sendo compatível com serviços sem coneção.
+> 4. O modelo TCP/IP permite ambos modos na camada de transporte embora a camada de rede só opera no modo sem conexão.
+
+**Camada de Aplicação**
+
+    1. Foco no usuário (nas aplicações do usuário).
+    2. As camadas inferiores não executam qualquer tarefa para o usuário diretamente.
+
+*DNS (DOMAIN NAME SYSTEM)*
+
+Problema:
+
+ 1. Endereços de rede são dificeis de memorizar.
+ 2. Se o servidor for alterado, os endereços também serão alterados.  
+ 
+    Foram introduzidos os nomes em ASCII, porém, é preciso algum mecanismo para converter esses nomes em endereços de rede.
+
+Possível Solução:
+
+- Um arquivo `.txt` compartilhado com todos os nomes DNS e seus endereços de IP.
+
+Problemas:
+
+* Se o txt ficar indisponível, a internet inteira sofreria.
+* O arquivo ficaria muito grande.
+* Sujeito a nomes duplicados.
+  
+  O DNS funciona com base em uma hierarquia e um sistema de banco de dados para implementar essa hierarquia.
 
 **Domínios**
 
