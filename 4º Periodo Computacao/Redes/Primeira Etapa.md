@@ -482,3 +482,56 @@ Problemas:
     Servidor DNS\ Servidor Local\ Servidor com Autoridade\ T.L.D\ ./
 
     Servidor raiz não resolve domínios mas sabe quem resolve.
+
+**World Wide Web**
+
+    Estrutura arquitetônica que permite acesso a diversos arquivos espalhadas por milhões de máquinas na Internet.
+
+    Possui uma interface de fácil utilização.
+
+    Diversos assuntos.
+
+    W3C é a organização responsável pelo desenvolvimento da Web, Pela padronização de protocolos da Internet e pelo incentivo á interoperabilidade entre os sites.
+
+    Do ponto de vista do usuário 
+        Conjunto de arquivos
+        Precisa de um software
+        Navegador requisita e interpreta as páginas para mostrar ao usuário com todas as formatações.
+
+    Precisa de uma linguagem que estabelece um padrão (HTML)
+
+    O navegador é um interpretador de HTML.
+
+**Hiperlinks e URL's**
+
+Ex: `https://www.abcd.com/index.html`
+
+3 partes:
+
+    1. Nome do protocolo utilizado (HTTPS)
+    2. Nome DNS da máquina onde está a página.
+    3. Geralmente o arquivo ou o caminho do arquivo que contém a página.
+
+**O lado do Cliente**
+
+Ex: `http://www.youtube.com`
+
+    1. Navegador determina a URL.
+    2. Navegador requisita ao DNS o IP de www.youtube.com
+    3. O DNS responde 208.65.153.238
+    4. 0 cliente estabelece uma conexão TCP com máquina 208.65.153.238
+    5. O navegador requisita a página incial de youtube.com
+    6. O servidor envia o arquivo ao cliente.
+    7. O cliente encerra a conexão.
+    8. O navegador interpreta e mostra todo o teto ao usuário.
+    9. O navegador busca e mostra as imagens.
+
+**O lado do Servidor**
+
+    1. O servidor aceita uma conexão TCP.
+    2. O servidor verifica qual arquivo foi requisitado pelo cliente.
+    3. O servidor busca o arquivo requisitado.
+    4. O servidor envia o arquivo ao cliente.
+    5. O servidor irá encerrar a conexão.
+
+*Servidores modernos executam tarefas como autenticação, controle de acesso, log de servidor, etc.*
