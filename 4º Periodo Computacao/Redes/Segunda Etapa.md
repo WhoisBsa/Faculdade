@@ -96,3 +96,81 @@ Ex: `http://www.youtube.com`
     5. O servidor irá encerrar a conexão.
 
 *Servidores modernos executam tarefas como autenticação, controle de acesso, log de servidor, etc.*
+
+# *HTTP* - Hiper Text Transfer Protocol
+
+    Protocolo de transferência de hipertexto.
+
+    Define as mensagens que o cliente pode enviar ao servidor e as respostas que o cliente pode receber.
+
+    Conexão TCP na porta 80 do servidor (modo habitual).
+
+    TCP já faz um série de serviços, ex: Controle de fluxo, controle de perda de pacotes, mensagens duplicadas, mensagens com erros, entre outros.
+
+    A vantagem pe que nem o cliente, nem o servidor precisam se preocupar com esses serviços.
+
+## *HTTP 1.0*
+
+* Estabelece conexão
+* Faz 1 requisição
+* Recebe 1 resposta
+* Encerra a conexão
+  
+## *HTTP 1.1*
+
+* Estabelece conexão
+* Faz requisição
+* Recebe resposta
+* Requisições adicionais
+* Resposta adicionais
+* Encerra conexão
+* Solicitações por pipeline
+  
+## Metadados HTTP
+
+    Operações que o protocolo HTTP permite que sejam feitas.
+
+*GET* → A maioria das requisições HTTP são via método GET. Serve para requisitar e obter algum arquivo no servidor.  
+Ex:   
+Método `Arquivo` `Vesão do Procolo`  
+GET `index.html` `HTTP/1.1`
+
+*HEAD* → Requisita pelo cabeçalho da página.
+
+*PUT* → Oposto ao GET. Envia arquivos para o servidor. Possibilita ter um conjunto de páginas de maneira remota.
+
+*POST* → Semelhante ao PUT. Mas não sobrescreve o arquivo anterior, só muda o que foi alterado de um para o outro. (Controle de Versão)
+
+*DELETE* → Remover um arquivo
+
+*TRACE* → Monitorar as solicitações com relação a problemas no envio. Pede ao servidor que reenvie a solicitação de volta.
+
+*OPTIONS* → Serve para consultar informações do servidor.
+
+## RESPOSTAS HTTP
+
+    Linhas de status e informções adicionais
+        ↓
+    Toda a requisição HTTP recebe uma resposta.
+
+Linhas de status indicam:  
+* Solicitação recebida
+* Em caso de problema, indicam a razão.
+
+    
+Código de  3 dígitos
+1º dígito indica 1 entre 5 grupos de status.
+
+Código  | Significado
+---     | ---
+1xxx    | Informação
+2xxx    | Sucesso
+3xxx    | Redirecionamento
+4xxx    | Erro do cliente
+5xx     | Erro do servidor
+
+Ex: 
+ 
+    200 → Sucesso total  
+    301 → Page moved  
+    404 → Page not found  
