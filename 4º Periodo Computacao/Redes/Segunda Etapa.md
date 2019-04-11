@@ -173,4 +173,74 @@ Ex:
  
     200 → Sucesso total  
     301 → Page moved  
-    404 → Page not found  
+    404 → Page not found 
+
+# *Camada de Transporte*
+
+    Fornece comunicação entre processos de máquinas difentes.
+    Camada de Rede - Comunicação entre os hosts.
+
+*Remetente*
+
+    Mensagens divididas em segmentos
+
+*Destino*
+
+    Remontar os seguimentos
+
+## *2 protocolos*
+
+*Cálculo de Bits*
+{  
+     2<sup>n</sup><sub>valores</sub> → n bits => 0 ---- 2<sup>n</sup> - 1  
+}
+
+**TCP**
+
+    Entrega confiável (sem erros, sem perdas)
+    Controle de fluxo
+    Garante a entrega
+    Controle de congestionamento
+    Orientado à conexão
+
+**UDP**
+
+    Não confiável (não trata erros e perdas)
+    Sem controle de fluxo
+    Os seguimentos podem chegar fora de ordem.
+    Sem conexão
+
+*Vantagens*
+
+    É mais rápido. (Não realiza os serviços do TCP)
+    O cabeçalho do segmento é reduzido.
+    Usado para streaming.
+    É possível ter transporte confiável com UDP, mas isso deve ser implemenntado na camada de aplicação.
+    A confiabilidade vai depender das aplicações.
+
+*Segmento UDP*
+
+
+||||
+|---|:---:|---|
+||32 bits||
+|#porta de origem| |#porta de destino|
+||Outros campos de cabeçalho||
+||Dados da aplicação||
+___
+
+*UDP Checksum*
+
+    Verificar possíveis erros 
+    Divide os 32 bits em 2 segmentos de 16 bits
+    Somar os 2 segmentos de 16 bits
+    Fazer complemento de 1 da soma
+    Se a soma de 17 bits, deve-se somar o bit a mais ao resultado antes de fazer o complemento.
+
+    O checksum é o valor final obtido (complemento de 1)
+
+    O transmissor insere o checksum no segmento UDP.
+
+    O receptor recalcula o checksum e compara o valor obtido com o valor armazenado no segmento.
+    Se os valores forem diferentes, significa que ocorreu algum erro.
+    Se os valores forem iguais significa que não foram detectados erros.
