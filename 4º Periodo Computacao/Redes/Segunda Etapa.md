@@ -244,3 +244,173 @@ ___
     O receptor recalcula o checksum e compara o valor obtido com o valor armazenado no segmento.
     Se os valores forem diferentes, significa que ocorreu algum erro.
     Se os valores forem iguais significa que não foram detectados erros.
+
+## Protocolos com Paralelismo (Pipeline)
+
+    Permitem o envio de vários segmentos sem confirmação.
+    O intervalo dos números de sequência deve ser maior do que apenas 0 e 1.
+    Os segmentos e ACKs podem chegar fora de ordem.
+    O recebimento é bit a bit e o receptor envia o ACK ao receber o último bit do segmento.
+
+**TCP**
+
+    Protocolo de transfência confiável de dados
+    Garante a entrega
+    Garante a ordem
+    Garante a integridade dos dados
+
+    Permite paralelismo
+    Faz controle de congestionamento
+    Faz controle de fluxo
+
+**Controle de congestionamento**
+
+    Evita que o transmissor sobrecarregue a rede
+
+**Controle de fluxo**
+
+    Evita que o transmissor sobrecarregue o recptor
+
+**Protocolo ponto a ponto**
+
+    Estabelece conexão entre transmissor e receptor
+
+**Orientado à conexão**
+
+    Ocorre uma troca de mensagens de controle entre transmissor e receptor
+
+**A comunicação é bidirecional na mesma conexão**
+
+    O TCP com números de sequência e ACKs.
+    nº de sequência: O nº do 1º byte do segmento
+    nº de ACK: O nº do próximo byte que se espera do outro lado
+
+**O ACK é cumulativo**
+
+    A ordem de remontagem dos pacotes fica a critério do implementador, o TCP não define.
+
+**Temporização**
+
+    Esperar um tempo antes de retransmitir um segmento não confirmado.
+
+    A divisão do tempo de espera é o mais importante.
+
+    Tempo muito curto → Se os pacotes estiverem atrasados, vai ocorrer muita duplicação e isso gera sobrecarga.
+
+    Tempo muito longo → A rede se torna lenta para agir em problemas de perda de pacotes.
+
+    Pode-se estimar o tempo baseado no envio de um pacote
+
+    Pode-se enviar vários pacotes e estimar a média de tempo de envio
+
+    Deve existir armazenamento no transmissor e no receptor
+
+O TCP gera transferência confiável em cima do serviço não confiável do IP.
+
+Permite ACKs cumulativos e retransmissões.
+
+As retransmissões ocorrem quando um tempo limite de espera da confirmação é esgotado.
+
+**Controle de Fluxo**
+
+    Rede → Transporte → Aplicação
+
+    Os processos da aplicação podem ser muito lentos para ler os dados da camada de transporte.
+
+    Possível solução?
+    Estimar o tempo que a aplicação leva para ler um segmento.
+
+    Força a camada de rede a enviar segmentos com o tempo acima do que foi estimado.
+
+**Soluçao do TCP**
+
+    O servidor mostra ao cliente quanto de espaço disponível existe no buffer de recepção para aquela conexão.
+
+    Buffer de recepção → RcvWindow (Espaço disponível)
+    Espaço total → RcvBuffer
+
+    O servidor envia o valor do RcvWindow.
+
+**Gerenciamento de conexão**
+
+    É sempre o cliente que inicia a conexão.
+    O servidor espera pedidos de conexão.
+
+**Início da conexão TCP**
+    
+    1. O cliente envia um TCPSYN ao servidor com seu número de sequência inicial.
+    2. O servidor recebe o SYN e responde com um SYNACK. O servidor processa o SYN, aloca os buffers e inicializa seu número de sequência.
+    3. O cliente recebe o SYNACK.
+   
+**Fim da conexão TCP**
+
+    1. O cliente envia um TCPFIN ao servidor.
+    2. O servidor recebe o FIN, retorna um ACK, encerra a coneção e envia um FIN ao cliente.
+    3. O cliente recebe o FIN e retorna o ACK.
+    4. O servidor recebe o ACK, conexão finalizada.
+   
+# Camada de Rede
+
+## Protocolo IP
+
+- IPV4 → 32 bits 2^32 endereços
+- IPV6 → 128 bits 2^128 endereços
+  
+**IPV4**
+
+    32 bits (4 bytes)(4 octetos)
+    Cada octeto → 8 bits
+    Formato: 
+        x   .    x   .    x   .    x
+    1ºocteto 2ºocteto 3ºocteto 4ºocteto
+
+    Ex:
+        203.45.59.25
+        23.2.1.128
+        10.32.45.70
+
+    Em binário:
+        00000000.00000000.00000000.00000000
+                         ↓
+        11111111.11111111.11111111.11111111
+
+    Em decimal:
+        0   .  0  .  0  .  0
+                  ↓
+        255 . 255 . 255 . 255
+
+
+|CLASSES |IP|
+--|--
+Classe A| 0.0.0.0 até 127.255.255.255
+Classe B| 128.0.0.0 até 191.255.255.255
+Classe C| 192.0.0.0 até 123.255.255.255
+Classe D| 124.0.0.0 até 239.255.255.255
+Classe E| 240.0.0.0 até 255.255.255.255
+
+IP válido: único no mundo. Roteável.
+IP privado: redes privadas.
+
+Classe A
+
+    10.0.0.0 → 10.255.255.255
+
+Classe B
+
+    172.16.0.0 → 172.31.25.255
+
+Classe C
+
+    192.168.0.0 → 192.168.255.255
+
+Ex: Uma rede 192.168.0.0 → 192.168.0.255  
+1º endereço = endereço da rede  
+Último enderço = broadcast  
+192.168.0.255 → 254 hosts (IPs válidos nessa rede), $2^8 -2$  
+Alguns casos: Gateway
+
+Ex: 10.0.0.0 → 10.255.255.255  
+Hosts → 2^24-2  
+Rede → 10.0.0.0
+Broadcast → 10.255.255.255
+
