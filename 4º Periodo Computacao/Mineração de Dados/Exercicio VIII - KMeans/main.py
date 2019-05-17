@@ -3,6 +3,11 @@
 
 """
 Exercicio 08 - Matheus Barbosa e Rafael Sidnei.
+
+Foram usados:
+    3 clusters;
+    Centroides selecionados de forma aletória;
+    300 iterações.
 """
 
 # Utilizada para a leitura de dados da tabela
