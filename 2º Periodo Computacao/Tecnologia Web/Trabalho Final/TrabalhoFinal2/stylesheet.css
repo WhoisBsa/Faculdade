@@ -1,0 +1,63 @@
+.titulo{
+    text-align: center;
+    color: darkred;
+    font-size: 3em;
+    position: relative;
+    z-index: 1;
+}
+
+.menu{
+    color: darkred;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 180%;
+    margin: 0 -8px 0 -8px;
+    position: relative;
+    z-index: 1;
+    text-align: center;
+}
+
+.texto{
+  margin-right: 40%;
+  left: 20%;
+  font-size: 150%;
+  text-align: justify;
+  position: relative;
+}
+
+.imgdoefonte{
+  float: bottom;
+  text-align: center;
+  }
+
+#imgdoacao1{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+#imgdoacao2{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+#imgdoacao3{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+#imgdoacao4{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+}
+
+.tituloparagrafo{
+  color: darkred;
+}
+
