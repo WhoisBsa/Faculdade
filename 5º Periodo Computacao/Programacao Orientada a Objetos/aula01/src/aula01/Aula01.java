@@ -11,16 +11,13 @@ public class Aula01 {
         c1.nome = "Matheus";
         c1.idade = 19;
         c1.cpf = "11122233344";
-
-        System.out.println(c1.nome + " tem " + c1.idade + 
-        	" anos de idade de cpf: " + c1.cpf);
-
+        c1.saldo = 100;
 
         Cliente c2 = new Cliente();
 
         Scanner s = new Scanner(System.in);
 
-    	System.out.println("Bem vindo ao cadastro de clientes");
+    	/*System.out.println("Bem vindo ao cadastro de clientes");
     	System.out.println("Nome: ");
     	c2.nome = s.nextLine();
 
@@ -28,10 +25,18 @@ public class Aula01 {
     	c2.cpf = s.nextLine();
 
     	System.out.println("Idade: ");
-    	c2.idade = Integer.parseInt(s.nextLine());
+    	c2.idade = Integer.parseInt(s.nextLine());*/
 
-    	System.out.println(c2.nome + " tem " + c2.idade + 
-        	" anos de idade de cpf: " + c2.cpf);
+    	// c1.mensagem();
+    	// c2.mensagem();
+
+    	// String msg = c1.mensagemRetorno();
+        
+        // System.out.println(msg);
+
+    	c1.itsaFriend(c2);
+
+    	c1.acrecimo();
     }
     
 }
