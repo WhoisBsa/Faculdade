@@ -15,22 +15,31 @@ public class Inimigo {
     public void atack(int bodypart) {
         if(bodypart == 1) {
             this.healt = this.healt - 100;
-            System.out.println("HP: " + (this.healt));
+            if(!this.isAlive())
+                System.out.println("HP: " + this.healt);
+            else
+                System.out.println("YOU ROCK!!!");
         }
         else if(bodypart == 2) {
             this.healt = this.healt - 50;
-            System.out.println("HP: " + (this.healt));
+            if(!this.isAlive())
+                System.out.println("HP: " + this.healt);
+            else
+                System.out.println("YOU ROCK!!!");
         }
         else if(bodypart == 3) {
             this.healt = this.healt - 20;
-            System.out.println("HP: " + (this.healt));
+            if(!this.isAlive())
+                System.out.println("HP: " + this.healt);
+            else
+                System.out.println("YOU ROCK!!!");
         }
         else if(bodypart == 4) {
             this.healt = this.healt - 10;
-            System.out.println("HP: " + (this.healt));
-        }
-        if(this.healt <= 0) {
-            System.out.println("YOU ROCK!!!");
+            if(!this.isAlive())
+                System.out.println("HP: " + this.healt);
+            else
+                System.out.println("YOU ROCK!!!");
         }
     }
     
