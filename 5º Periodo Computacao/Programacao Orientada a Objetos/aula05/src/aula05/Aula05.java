@@ -23,9 +23,6 @@ public class Aula04 {
         Cliente usuario = new Cliente("Matheus", 19, "Platinum");
         Funcionario rafael = new Funcionario("Rafael", 31, 3000, 12345);
         
-        Funcionario funcionarios[] = new Funcionario[10];
-        funcionarios[0] = rafael;
-        
         usuario.mostrarDados();
         rafael.mostrarDados();
         
@@ -34,12 +31,6 @@ public class Aula04 {
         
         lucas.mostrarDados();
         gustavo.mostrarDados();
-        
-        lucas = null;
-        
-        System.out.println(lucas);
-        
-        funcionarios[0].mostrarDados();
     }
     
 }
