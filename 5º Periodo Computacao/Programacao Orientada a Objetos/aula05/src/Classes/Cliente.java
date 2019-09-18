@@ -10,7 +10,21 @@ package Classes;
  * @author matheus
  */
 public class Cliente extends Pessoa{
-    protected String tipo;
+
+    /**
+     * @return the tipo
+     */
+    public String getTipo() {
+        return tipo;
+    }
+
+    /**
+     * @param tipo the tipo to set
+     */
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+    private String tipo;
     
     public Cliente() {}
     
@@ -22,6 +36,6 @@ public class Cliente extends Pessoa{
     public void mostrarDados() {
         System.out.println("Seu nome: " + this.nome);
         System.out.println("Sua idade: " + this.idade);
-        System.out.println("Tipo: " + this.tipo);
+        System.out.println("Tipo: " + this.getTipo());
     }
 }
