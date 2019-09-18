@@ -141,10 +141,10 @@ public class ViewRegisterClient extends javax.swing.JFrame {
         String clientCpf = txtRegisterCpf.getText();
         String clientAddress = txtRegisterAddress.getText();        
         
-        if(clientName.strip().equals("") || clientCpf.strip().equals("") || clientAddress.strip().equals("")){
+        if(clientName.isBlank() || clientCpf.isBlank() || clientAddress.isBlank()){
             JOptionPane.showMessageDialog(rootPane, "Fields empty!!!", "Error", 2);
         } else {
-            clients[i] = new Client(clientName, clientCpf, clientAddress);
+            clients[this.i] = new Client(clientName, clientCpf, clientAddress);
             this.i++;
             
             JOptionPane.showMessageDialog(rootPane, "Registered Successfully!!!");
@@ -160,7 +160,7 @@ public class ViewRegisterClient extends javax.swing.JFrame {
         int j= 0, temp = 0;
         boolean searchOk = false;
         
-        if(searchName.strip().equals("")){
+        if(searchName.isBlank()){
             JOptionPane.showMessageDialog(rootPane, "Fields empty!!!", "Error", 2);
         } else {
             while(j < i && !searchOk){
