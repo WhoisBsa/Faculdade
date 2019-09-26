@@ -48,6 +48,7 @@ public class ViewPerguntas extends javax.swing.JFrame {
         btnParar = new javax.swing.JButton();
         lblNome = new javax.swing.JLabel();
         lblValendo = new javax.swing.JLabel();
+        lblPulos = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -111,6 +112,8 @@ public class ViewPerguntas extends javax.swing.JFrame {
 
         lblValendo.setText("Valendo R$x reais");
 
+        lblPulos.setText("Pulos: x");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -119,25 +122,30 @@ public class ViewPerguntas extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnResponder, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnResponder, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel1))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
-                        .addComponent(btnPular, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(63, 63, 63)
-                        .addComponent(btnParar, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btnPular, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(63, 63, 63)
+                                .addComponent(btnParar, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(lblNome)
+                                .addGap(18, 18, 18)
+                                .addComponent(lblValendo)
+                                .addGap(18, 18, 18)
+                                .addComponent(lblPulos)
+                                .addGap(37, 37, 37))))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblPergunta)
                             .addComponent(alternativaD)
                             .addComponent(alternativaC)
                             .addComponent(alternativaB)
                             .addComponent(alternativaA))
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lblNome)
-                        .addGap(18, 18, 18)
-                        .addComponent(lblValendo)))
+                    .addComponent(lblPergunta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -147,8 +155,9 @@ public class ViewPerguntas extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblNome)
-                    .addComponent(lblValendo))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(lblValendo)
+                    .addComponent(lblPulos))
+                .addGap(44, 44, 44)
                 .addComponent(lblPergunta, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(alternativaA)
@@ -158,7 +167,7 @@ public class ViewPerguntas extends javax.swing.JFrame {
                 .addComponent(alternativaC)
                 .addGap(18, 18, 18)
                 .addComponent(alternativaD)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 84, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 99, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnResponder)
                     .addComponent(btnPular)
@@ -303,12 +312,7 @@ public class ViewPerguntas extends javax.swing.JFrame {
                 "1000000", 1);          //valor e resposta
         
         
-        lblPergunta.setText(perguntas[0].getPergunta());
-        alternativaA.setText(perguntas[0].getAlternativaA());
-        alternativaB.setText(perguntas[0].getAlternativaB());
-        alternativaC.setText(perguntas[0].getAlternativaC());
-        alternativaD.setText(perguntas[0].getAlternativaD());
-        lblValendo.setText("Valendo " + perguntas[0].getValor() + " reais");
+        setTexto(0);
     }//GEN-LAST:event_lblPerguntaAncestorAdded
 
     private void btnResponderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResponderActionPerformed
@@ -336,14 +340,7 @@ public class ViewPerguntas extends javax.swing.JFrame {
             }else {
                 JOptionPane.showMessageDialog(rootPane, "Resposta Certa!");
                 jogador.setPontos(Integer.parseInt(perguntas[pos].getValor()));
-                lblNome.setText(jogador.getNome()+ ": " + String.valueOf(jogador.getPontos()) + " reais");
-                lblPergunta.setText(perguntas[pos+1].getPergunta());
-                alternativaA.setText(perguntas[pos+1].getAlternativaA());
-                alternativaB.setText(perguntas[pos+1].getAlternativaB());
-                alternativaC.setText(perguntas[pos+1].getAlternativaC());
-                alternativaD.setText(perguntas[pos+1].getAlternativaD());
-                lblValendo.setText("Valendo " + perguntas[pos+1].getValor() + " reais");
-                btnGroupEscolha.clearSelection();
+                setTexto(1);
                 pos++;
             }
         } else {
@@ -418,14 +415,8 @@ public class ViewPerguntas extends javax.swing.JFrame {
                                     + "outra classe.", 
                             "<html>expressa a possibilidade de composição de múltiplos atributos e métodos para um objeto.", 
                             perguntas[pos].getValor(), 3);
-            
-            
-            lblPergunta.setText(perguntas[pos].getPergunta());
-            alternativaA.setText(perguntas[pos].getAlternativaA());
-            alternativaB.setText(perguntas[pos].getAlternativaB());
-            alternativaC.setText(perguntas[pos].getAlternativaC());
-            alternativaD.setText(perguntas[pos].getAlternativaD());
             this.pulos++;
+            setTexto(0);
         }
     }//GEN-LAST:event_btnPularActionPerformed
 
@@ -437,6 +428,18 @@ public class ViewPerguntas extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnPararActionPerformed
 
+    private void setTexto(int i){
+        lblNome.setText(jogador.getNome()+ ": " + String.valueOf(jogador.getPontos()) + " reais");
+        lblPergunta.setText(perguntas[pos+i].getPergunta());
+        alternativaA.setText(perguntas[pos+i].getAlternativaA());
+        alternativaB.setText(perguntas[pos+i].getAlternativaB());
+        alternativaC.setText(perguntas[pos+i].getAlternativaC());
+        alternativaD.setText(perguntas[pos+i].getAlternativaD());
+        lblPulos.setText("Pulos: " + (2 - this.pulos));
+        lblValendo.setText("Valendo " + perguntas[pos+i].getValor() + " reais");
+        btnGroupEscolha.clearSelection();
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -484,6 +487,7 @@ public class ViewPerguntas extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lblNome;
     private javax.swing.JLabel lblPergunta;
+    private javax.swing.JLabel lblPulos;
     private javax.swing.JLabel lblValendo;
     // End of variables declaration//GEN-END:variables
 }
