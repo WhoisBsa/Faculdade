@@ -348,11 +348,23 @@ public class ViewPerguntas extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(rootPane,"Voce perdeu tudo!!!"
                     + "\nMais sorte na próxima :)",
                     "Resposta Errada!", 2);
+                int input = JOptionPane.showConfirmDialog(rootPane, "Deseja jogar novamente?", 
+                        "Resposta Errada!", JOptionPane.YES_NO_OPTION);
+                if(input == 0){
+                    ViewInicial viewInicial = new ViewInicial();
+                    viewInicial.setVisible(true);
+                }
             } else {
                 JOptionPane.showMessageDialog(rootPane,"Voce ganhou R$" 
                         + jogador.getPontos()/2
                         + "\nMais sorte na próxima :)",
                         "Resposta Errada!", 2);
+                int input = JOptionPane.showConfirmDialog(rootPane, "Deseja jogar novamente?", 
+                        "Resposta errada!", JOptionPane.YES_NO_OPTION);
+                if(input == 0){
+                    ViewInicial viewInicial = new ViewInicial();
+                    viewInicial.setVisible(true);
+                }
             }
             this.dispose();
         }
