@@ -313,12 +313,6 @@ public class ViewPerguntas extends javax.swing.JFrame {
         
         
         setTexto(0);
-//        lblPergunta.setText(perguntas[0].getPergunta());
-//        alternativaA.setText(perguntas[0].getAlternativaA());
-//        alternativaB.setText(perguntas[0].getAlternativaB());
-//        alternativaC.setText(perguntas[0].getAlternativaC());
-//        alternativaD.setText(perguntas[0].getAlternativaD());
-//        lblValendo.setText("Valendo " + perguntas[0].getValor() + " reais");
     }//GEN-LAST:event_lblPerguntaAncestorAdded
 
     private void btnResponderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResponderActionPerformed
