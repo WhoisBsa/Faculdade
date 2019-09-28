@@ -6,9 +6,6 @@
 package Views;
 
 import Classes.*;
-import java.io.File;
-import javax.sound.sampled.AudioSystem;
-import javax.sound.sampled.Clip;
 import javax.swing.JOptionPane;
 
 /**
@@ -19,6 +16,9 @@ public class ViewPerguntas extends javax.swing.JFrame {
     private Jogador jogador = new Jogador();
     private Pergunta[] perguntas = new Pergunta[10];
     int pos = 0, resp, pulos = 0;
+    protected PlayerFX play = new PlayerFX();
+    
+    
     public ViewPerguntas() {
         initComponents();
         setLocationRelativeTo(null);
@@ -332,7 +332,8 @@ public class ViewPerguntas extends javax.swing.JFrame {
                 !alternativaC.isSelected() && !alternativaD.isSelected())
             JOptionPane.showMessageDialog(rootPane, "Selecione uma Alternativa!");
         else if(perguntas[pos].getResposta() == resp) {
-            tocarFX("certaResposta");
+            play.playFX("certaResposta");
+//            tocarFX("certaResposta");
             if(pos == 9){
                 int input = JOptionPane.showConfirmDialog(rootPane, "Deseja jogar novamente?", 
                         "Voce ganhou um milhão de reais!!!", JOptionPane.YES_NO_OPTION);
@@ -343,12 +344,14 @@ public class ViewPerguntas extends javax.swing.JFrame {
                 this.dispose();
             }else {
                 JOptionPane.showMessageDialog(rootPane, "Resposta Certa!");
-                tocarFX(perguntas[pos+1].getValor());
+                play.playFX(perguntas[pos+1].getValor());
+                //tocarFX(perguntas[pos+1].getValor());
                 jogador.setPontos(Integer.parseInt(perguntas[pos].getValor()));
                 setTexto(1);
                 pos++;
             }
         } else {
+            play.playFX("errou");
             if(pos == 9){
                 JOptionPane.showMessageDialog(rootPane,"Voce perdeu tudo!!!"
                     + "\nMais sorte na próxima :)",
@@ -383,7 +386,9 @@ public class ViewPerguntas extends javax.swing.JFrame {
         if(pulos >= 2) 
             JOptionPane.showMessageDialog(rootPane, "Você não tem mais pulos!");
         else {
-            tocarFX("pular");
+            play.playFX("pular");
+            //tocarFX("pular");
+            
             /* determina o nivel de dificuldade da pergunta de acordo com o nivel dela
                quanto mais próximo da décima ela fica mais difícil */
             if(pos < 5)
@@ -439,6 +444,8 @@ public class ViewPerguntas extends javax.swing.JFrame {
     }//GEN-LAST:event_btnPularActionPerformed
 
     private void btnPararActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPararActionPerformed
+        play.playFX("parar");
+//        tocarFX("parar");
         if(pos == 0)
             JOptionPane.showMessageDialog(rootPane, "Você nao ganhou nada!");
         else
@@ -458,34 +465,6 @@ public class ViewPerguntas extends javax.swing.JFrame {
         btnGroupEscolha.clearSelection();
     }
     
-    public void tocarFX(String valor){
-        String source = "./src/audio/" + valor + ".wav";
-        if(valor == "tema"){
-            try{
-                Clip clip = AudioSystem.getClip();
-                clip.open(AudioSystem.getAudioInputStream(new File(source)));
-                //clip.open(AudioSystem.getAudioInputStream("/src/audio/sample.wav"));
-                clip.start();
-                clip.loop(10);
-            }
-            catch (Exception exc){
-                exc.printStackTrace(System.out);
-            }
-        }
-        else{
-            try{
-                Clip clip = AudioSystem.getClip();
-                clip.open(AudioSystem.getAudioInputStream(new File(source)));
-                //clip.open(AudioSystem.getAudioInputStream("/src/audio/sample.wav"));
-                clip.start();
-                //clip.loop(1);
-            }
-            catch (Exception exc){
-                exc.printStackTrace(System.out);
-            }
-        }
-        
-    }
     
     /**
      * @param args the command line arguments

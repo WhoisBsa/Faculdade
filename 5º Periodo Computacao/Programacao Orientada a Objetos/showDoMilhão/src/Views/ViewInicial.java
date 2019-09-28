@@ -6,10 +6,8 @@
 package Views;
 
 import Classes.Jogador;
+import Classes.PlayerFX;
 import java.awt.event.KeyEvent;
-import java.io.File;
-import javax.sound.sampled.AudioSystem;
-import javax.sound.sampled.Clip;
 import javax.swing.JOptionPane;
 
 /**
@@ -18,6 +16,7 @@ import javax.swing.JOptionPane;
  */
 public class ViewInicial extends javax.swing.JFrame {
     private Jogador jogador = new Jogador();
+    private PlayerFX play = new PlayerFX();
     
     public ViewInicial() {
         initComponents();
@@ -26,6 +25,7 @@ public class ViewInicial extends javax.swing.JFrame {
     
     public ViewInicial(Jogador jogador) {
         this.jogador = jogador;
+        play.playFX("tema");
         initComponents();
         setLocationRelativeTo(null);
     }
@@ -95,8 +95,9 @@ public class ViewInicial extends javax.swing.JFrame {
         else {
             jogador.setNome(nomeJogador);
             ViewPerguntas perguntas = new ViewPerguntas(this.jogador);
+            play.stopFX();
+            play.playFX("1000");
             perguntas.setVisible(true);
-            tocarFX("1000");
             this.dispose();
         }
     }//GEN-LAST:event_btnLoginActionPerformed
@@ -109,6 +110,8 @@ public class ViewInicial extends javax.swing.JFrame {
             else {
                 jogador.setNome(nomeJogador);
                 ViewPerguntas perguntas = new ViewPerguntas(this.jogador);
+                play.stopFX();
+            play.playFX("1000");
                 perguntas.setVisible(true);
                 this.dispose();
             }
@@ -116,34 +119,6 @@ public class ViewInicial extends javax.swing.JFrame {
     }//GEN-LAST:event_txtNomeKeyPressed
 
     
-    public void tocarFX(String valor){
-        String source = "./src/audio/" + valor + ".wav";
-        if(valor == "tema"){
-            try{
-                Clip clip = AudioSystem.getClip();
-                clip.open(AudioSystem.getAudioInputStream(new File(source)));
-                //clip.open(AudioSystem.getAudioInputStream("/src/audio/sample.wav"));
-                clip.start();
-                clip.loop(10);
-            }
-            catch (Exception exc){
-                exc.printStackTrace(System.out);
-            }
-        }
-        else{
-            try{
-                Clip clip = AudioSystem.getClip();
-                clip.open(AudioSystem.getAudioInputStream(new File(source)));
-                //clip.open(AudioSystem.getAudioInputStream("/src/audio/sample.wav"));
-                clip.start();
-                //clip.loop(1);
-            }
-            catch (Exception exc){
-                exc.printStackTrace(System.out);
-            }
-        }
-        
-    }
     /**
      * @param args the command line arguments
      */
