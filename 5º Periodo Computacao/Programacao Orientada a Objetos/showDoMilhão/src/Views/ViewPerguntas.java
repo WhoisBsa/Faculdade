@@ -383,6 +383,7 @@ public class ViewPerguntas extends javax.swing.JFrame {
         if(pulos >= 2) 
             JOptionPane.showMessageDialog(rootPane, "Você não tem mais pulos!");
         else {
+            tocarFX("pular");
             /* determina o nivel de dificuldade da pergunta de acordo com o nivel dela
                quanto mais próximo da décima ela fica mais difícil */
             if(pos < 5)
