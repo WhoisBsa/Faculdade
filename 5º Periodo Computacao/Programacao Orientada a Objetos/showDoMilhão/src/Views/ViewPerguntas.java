@@ -128,11 +128,11 @@ public class ViewPerguntas extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnResponder, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel1))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(btnPular, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(63, 63, 63)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 120, Short.MAX_VALUE)
                                 .addComponent(btnParar, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(lblNome)
@@ -170,7 +170,7 @@ public class ViewPerguntas extends javax.swing.JFrame {
                 .addComponent(alternativaC)
                 .addGap(18, 18, 18)
                 .addComponent(alternativaD)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnResponder)
                     .addComponent(btnPular)
@@ -193,20 +193,15 @@ public class ViewPerguntas extends javax.swing.JFrame {
                 "Pascal e Java.",     //alternativaD
                 "1000", 1);           //valor e resposta
         
-        perguntas[1] = new Pergunta("<html>Na programação orientada a objetos são utilizados "
-                + "classes e métodos. Um método", 
-                //alternativaA
-                "<html>deve ter assinatura e corpo quando aparecer em uma interface Java e deve ser público.", 
-                //alternativaB
-                "<html>com determinado nome não pode aparecer mais de uma vez na mesma classe, "
-                        + "mesmo que receba parâmetros de tipos diferentes.", 
-                //alternativaC
-                "<html>em uma superclasse pode ser sobrescrito nas subclasses de uma relação de herança.", 
-                //alternativaD
-                "<html>construtor em uma classe Java pode ser sobrecarregado, desde que tenha um "
-                        + "tipo de retorno diferente de void.", 
-                //valor e resposta
-                "5000", 3);
+        perguntas[1] = new Pergunta("<html>A capacidade de objetos de diferentes "
+                            + "classes relacionadas por herança ou implementação de interface "
+                            + "responderem diferentemente à mesma chamada de método é conhecida como", 
+                
+                            "polimorfismo.",    //alternativaA    
+                            "composição.",      //alternativaB
+                            "especialização.",  //alternativaC 
+                            "generalização",    //alternativaD
+                            "5000", 1);         //valor e resposta
         
         perguntas[2] = new Pergunta("<html>Em um programa orientado a objetos, verifica-se que "
                 + "a classe X estende a classe Y. Ou seja, pode-se afirmar, pelos preceitos da POO, que:", 
@@ -399,11 +394,20 @@ public class ViewPerguntas extends javax.swing.JFrame {
                             "Abstração de dados.", "Polimorfismo.", "Herança.", 
                             "Sobrecarga de métodos.", perguntas[pos].getValor(), 3);
                 else
-                    perguntas[pos] = new Pergunta("<html>A capacidade de objetos de diferentes "
-                            + "classes relacionadas por herança ou implementação de interface "
-                            + "responderem diferentemente à mesma chamada de método é conhecida como", 
-                            "polimorfismo.", "composição.","especialização.", 
-                            "generalização", perguntas[pos].getValor(), 1);
+                    perguntas[pos] = new Pergunta("<html>Na programação orientada a objetos são utilizados "
+                            + "classes e métodos. Um método", 
+                            //alternativaA
+                            "<html>deve ter assinatura e corpo quando aparecer em uma interface Java e deve ser público.", 
+                            //alternativaB
+                            "<html>com determinado nome não pode aparecer mais de uma vez na mesma classe, "
+                                    + "mesmo que receba parâmetros de tipos diferentes.", 
+                            //alternativaC
+                            "<html>em uma superclasse pode ser sobrescrito nas subclasses de uma relação de herança.", 
+                            //alternativaD
+                            "<html>construtor em uma classe Java pode ser sobrecarregado, desde que tenha um "
+                                    + "tipo de retorno diferente de void.", 
+                            //valor e resposta
+                            perguntas[pos].getValor(), 1);
             
             
             else if (pos >= 5 && pos < 7)
