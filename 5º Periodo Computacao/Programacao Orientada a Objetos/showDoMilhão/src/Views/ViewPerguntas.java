@@ -16,6 +16,9 @@ public class ViewPerguntas extends javax.swing.JFrame {
     private Jogador jogador = new Jogador();
     private Pergunta[] perguntas = new Pergunta[10];
     int pos = 0, resp, pulos = 0;
+    protected PlayerFX play = new PlayerFX();
+    
+    
     public ViewPerguntas() {
         initComponents();
         setLocationRelativeTo(null);
@@ -203,7 +206,7 @@ public class ViewPerguntas extends javax.swing.JFrame {
                 "<html>construtor em uma classe Java pode ser sobrecarregado, desde que tenha um "
                         + "tipo de retorno diferente de void.", 
                 //valor e resposta
-                "2500", 3);
+                "5000", 3);
         
         perguntas[2] = new Pergunta("<html>Em um programa orientado a objetos, verifica-se que "
                 + "a classe X estende a classe Y. Ou seja, pode-se afirmar, pelos preceitos da POO, que:", 
@@ -212,7 +215,7 @@ public class ViewPerguntas extends javax.swing.JFrame {
                 "a classe X é derivada de Y",     //alternativaB
                 "a classe X é superclasse de Y",  //alternativaC 
                 "a classe Y é derivada de X",     //alternativaD
-                "5000", 2);                       //valor e resposta
+                "10000", 2);                       //valor e resposta
         
         perguntas[3] = new Pergunta("<html>Assinale a afirmação correta quanto aos "
                 + "fundamentos da tecnologia de orientação a objetos.", 
@@ -229,7 +232,7 @@ public class ViewPerguntas extends javax.swing.JFrame {
                         + "que define ações que não devem ser obrigatoriamente executadas, "
                         + "mas que cada classe pode executar de forma igual.", 
                 //valor e resposta
-                "10000", 1);
+                "50000", 1);
         
         perguntas[4] = new Pergunta("<html>Sobre orientação a objetos, é correto afirmar:",
                 //alternativaA
@@ -245,7 +248,7 @@ public class ViewPerguntas extends javax.swing.JFrame {
                 "<html>A principal regra prática do encapsulamento é marcar as variáveis de instância "
                         + "como públicas e fornecer métodos de captura e configuração privados.", 
                 //valor e resposta
-                "25000", 2);
+                "100000", 2);
         
         perguntas[5] = new Pergunta("<html>A alteração do comportamento dos métodos herdados "
                 + "das superclasses para um comportamento mais específico nas subclasses, de forma "
@@ -255,7 +258,7 @@ public class ViewPerguntas extends javax.swing.JFrame {
                 "<html>sobrecarga.",    //alternativaB
                 "<html>portabilidade.", //alternativaC
                 "<html>sobrescrita.",   //alternativaD
-                "50000", 4);            //valor e resposta
+                "200000", 4);            //valor e resposta
         
         perguntas[6] = new Pergunta("<html>Na programação Orientada a Objetos", 
                 //alternativaA
@@ -268,7 +271,7 @@ public class ViewPerguntas extends javax.swing.JFrame {
                 //alternativaD
                 "<html>a união de todos os objetos de uma classe forma seu método construtor.", 
                 //valor e resposta
-                "100000", 3);
+                "300000", 3);
         
         perguntas[7] = new Pergunta("<html>Na orientação a objetos, o conceito de encapsulamento "
                 + "corresponde à propriedade de", 
@@ -283,7 +286,7 @@ public class ViewPerguntas extends javax.swing.JFrame {
                 //alternativaD
                 "<html>ter um conjunto de objetos com a mesma classe.",
                 //valor e resposta
-                "250000", 1);
+                "400000", 1);
         
         perguntas[8] = new Pergunta("Acerca de orientação a objetos, assinale a opção correta.", 
                 //alternativaA
@@ -329,6 +332,8 @@ public class ViewPerguntas extends javax.swing.JFrame {
                 !alternativaC.isSelected() && !alternativaD.isSelected())
             JOptionPane.showMessageDialog(rootPane, "Selecione uma Alternativa!");
         else if(perguntas[pos].getResposta() == resp) {
+            play.playFX("certaResposta");
+//            tocarFX("certaResposta");
             if(pos == 9){
                 int input = JOptionPane.showConfirmDialog(rootPane, "Deseja jogar novamente?", 
                         "Voce ganhou um milhão de reais!!!", JOptionPane.YES_NO_OPTION);
@@ -339,11 +344,14 @@ public class ViewPerguntas extends javax.swing.JFrame {
                 this.dispose();
             }else {
                 JOptionPane.showMessageDialog(rootPane, "Resposta Certa!");
+                play.playFX(perguntas[pos+1].getValor());
+                //tocarFX(perguntas[pos+1].getValor());
                 jogador.setPontos(Integer.parseInt(perguntas[pos].getValor()));
                 setTexto(1);
                 pos++;
             }
         } else {
+            play.playFX("errou");
             if(pos == 9){
                 JOptionPane.showMessageDialog(rootPane,"Voce perdeu tudo!!!"
                     + "\nMais sorte na próxima :)",
@@ -378,6 +386,9 @@ public class ViewPerguntas extends javax.swing.JFrame {
         if(pulos >= 2) 
             JOptionPane.showMessageDialog(rootPane, "Você não tem mais pulos!");
         else {
+            play.playFX("pular");
+            //tocarFX("pular");
+            
             /* determina o nivel de dificuldade da pergunta de acordo com o nivel dela
                quanto mais próximo da décima ela fica mais difícil */
             if(pos < 5)
@@ -433,6 +444,8 @@ public class ViewPerguntas extends javax.swing.JFrame {
     }//GEN-LAST:event_btnPularActionPerformed
 
     private void btnPararActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPararActionPerformed
+        play.playFX("parar");
+//        tocarFX("parar");
         if(pos == 0)
             JOptionPane.showMessageDialog(rootPane, "Você nao ganhou nada!");
         else
@@ -451,6 +464,7 @@ public class ViewPerguntas extends javax.swing.JFrame {
         lblValendo.setText("Valendo " + perguntas[pos+i].getValor() + " reais");
         btnGroupEscolha.clearSelection();
     }
+    
     
     /**
      * @param args the command line arguments

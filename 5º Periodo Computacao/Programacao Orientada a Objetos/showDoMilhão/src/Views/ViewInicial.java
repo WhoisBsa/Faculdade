@@ -6,6 +6,7 @@
 package Views;
 
 import Classes.Jogador;
+import Classes.PlayerFX;
 import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
 
@@ -15,6 +16,7 @@ import javax.swing.JOptionPane;
  */
 public class ViewInicial extends javax.swing.JFrame {
     private Jogador jogador = new Jogador();
+    private PlayerFX play = new PlayerFX();
     
     public ViewInicial() {
         initComponents();
@@ -23,6 +25,7 @@ public class ViewInicial extends javax.swing.JFrame {
     
     public ViewInicial(Jogador jogador) {
         this.jogador = jogador;
+        play.playFX("tema");
         initComponents();
         setLocationRelativeTo(null);
     }
@@ -92,6 +95,8 @@ public class ViewInicial extends javax.swing.JFrame {
         else {
             jogador.setNome(nomeJogador);
             ViewPerguntas perguntas = new ViewPerguntas(this.jogador);
+            play.stopFX();
+            play.playFX("1000");
             perguntas.setVisible(true);
             this.dispose();
         }
@@ -105,12 +110,15 @@ public class ViewInicial extends javax.swing.JFrame {
             else {
                 jogador.setNome(nomeJogador);
                 ViewPerguntas perguntas = new ViewPerguntas(this.jogador);
+                play.stopFX();
+            play.playFX("1000");
                 perguntas.setVisible(true);
                 this.dispose();
             }
         }
     }//GEN-LAST:event_txtNomeKeyPressed
 
+    
     /**
      * @param args the command line arguments
      */
