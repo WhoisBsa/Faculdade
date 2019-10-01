@@ -16,7 +16,7 @@ public class ViewMenu extends javax.swing.JFrame {
     private ContaCorrente[] contaCorrente = new ContaCorrente[10];
     private ContaPoupanca[] contaPoupanca = new ContaPoupanca[10];
     private Banco banco = new Banco();
-    private int posCorrente = 1, posPoupanca = 1, numConta = 5;
+    private int posCorrente = 1, posPoupanca = 0, numConta = 2;
     public ViewMenu() {
         initComponents();
         setLocationRelativeTo(null);
@@ -25,7 +25,6 @@ public class ViewMenu extends javax.swing.JFrame {
     public ViewMenu(Banco banco) {
         this.banco = banco;
         contaCorrente[0] = banco.procurarConta(1, contaCorrente[0]);
-        contaPoupanca[0] = banco.procurarConta(2, contaPoupanca[0]);
         initComponents();
         setLocationRelativeTo(null);
     }
@@ -180,26 +179,29 @@ public class ViewMenu extends javax.swing.JFrame {
 
     private void btnSacarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSacarActionPerformed
         String input = JOptionPane.showInputDialog("Digite o valor do saque");
-        if(input.isBlank())
-            JOptionPane.showMessageDialog(rootPane, "Digite um valor válido");
-        else {
-            String result = this.contaCorrente[0].sacar(Double.parseDouble(input));
-            JOptionPane.showMessageDialog(rootPane, result);
-            lblSaldo.setText("<html>Saldo: " + contaCorrente[0].getSaldo());
-        }
+        try {
+            if(input.isBlank())
+                JOptionPane.showMessageDialog(rootPane, "Digite um valor válido");
+            else {
+                String result = this.contaCorrente[0].sacar(Double.parseDouble(input));
+                JOptionPane.showMessageDialog(rootPane, result);
+                lblSaldo.setText("<html>Saldo: " + contaCorrente[0].getSaldo());
+            }
+        } catch(NullPointerException ex) {}
     }//GEN-LAST:event_btnSacarActionPerformed
 
     private void btnDepositarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDepositarActionPerformed
         String input = JOptionPane.showInputDialog("Digite o valor do deposito");
-        if(input.isBlank())
-            JOptionPane.showMessageDialog(rootPane, "Digite um valor válido");
-        else {
-            String result = this.contaCorrente[0].depositar(Double.parseDouble(input));
-            
-            JOptionPane.showMessageDialog(rootPane, result);
-            lblSaldo.setText("<html>Saldo: " + contaCorrente[0].getSaldo());
+        try {
+            if(input.isBlank())
+                JOptionPane.showMessageDialog(rootPane, "Digite um valor válido");
+            else {
+                String result = this.contaCorrente[0].depositar(Double.parseDouble(input));
 
-        }                    
+                JOptionPane.showMessageDialog(rootPane, result);
+                lblSaldo.setText("<html>Saldo: " + contaCorrente[0].getSaldo());
+            }   
+        } catch(NullPointerException ex) {}
     }//GEN-LAST:event_btnDepositarActionPerformed
 
     private void btnTransferirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTransferirActionPerformed
@@ -224,31 +226,30 @@ public class ViewMenu extends javax.swing.JFrame {
             String input = JOptionPane.showInputDialog("Digite o valor da transferencia");
             String conta = JOptionPane.showInputDialog("Numero da conta do destinatario\n" + contas);
 
+            try {
+                String result = "Nenhuma conta encontrada";
 
-            String result = "Nenhuma conta encontrada";
-
-            if(input.isBlank() || conta.isBlank())
-                JOptionPane.showMessageDialog(rootPane, "Digite um valor válido");
-            else {
-                for(int i = 1; i < posCorrente; i++) {
-                    if(contaCorrente[i].getNumConta() == Integer.parseInt(conta)) {
-                        result = this.contaCorrente[0].transferir(Double.parseDouble(input), contaCorrente[i]);
-                        lblSaldo.setText("<html>Saldo: " + contaCorrente[0].getSaldo());
-                }
-                    else
-                        result = "Nenhuma conta encontrada";
-                }
-                for(int i = 0; i < posPoupanca; i++) {
-                    if(contaPoupanca[i].getNumConta() == Integer.parseInt(conta)){
-                        result = this.contaCorrente[0].transferir(Double.parseDouble(input), contaPoupanca[i]);
-                        lblSaldo.setText("<html>Saldo: " + contaCorrente[0].getSaldo());
+                if(input.isBlank() || conta.isBlank())
+                    JOptionPane.showMessageDialog(rootPane, "Digite um valor válido");
+                else {
+                    for(int i = 0; i < posCorrente; i++) {
+                        if(contaCorrente[i].getNumConta() == Integer.parseInt(conta) && i != 0) {
+                            result = this.contaCorrente[0].transferir(Double.parseDouble(input), contaCorrente[i]);
+                            lblSaldo.setText("<html>Saldo: " + contaCorrente[0].getSaldo());
+                        }
+                        else 
+                            result = "Não é possivel fazer transferências para a mesma conta.";
                     }
-                    else
-                        result = "Nenhuma conta encontrada";
-                }
+                    for(int i = 0; i < posPoupanca; i++) {
+                        if(contaPoupanca[i].getNumConta() == Integer.parseInt(conta)){
+                            result = this.contaCorrente[0].transferir(Double.parseDouble(input), contaPoupanca[i]);
+                            lblSaldo.setText("<html>Saldo: " + contaCorrente[0].getSaldo());
+                        }
+                    }
 
-                JOptionPane.showMessageDialog(rootPane, result);
-            }               
+                    JOptionPane.showMessageDialog(rootPane, result);
+                }   
+            } catch(NullPointerException ex) {}
         }                                                 
     }//GEN-LAST:event_btnTransferirActionPerformed
 
@@ -257,27 +258,29 @@ public class ViewMenu extends javax.swing.JFrame {
         Object selected = JOptionPane.showInputDialog(null, "Qual conta deseja criar?", "Selecione", JOptionPane.DEFAULT_OPTION, null, valores, "0");
         if(selected != null){ 
             String selectedString = selected.toString();
-            if(selectedString.equals("Conta Corrente")){
-                double novaConta = Double.parseDouble(JOptionPane.showInputDialog("Numero da conta: " + numConta + "\nSaldo:"));
-                if(String.valueOf(novaConta).isBlank())
-                    JOptionPane.showMessageDialog(rootPane, "Saldo inválido!");
-                else {
-                    contaCorrente[posCorrente] = new ContaCorrente(numConta, novaConta);
-                    banco.inserir(contaCorrente[posCorrente]);
-                    posCorrente++;
-                    numConta++;
+            try {
+                if(selectedString.equals("Conta Corrente")){
+                    double saldo = Double.parseDouble(JOptionPane.showInputDialog("Numero da conta: " + numConta + "\nSaldo:"));
+                    if(String.valueOf(saldo).isBlank())
+                        JOptionPane.showMessageDialog(rootPane, "Saldo inválido!");
+                    else {
+                        contaCorrente[posCorrente] = new ContaCorrente(numConta, saldo);
+                        banco.inserir(contaCorrente[posCorrente]);
+                        posCorrente++;
+                        numConta++;
+                    }
+                } else if(selectedString.equals("Conta Poupança")) {
+                    double saldo = Double.parseDouble(JOptionPane.showInputDialog("Numero da conta: " + numConta + "\nSaldo:"));
+                    if(String.valueOf(saldo).isBlank())
+                        JOptionPane.showMessageDialog(rootPane, "Saldo inválido!");
+                    else {
+                        contaPoupanca[posPoupanca] = new ContaPoupanca(numConta, saldo);
+                        banco.inserir(contaPoupanca[posPoupanca]);
+                        posPoupanca++;
+                        numConta++;
+                    }
                 }
-            } else if(selectedString.equals("Conta Poupança")) {
-                double novaConta = Double.parseDouble(JOptionPane.showInputDialog("Numero da conta: " + numConta + "\nSaldo:"));
-                if(String.valueOf(novaConta).isBlank())
-                    JOptionPane.showMessageDialog(rootPane, "Saldo inválido!");
-                else {
-                    contaPoupanca[posPoupanca] = new ContaPoupanca(numConta, novaConta);
-                    banco.inserir(contaPoupanca[posPoupanca]);
-                    posPoupanca++;
-                    numConta++;
-                }
-            }
+            } catch(NullPointerException ex) {}
         }else{
             JOptionPane.showMessageDialog(rootPane, "Cacelado");
         }
@@ -290,51 +293,49 @@ public class ViewMenu extends javax.swing.JFrame {
 
     private void btnSelecionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelecionarActionPerformed
         boolean contaOk = false;
-        int result = -1, contaC = 0, contaP = 0, i = 0;
+        int result = -1, contaC = 0, contaP = 0;
         Object[] options1 = { "Remover Conta", "Gerar Relatório", "Cancelar" };
         String input = JOptionPane.showInputDialog("Informe o numero da conta");
-        if(input.isBlank())
-            JOptionPane.showMessageDialog(rootPane, "Digite um numero de conta válido");
-        else {
-            while(i < posCorrente && !contaOk) {
-                if(contaCorrente[i].getNumConta() == Integer.parseInt(input)) {
-                    contaC = i;
-                    result = JOptionPane.showOptionDialog(rootPane,  contaCorrente[i].mostrarDados(), 
-                            "Escolha uma Opção", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE,
-                            null, options1, null);
-                    contaOk = true;
+        try {
+            if(input.isBlank())
+                JOptionPane.showMessageDialog(rootPane, "Digite um numero de conta válido");
+            else {
+                for(int i = 0; i < posCorrente; i++) {
+                    if(contaCorrente[i].getNumConta() == Integer.parseInt(input)) {
+                        contaC = i;
+                        result = JOptionPane.showOptionDialog(rootPane,  contaCorrente[i].mostrarDados(), 
+                                "Escolha uma Opção", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE,
+                                null, options1, null);
+                        contaOk = true;
+                    }
                 }
-                i++;
-            }
-            
-            while(i < posPoupanca && !contaOk) {
-                if(contaPoupanca[i].getNumConta() == Integer.parseInt(input)) {
-                    contaP = i;
-                    result = JOptionPane.showOptionDialog(rootPane,  contaPoupanca[i].mostrarDados(), 
-                            "Escolha uma Opção", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE,
-                            null, options1, null);
-                    contaOk = true;
+
+                for(int i = 0; i < posPoupanca; i++) {
+                    if(contaPoupanca[i].getNumConta() == Integer.parseInt(input)) {
+                        contaP = i;
+                        result = JOptionPane.showOptionDialog(rootPane,  contaPoupanca[i].mostrarDados(), 
+                                "Escolha uma Opção", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE,
+                                null, options1, null);
+                        contaOk = true;
+                    }
                 }
-                i++;
+
+                if(!contaOk)
+                    JOptionPane.showMessageDialog(rootPane, "Nenhuma conta encontrada");            
+
+                if(result == 0) {  // optou por remover
+                    if(input.equals("1"))
+                        JOptionPane.showMessageDialog(rootPane, "Não pode remover sua própria conta");
+                    else
+                        System.out.println("metodo remove que nao foi implementado");
+                } else if (result == 1) {
+                    if(contaC != 0)
+                        JOptionPane.showMessageDialog(rootPane, contaCorrente[contaC].mostrarDados());
+                    else if (contaP != 0)
+                        JOptionPane.showMessageDialog(rootPane, contaCorrente[contaC].mostrarDados());
+                }
             }
-            
-            if(!contaOk)
-                JOptionPane.showMessageDialog(rootPane, "Nenhuma conta encontrada");
-            System.out.println(contaPoupanca[i].mostrarDados());
-            
-            
-            if(result == 0) {  // optou por remover
-                if(input.equals("1"))
-                    JOptionPane.showMessageDialog(rootPane, "Não pode remover sua própria conta");
-                else
-                    System.out.println("metodo remove que nao foi implementado");
-            } else if (result == 1) {
-                if(contaC != 0)
-                    JOptionPane.showMessageDialog(rootPane, contaCorrente[contaC].mostrarDados());
-                else if (contaP != 0)
-                    JOptionPane.showMessageDialog(rootPane, contaCorrente[contaC].mostrarDados());
-            }
-        }
+        } catch(NullPointerException ex) {}
     }//GEN-LAST:event_btnSelecionarActionPerformed
 
     private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
