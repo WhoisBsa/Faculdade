@@ -20,14 +20,14 @@ public class SistemaBancário2 {
     public static void main(String[] args) {
         Banco banco = new Banco();
         ContaCorrente[] contaCorrente = new ContaCorrente[10];
-        ContaPoupanca[] contaPoupanca = new ContaPoupanca[10];
         
-        contaCorrente[0] = new ContaCorrente(1, 2000, 0.1);
-        contaPoupanca[0] = new ContaPoupanca(2, 1000, 400);
+        contaCorrente[0] = new ContaCorrente(1, 2000);
         
         banco.inserir(contaCorrente[0]);
-        banco.inserir(contaPoupanca[0]);
-                
+        System.out.println(banco.procurarConta(1, contaCorrente[0]).mostrarDados());
+        contaCorrente[0] = banco.remove(1);
+        System.out.println(contaCorrente[0].mostrarDados());
+
         ViewMenu viewMenu = new ViewMenu(banco);
         viewMenu.setVisible(true);
     }
