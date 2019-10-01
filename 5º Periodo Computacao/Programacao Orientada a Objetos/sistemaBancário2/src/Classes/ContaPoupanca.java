@@ -13,12 +13,7 @@ public class ContaPoupanca extends ContaBancaria {
     private double limite = 100;
     
     public ContaPoupanca() {}
-    
-    public ContaPoupanca(int numConta, double saldo, double limite) {
-        super(numConta, saldo);
-        this.limite = limite;
-    }
-    
+
     public ContaPoupanca(int numConta, double saldo) {
         super(numConta, saldo);
     }
@@ -30,14 +25,14 @@ public class ContaPoupanca extends ContaBancaria {
             return "Saldo insuficiente!!!";
         else {
             this.setSaldo(this.getSaldo() - valor);
-            return "Saque realizado com sucesso! Saldo atual de R$" + String.format("%.2f", getSaldo());
+            return "Saque realizado com sucesso!";
         }
     }
     
     @Override
     public String depositar(double valor) {
         this.setSaldo(this.getSaldo() + getLimite() + valor);
-        return "Deposito realizado com sucesso! Saldo atual de R$" + String.format("%.2f", getSaldo());
+        return "Deposito realizado com sucesso!";
     }
     
     @Override
@@ -47,7 +42,7 @@ public class ContaPoupanca extends ContaBancaria {
         else {
             this.sacar(valor);
             cCorrente.depositar(valor);
-            return "Transferencia realizada com sucesso! Saldo atual de R$" + String.format("%.2f", getSaldo());
+            return "Transferencia realizada com sucesso!";
         }
     }
     
@@ -58,7 +53,7 @@ public class ContaPoupanca extends ContaBancaria {
         else {
             this.sacar(valor);
             cPoupanca.depositar(valor);
-            return "Transferencia realizada com sucesso! Saldo atual de R$" + String.format("%.2f", getSaldo());
+            return "Transferencia realizada com sucesso!";
         }
     }
     

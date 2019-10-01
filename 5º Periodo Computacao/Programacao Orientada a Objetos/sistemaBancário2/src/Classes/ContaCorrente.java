@@ -16,14 +16,10 @@ public class ContaCorrente extends ContaBancaria{
     
     public ContaCorrente() {}
     
-    public ContaCorrente(int numConta, double saldo, double taxaDeOperacao) {
-        super(numConta, saldo);
-        this.taxaDeOperacao = taxaDeOperacao;
-    }
-    
     public ContaCorrente(int numConta, double saldo) {
         super(numConta, saldo);
     }
+
     
     @Override
     public String sacar(double valor) {
@@ -31,14 +27,14 @@ public class ContaCorrente extends ContaBancaria{
             return "Saldo insuficiente!!!";
         else {
             this.setSaldo(this.getSaldo() - valor - valor * (getTaxaDeOperacao()/100));
-            return "Saque realizado com sucesso! Saldo atual de R$" + String.format("%.2f", getSaldo());
+            return "Saque realizado com sucesso!";
         }
     }
     
     @Override
     public String depositar(double valor) {
         this.setSaldo(this.getSaldo() + valor - valor * (getTaxaDeOperacao()/100));
-        return "Deposito realizado com sucesso! Saldo atual de R$" + String.format("%.2f", getSaldo());
+        return "Deposito realizado com sucesso!";
     }
     
     @Override
@@ -48,7 +44,7 @@ public class ContaCorrente extends ContaBancaria{
         else {
             this.sacar(valor);
             cCorrente.depositar(valor);
-            return "Transferencia realizada com sucesso! Saldo atual de R$" + String.format("%.2f", getSaldo());
+            return "Transferencia realizada com sucesso!";
         }
     }
     
@@ -59,7 +55,7 @@ public class ContaCorrente extends ContaBancaria{
         else {
             this.sacar(valor);
             cPoupanca.depositar(valor);
-            return "Transferencia realizada com sucesso! Saldo atual de R$" + String.format("%.2f", getSaldo());
+            return "Transferencia realizada com sucesso!";
         }
     }
     
