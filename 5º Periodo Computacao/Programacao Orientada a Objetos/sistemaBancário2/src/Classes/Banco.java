@@ -16,7 +16,7 @@ public class Banco {
     
     public String inserir(ContaCorrente contaCorrente) {
         this.contaCorrente[posCorrente] = new ContaCorrente(contaCorrente.getNumConta(), 
-                contaCorrente.getSaldo(), contaCorrente.getTaxaDeOperacao());
+                contaCorrente.getSaldo());
         posCorrente++;
         
         return "Nova conta corrente inserida com sucesso!!!";
@@ -24,7 +24,7 @@ public class Banco {
     
     public String inserir(ContaPoupanca contaPoupanca) {
         this.contaPoupanca[posPoupanca] = new ContaPoupanca(contaPoupanca.getNumConta(), 
-                contaPoupanca.getSaldo(), contaPoupanca.getLimite());
+                contaPoupanca.getSaldo());
         posPoupanca++;
         
         return "Nova conta poupança inserida com sucesso!!!";
@@ -48,20 +48,20 @@ public class Banco {
         return null;
     }
     
-    public ContaBancaria[] remove(int numConta) {
+    public ContaCorrente remove(int numConta) {
         for(int i = 0; i < posPoupanca; i++) {
             if(this.contaCorrente[i].getNumConta() == numConta) {
                 contaCorrente[i] = null;
-                return this.contaCorrente;
+                return null;
             }
         }
         
-        for(int i = 0; i < posPoupanca; i++) {
+        /*for(int i = 0; i < posPoupanca; i++) {
             if(this.contaPoupanca[i].getNumConta() == numConta) {
                 contaPoupanca[i] = null;
-                return this.contaPoupanca;
+                return this.contaPoupanca[i];
             }
-        }
-        return null;   
+        }*/
+        return contaCorrente[0];   
     }
 }
