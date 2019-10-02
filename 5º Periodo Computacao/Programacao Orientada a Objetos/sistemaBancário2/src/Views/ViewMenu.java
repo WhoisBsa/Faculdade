@@ -214,12 +214,14 @@ public class ViewMenu extends javax.swing.JFrame {
             if(selectedString.equals("Conta Corrente")){
                 contas += "Contas Correntes:\n";
                 for(int i = 1; i < posCorrente; i++) {
-                    contas += "Conta " + (i+1) + ": " + contaCorrente[i].getNumConta() + "\n";
+                    if(contaCorrente[i] != null)
+                        contas += "Conta " + (i+1) + ": " + contaCorrente[i].getNumConta() + "\n";
                 }
             } else {
                 contas += "\nContas Poupanca:\n";
                 for(int i = 0; i < posPoupanca; i ++) {
-                    contas += "Conta " + (i+1) + ": " + contaPoupanca[i].getNumConta() + "\n";
+                    if(contaPoupanca[i] != null)
+                        contas += "Conta " + (i+1) + ": " + contaPoupanca[i].getNumConta() + "\n";
                 }
             }
             
@@ -237,7 +239,7 @@ public class ViewMenu extends javax.swing.JFrame {
                             result = this.contaCorrente[0].transferir(Double.parseDouble(input), contaCorrente[i]);
                             lblSaldo.setText("<html>Saldo: " + contaCorrente[0].getSaldo());
                         }
-                        else 
+                        else if(contaCorrente[i] != null)
                             result = "Não é possivel fazer transferências para a mesma conta.";
                     }
                     for(int i = 0; i < posPoupanca; i++) {
@@ -326,8 +328,16 @@ public class ViewMenu extends javax.swing.JFrame {
                 if(result == 0) {  // optou por remover
                     if(input.equals("1"))
                         JOptionPane.showMessageDialog(rootPane, "Não pode remover sua própria conta");
-                    else
-                        System.out.println("metodo remove que nao foi implementado");
+                    else{
+                        if(contaC != 0){
+                            contaCorrente[contaC] = banco.remove(numConta, contaCorrente[contaC]);
+                            JOptionPane.showMessageDialog(rootPane, "Conta corrente removida com sucesso");
+                        }
+                        else if (contaP != 0){
+                            contaPoupanca[contaP] = banco.remove(numConta, contaPoupanca[contaP]);
+                            JOptionPane.showMessageDialog(rootPane, "Conta poupanca removida com sucesso");
+                        }
+                    }   
                 } else if (result == 1) {
                     if(contaC != 0)
                         JOptionPane.showMessageDialog(rootPane, contaCorrente[contaC].mostrarDados());
