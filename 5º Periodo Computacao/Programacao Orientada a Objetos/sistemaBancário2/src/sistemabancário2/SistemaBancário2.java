@@ -24,9 +24,6 @@ public class SistemaBancário2 {
         contaCorrente[0] = new ContaCorrente(1, 2000);
         
         banco.inserir(contaCorrente[0]);
-        System.out.println(banco.procurarConta(1, contaCorrente[0]).mostrarDados());
-        contaCorrente[0] = banco.remove(1);
-        System.out.println(contaCorrente[0].mostrarDados());
 
         ViewMenu viewMenu = new ViewMenu(banco);
         viewMenu.setVisible(true);
