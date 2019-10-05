@@ -22,8 +22,14 @@ public class SistemaBancário2 {
         ContaCorrente[] contaCorrente = new ContaCorrente[10];
         
         contaCorrente[0] = new ContaCorrente(1, 2000);
+        contaCorrente[1] = new ContaCorrente(2, 400);
+        contaCorrente[2] = new ContaCorrente(3, 5500);
+        contaCorrente[3] = new ContaCorrente(4, 820);
         
         banco.inserir(contaCorrente[0]);
+        banco.inserir(contaCorrente[1]);
+        banco.inserir(contaCorrente[2]);
+        banco.inserir(contaCorrente[3]);
 
         ViewMenu viewMenu = new ViewMenu(banco);
         viewMenu.setVisible(true);
