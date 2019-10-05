@@ -16,7 +16,7 @@ public class ViewMenu extends javax.swing.JFrame {
     private ContaCorrente[] contaCorrente = new ContaCorrente[10];
     private ContaPoupanca[] contaPoupanca = new ContaPoupanca[10];
     private Banco banco = new Banco();
-    private int posCorrente = 1, posPoupanca = 0, numConta = 2;
+    private int posCorrente = 4, posPoupanca = 0, numConta = 5;
     public ViewMenu() {
         initComponents();
         setLocationRelativeTo(null);
@@ -25,6 +25,9 @@ public class ViewMenu extends javax.swing.JFrame {
     public ViewMenu(Banco banco) {
         this.banco = banco;
         contaCorrente[0] = banco.procurarConta(1, contaCorrente[0]);
+        contaCorrente[1] = banco.procurarConta(2, contaCorrente[1]);
+        contaCorrente[2] = banco.procurarConta(3, contaCorrente[2]);
+        contaCorrente[3] = banco.procurarConta(4, contaCorrente[3]);
         initComponents();
         setLocationRelativeTo(null);
     }
@@ -214,13 +217,13 @@ public class ViewMenu extends javax.swing.JFrame {
             if(selectedString.equals("Conta Corrente")){
                 contas += "Contas Correntes:\n";
                 for(int i = 1; i < posCorrente; i++) {
-                    if(contaCorrente[i] != null)
+                    if(contaCorrente[i].getNumConta() != 0)
                         contas += "Conta " + (i+1) + ": " + contaCorrente[i].getNumConta() + "\n";
                 }
             } else {
                 contas += "\nContas Poupanca:\n";
                 for(int i = 0; i < posPoupanca; i ++) {
-                    if(contaPoupanca[i] != null)
+                    if(contaPoupanca[i].getNumConta() != 0)
                         contas += "Conta " + (i+1) + ": " + contaPoupanca[i].getNumConta() + "\n";
                 }
             }
@@ -234,21 +237,24 @@ public class ViewMenu extends javax.swing.JFrame {
                 if(input.isBlank() || conta.isBlank())
                     JOptionPane.showMessageDialog(rootPane, "Digite um valor válido");
                 else {
-                    for(int i = 0; i < posCorrente; i++) {
-                        if(contaCorrente[i].getNumConta() == Integer.parseInt(conta) && i != 0) {
-                            result = this.contaCorrente[0].transferir(Double.parseDouble(input), contaCorrente[i]);
-                            lblSaldo.setText("<html>Saldo: " + contaCorrente[0].getSaldo());
+                    if(selectedString.equals("Conta Corrente")){
+                        for(int i = 0; i < posCorrente; i++) {
+                            if(contaCorrente[i].getNumConta() == Integer.parseInt(conta) && i != 0 && contaCorrente[i].getNumConta() != 0) {
+                                result = this.contaCorrente[0].transferir(Double.parseDouble(input), contaCorrente[i]);
+                                lblSaldo.setText("<html>Saldo: " + contaCorrente[0].getSaldo());
+                                break;
+                            }
+                            else if(conta.equals("1"))
+                                result = "Não é possivel fazer transferências para a mesma conta.";
                         }
-                        else if(contaCorrente[i] != null)
-                            result = "Não é possivel fazer transferências para a mesma conta.";
-                    }
-                    for(int i = 0; i < posPoupanca; i++) {
-                        if(contaPoupanca[i].getNumConta() == Integer.parseInt(conta)){
-                            result = this.contaCorrente[0].transferir(Double.parseDouble(input), contaPoupanca[i]);
-                            lblSaldo.setText("<html>Saldo: " + contaCorrente[0].getSaldo());
+                    } else {
+                        for(int i = 0; i < posPoupanca; i++) {
+                            if(contaPoupanca[i].getNumConta() == Integer.parseInt(conta) && contaPoupanca[i].getNumConta() != 0){
+                                result = this.contaCorrente[0].transferir(Double.parseDouble(input), contaPoupanca[i]);
+                                lblSaldo.setText("<html>Saldo: " + contaCorrente[0].getSaldo());
+                            }
                         }
                     }
-
                     JOptionPane.showMessageDialog(rootPane, result);
                 }   
             } catch(NullPointerException ex) {}
@@ -330,12 +336,16 @@ public class ViewMenu extends javax.swing.JFrame {
                         JOptionPane.showMessageDialog(rootPane, "Não pode remover sua própria conta");
                     else{
                         if(contaC != 0){
-                            contaCorrente[contaC] = banco.remove(numConta, contaCorrente[contaC]);
-                            JOptionPane.showMessageDialog(rootPane, "Conta corrente removida com sucesso");
+                            this.contaCorrente[contaC] = banco.remove(contaCorrente[contaC].getNumConta(), contaCorrente[contaC]);
+                            this.contaCorrente[contaC] = new ContaCorrente();
+                            if(this.contaCorrente[contaC].getNumConta() == 0)
+                                JOptionPane.showMessageDialog(rootPane, "Conta corrente removida com sucesso");
                         }
                         else if (contaP != 0){
-                            contaPoupanca[contaP] = banco.remove(numConta, contaPoupanca[contaP]);
-                            JOptionPane.showMessageDialog(rootPane, "Conta poupanca removida com sucesso");
+                            this.contaPoupanca[contaP] = banco.remove(contaPoupanca[contaP].getNumConta(), contaPoupanca[contaP]);
+                            this.contaPoupanca[contaP] = new ContaPoupanca();
+                            if(this.contaPoupanca[contaC].getNumConta() == 0)
+                                JOptionPane.showMessageDialog(rootPane, "Conta poupanca removida com sucesso");
                         }
                     }   
                 } else if (result == 1) {
