@@ -10,8 +10,8 @@ package Classes;
  * @author matheus
  */
 public abstract class ContaBancaria {
-    private int numConta;
-    private double saldo;
+    private int numConta = 0;
+    private double saldo = 0;
     
     public ContaBancaria() {}
     
