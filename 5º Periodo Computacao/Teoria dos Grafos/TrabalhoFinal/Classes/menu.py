@@ -100,7 +100,7 @@ class Menu:
                         break
                     except (TypeError, ValueError):
                         print('\t\tValor inválido, use apenas números!\n')
-                if g.busca_profundidade(indice):
+                if g.dfs(indice):
                     pass
                 else:
                     print('\t\tVértice inesistente!')
