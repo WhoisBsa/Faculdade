@@ -144,42 +144,73 @@ class Grafo:
         print('\n')
         return True
 
-
+    """
     def busca_profundidade(self, indice):
         if not(self.existe_vertice(indice)):
             return False
         
         linha = len(self.matriz)
-        result = [{'predecessor': None, 'time1': 999, 'time2': 999}] * linha
+        result = []
 
         cor = ['BRANCO'] * linha
         self.predecessor = [None] * linha
         time = 0
-        for i in range(linha):
-            if cor[i] in 'BRANCO':
-                result[i] = self.busca_profundidade_visit(i)
+        for u in range(linha):
+            if cor[u] in 'BRANCO':
+                result = self.busca_profundidade_visit(u, cor, self.predecessor, time)
         print(result)
         return True
 
 
-    def busca_profundidade_visit(self, u):
+    def busca_profundidade_visit(self, u, cor, predecessor, time):
         linha = len(self.matriz)
-        cor = ['BRANCO'] * linha
-        self.predecessor = [None] * linha
-        time = 0
-        
+        tempos = []
+        tempos_finais_iniciais = {}
+
         cor[u] = 'CINZA'
         time += 1
         time1 = time
-        for v, i in enumerate(self.matriz[u]):
-            if i == 1:
-                if cor[v] in 'BRANCO':
-                    self.predecessor[v] = u
-                    self.busca_profundidade_visit(v)
+        tempos_finais_iniciais['tempo1'] = time1
+
+        for v in range(linha):
+            if cor[v] in 'BRANCO':
+                predecessor[v] = u
+                self.busca_profundidade_visit(v, cor, predecessor, time)
         cor[u] = 'PRETO'
         time += 1
         time2 = time
-        return self.predecessor, time1, time2
+        
+        tempos_finais_iniciais['tempo2'] = time2
+        tempos.append(tempos_finais_iniciais.copy())
+        return self.predecessor, tempos 
+        """
+
+
+    def dfs(self, indice):
+        if not(self.existe_vertice(indice)):
+            return False
+
+        linha = len(self.matriz)
+        visitado = visitado_aux = [None] * linha
+        visitado_aux = self.dfs_util(indice, [])
+
+        for v, i in enumerate(visitado_aux):
+            visitado[v] = visitado_aux[v]
+        
+        print('\n\tO caminhamento em profundidade do vértice é:')
+        print(f'\n\t{visitado}')
+
+        return True
+
+    
+    def dfs_util(self, indice, visitado):
+        if indice not in visitado:
+            visitado.append(indice)
+            for v, i in enumerate(self.matriz[indice]):
+                if i == 1:
+                    self.dfs_util(v, visitado)
+
+        return visitado
 
 
     def gera_aleatorio(self, tamanho):
