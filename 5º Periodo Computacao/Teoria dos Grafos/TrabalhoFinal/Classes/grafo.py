@@ -11,13 +11,13 @@ class Grafo:
         self.predecessor = [None] * 0
 
     
-    def mostra_dados(self):
+    def mostra_dados(self, matriz):
         """Mostra o grafo na tela."""
-        linha = coluna = len(self.matriz)
+        linha = coluna = len(matriz)
         print()
         for l in range(linha):
             for c in range(coluna):
-                print(self.matriz[l][c], end='\t')
+                print(matriz[l][c], end='\t')
             print()
         print('\n')
 
@@ -93,6 +93,20 @@ class Grafo:
                 print('\t', matriz_aux[l][c], end='')
             print()
         print('\n')
+
+
+    def num_componentes(self):
+        linha = len(self.matriz)
+        visitado = self.dfs(0)
+        print(visitado)
+        num = 1
+
+        for v, i in enumerate(visitado):
+            if v not in visitado:
+                if i == None:
+                    num += 1
+                visitado = self.dfs(v)
+        return num
 
 
     def checa_arvore(self):
@@ -196,11 +210,8 @@ class Grafo:
 
         for v, i in enumerate(visitado_aux):
             visitado[v] = visitado_aux[v]
-        
-        print('\n\tO caminhamento em profundidade do vértice é:')
-        print(f'\n\t{visitado}')
 
-        return True
+        return visitado
 
     
     def dfs_util(self, indice, visitado):
@@ -211,6 +222,55 @@ class Grafo:
                     self.dfs_util(v, visitado)
 
         return visitado
+
+
+    def gera_dijkstra(self):
+        linha = coluna = len(self.matriz)
+        matriz_dijkstra = [[0]*(linha) for i in range(coluna)]
+
+        for l in range(linha):
+            for c in range(coluna):
+                matriz_dijkstra[l][c] = self.matriz[l][c]
+                if matriz_dijkstra[l][c] == 1:  # troca onde for 1 por um peso aleatório
+                    matriz_dijkstra[l][c] = randint(0, 100)
+                    matriz_dijkstra[c][l] = matriz_dijkstra[l][c]
+
+        return matriz_dijkstra
+
+
+    def dijkstra(self, inicio, fim):
+        matriz_dijkstra = self.gera_dijkstra()
+        linha = len(matriz_dijkstra)
+
+        distancia = [999] * linha
+        self.predecessor = [None] * linha
+
+        distancia[inicio] = 0
+        fila = []
+        visitado = []
+        fila = self.vertices
+        min_distancia = []
+        min_extract = -1
+        
+        while len(fila):
+            for i in range(linha):
+                print(i, distancia[i], min(distancia))
+                if distancia[i] == min(distancia) and distancia[i] not in min_distancia:
+                    min_distancia.append(distancia[i])
+                    min_extract = i
+                print(min_extract)
+
+            u = fila.pop(min_extract)
+            visitado.append(u)
+            for v, i in enumerate(matriz_dijkstra[u]):
+                print(matriz_dijkstra[u][v])
+                if distancia[v] > (distancia[u] + matriz_dijkstra[u][v]):
+                    distancia[v] = distancia[u] + matriz_dijkstra[u][v]
+            
+
+
+
+
 
 
     def gera_aleatorio(self, tamanho):
