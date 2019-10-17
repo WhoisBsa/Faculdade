@@ -1,6 +1,9 @@
 #! python3
 # coding: utf-8
 
+"""Matheus Barbosa Souza e Rafael Sidnei"""
+
+
 from random import randint
 
 
@@ -10,10 +13,10 @@ class Grafo:
         self.matriz = [[0]*0 for i in range(0)]
         self.predecessor = [None] * 0
 
-    
+
     def mostra_dados(self, matriz):
         """Mostra o grafo na tela."""
-        
+
         linha = coluna = len(matriz)
         print()
         for l in range(linha):

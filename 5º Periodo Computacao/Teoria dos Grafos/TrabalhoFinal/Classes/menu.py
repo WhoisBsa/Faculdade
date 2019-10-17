@@ -1,17 +1,25 @@
 #! python3
 # coding: utf-8
 
+"""Matheus Barbosa Souza e Rafael Sidnei"""
+
 
 import subprocess as sp
 
 
 class Menu:
-    def mostra_menu(self, g):
-        self.vertice = 0
-        self.op = -1
+    """Classe menu"""
 
-        while self.op != 0:
-            g.mostra_dados(g.matriz)
+    def __init__(self):
+        self.vertice = 0
+        self.opcao = -1
+
+
+    def mostra_menu(self, grafo):
+        """Mostrar o menu com todas as opcoes na tela"""
+
+        while self.opcao != 0:
+            grafo.mostra_dados(grafo.matriz)
             print('\t', end='')
             print('='*34)
             print('\t=', f'{"Menu":^30}', '=')
@@ -33,20 +41,20 @@ class Menu:
 
             while True:
                 try:
-                    self.op = int(input('\tOpção: '))
+                    self.opcao = int(input('\tOpção: '))
                     break
                 except (TypeError, ValueError):
                     print('\tOpção inválida, tente novamente!')
-                
+
             print()
 
 
-            if self.op == 1:
-                g.inserir_vertice(self.vertice)
+            if self.opcao == 1:
+                grafo.inserir_vertice(self.vertice)
                 self.vertice += 1
 
 
-            elif self.op == 2:
+            elif self.opcao == 2:
                 while True:
                     try:
                         inicio = int(input('\t\t1º vértice: '))
@@ -54,39 +62,39 @@ class Menu:
                         break
                     except (TypeError, ValueError):
                         print('\t\tValor inválido, tente novamente!\n')
-                
-                if g.inserir_aresta(inicio, fim):
+
+                if grafo.inserir_aresta(inicio, fim):
                     print(f'\n\t\tArestas adicionadas. Vértices: {{{inicio}, {fim}}}')
                 else:
                     print('\n\t\tNão foi possível adicionar aresta.')
 
 
-            elif self.op == 3:
+            elif self.opcao == 3:
                 if self.vertice == 0:
                     print('\t\tNenhum grafo existente, crie um.')
-                elif g.checa_completo():
+                elif grafo.checa_completo():
                     print('\t\tO seu grafo é completo.')
                 else:
                     print('\t\tO seu grafo não é completo.')
 
 
-            elif self.op == 4:
+            elif self.opcao == 4:
                 print('\n\tGrafo complementar:')
-                g.complementar()
+                grafo.complementar()
 
 
-            elif self.op == 5:
-                print(f'\t\tO grafo possui {g.num_componentes()} componentes')
+            elif self.opcao == 5:
+                print(f'\t\tO grafo possui {grafo.num_componentes()} componentes')
 
 
-            elif self.op == 6:
-                if g.checa_arvore():
+            elif self.opcao == 6:
+                if grafo.checa_arvore():
                     print('\t\tSeu grafo é uma árvore!')
                 else:
                     print('\t\tSeu grafo não é uma árvore!')
 
 
-            elif self.op == 7:
+            elif self.opcao == 7:
                 while True:
                     try:
                         indice = int(input('\t\tÍndice: '))
@@ -94,13 +102,13 @@ class Menu:
                     except (TypeError, ValueError):
                         print('\t\tValor inválido, use apenas números!\n')
 
-                if g.busca_largura(indice):
+                if grafo.busca_largura(indice):
                     pass
                 else:
                     print('\t\tVértice inesistente!')
 
 
-            elif self.op == 8:
+            elif self.opcao == 8:
                 while True:
                     try:
                         indice = int(input('\t\tÍndice: '))
@@ -108,14 +116,14 @@ class Menu:
                     except (TypeError, ValueError):
                         print('\t\tValor inválido, use apenas números!\n')
 
-                if g.dfs(indice):
+                if grafo.dfs(indice):
                     print('\n\tO caminhamento em profundidade do vértice é:')
-                    print(f'\n\t{g.dfs(indice)}')
+                    print(f'\n\t{grafo.dfs(indice)}')
                 else:
                     print('\t\tVértice inesistente!')
 
 
-            elif self.op == 9:
+            elif self.opcao == 9:
                 while True:
                     try:
                         inicio = int(input('\t\t1º vértice: '))
@@ -123,11 +131,11 @@ class Menu:
                         break
                     except (TypeError, ValueError):
                         print('\t\tValor inválido, tente novamente!\n')
-                
-                g.dijkstra(inicio, fim)
+
+                grafo.dijkstra(inicio, fim)
 
 
-            elif self.op == 10:
+            elif self.opcao == 10:
                 while True:
                     try:
                         tamanho = int(input('\tTamanho do grafo: '))
@@ -135,10 +143,8 @@ class Menu:
                     except (TypeError, ValueError):
                         print('\tValor inválido, use apenas números!\n')
 
-                g.gera_aleatorio(tamanho)
-            
-
+                grafo.grafoera_aleatorio(tamanho)
 
 
             input('\n\tPressione ENTER para continuar...')
-            sp.call('clear',shell=True)   
+            sp.call('clear', shell=True)

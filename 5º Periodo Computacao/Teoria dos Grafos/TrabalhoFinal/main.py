@@ -12,6 +12,6 @@ from Classes.grafo import Grafo
 from Classes.menu import Menu
 
 if __name__ == "__main__":
-    g = Grafo()
+    grafo = Grafo()
     m = Menu()
-    m.mostra_menu(g)
+    m.mostra_menu(grafo)
