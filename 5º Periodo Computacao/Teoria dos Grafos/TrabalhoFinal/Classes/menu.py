@@ -116,9 +116,6 @@ class Menu:
 
 
             elif self.op == 9:
-                print('\t\tGerando grafo com pesos...')
-                g.mostra_dados(g.gera_dijkstra())
-
                 while True:
                     try:
                         inicio = int(input('\t\t1º vértice: '))
