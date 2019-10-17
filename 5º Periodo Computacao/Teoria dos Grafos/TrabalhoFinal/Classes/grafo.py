@@ -13,11 +13,12 @@ class Grafo:
     
     def mostra_dados(self, matriz):
         """Mostra o grafo na tela."""
+        
         linha = coluna = len(matriz)
         print()
         for l in range(linha):
             for c in range(coluna):
-                print(matriz[l][c], end='\t')
+                print(f'\t{matriz[l][c]}', end='')
             print()
         print('\n')
 
@@ -66,17 +67,19 @@ class Grafo:
     
     def checa_completo(self):
         """Checa se um grafo é completo ou não."""
+
         linha = coluna = len(self.matriz)
         
         for l in range(linha):
-            for c in range(coluna):
-                if l != c and self.matriz[l][c] == 0:
+            for c in range(l+1, coluna):
+                if self.matriz[l][c] == 0:
                     return False
         return True
 
 
     def complementar(self):
-        """Cria o grafo complementar da matriz"""
+        """Cria o grafo complementar da matriz."""
+
         linha = coluna = len(self.matriz)
         matriz_aux = [[0]*(linha) for i in range(coluna)]
         
@@ -96,9 +99,10 @@ class Grafo:
 
 
     def num_componentes(self):
+        """Função para contar o numero de componentes do grafo."""
+
         linha = len(self.matriz)
         visitado = self.dfs(0)
-        print(visitado)
         num = 1
 
         for v, i in enumerate(visitado):
@@ -110,6 +114,8 @@ class Grafo:
 
 
     def checa_arvore(self):
+        """Função para verificar se o grafo é uma arvore."""
+
         self.busca_largura(0)
         contNONE = 0
         for i in self.predecessor:
@@ -122,6 +128,8 @@ class Grafo:
 
 
     def busca_largura(self, indice):
+        """Busca em largura."""
+
         if not(self.existe_vertice(indice)):
             return False
 
@@ -158,49 +166,10 @@ class Grafo:
         print('\n')
         return True
 
-    """
-    def busca_profundidade(self, indice):
-        if not(self.existe_vertice(indice)):
-            return False
-        
-        linha = len(self.matriz)
-        result = []
-
-        cor = ['BRANCO'] * linha
-        self.predecessor = [None] * linha
-        time = 0
-        for u in range(linha):
-            if cor[u] in 'BRANCO':
-                result = self.busca_profundidade_visit(u, cor, self.predecessor, time)
-        print(result)
-        return True
-
-
-    def busca_profundidade_visit(self, u, cor, predecessor, time):
-        linha = len(self.matriz)
-        tempos = []
-        tempos_finais_iniciais = {}
-
-        cor[u] = 'CINZA'
-        time += 1
-        time1 = time
-        tempos_finais_iniciais['tempo1'] = time1
-
-        for v in range(linha):
-            if cor[v] in 'BRANCO':
-                predecessor[v] = u
-                self.busca_profundidade_visit(v, cor, predecessor, time)
-        cor[u] = 'PRETO'
-        time += 1
-        time2 = time
-        
-        tempos_finais_iniciais['tempo2'] = time2
-        tempos.append(tempos_finais_iniciais.copy())
-        return self.predecessor, tempos 
-        """
-
 
     def dfs(self, indice):
+        """Busca em profundidade."""
+
         if not(self.existe_vertice(indice)):
             return False
 
@@ -215,6 +184,8 @@ class Grafo:
 
     
     def dfs_util(self, indice, visitado):
+        """Função recursiva do algorimo de busta em profundidade."""
+
         if indice not in visitado:
             visitado.append(indice)
             for v, i in enumerate(self.matriz[indice]):
@@ -225,6 +196,8 @@ class Grafo:
 
 
     def gera_dijkstra(self):
+        """Cria o grafo baseado em pesos das arestas."""
+
         linha = coluna = len(self.matriz)
         matriz_dijkstra = [[0]*(linha) for i in range(coluna)]
 
@@ -232,46 +205,91 @@ class Grafo:
             for c in range(coluna):
                 matriz_dijkstra[l][c] = self.matriz[l][c]
                 if matriz_dijkstra[l][c] == 1:  # troca onde for 1 por um peso aleatório
-                    matriz_dijkstra[l][c] = randint(0, 100)
+                    matriz_dijkstra[l][c] = randint(1, 10)
                     matriz_dijkstra[c][l] = matriz_dijkstra[l][c]
 
         return matriz_dijkstra
 
 
+    def minDistancia(self, distancia, visitado):
+        """Função para descobrir a menor distancia entre os vértices."""
+
+        min = 999
+        min_index = 0
+        for v in range(len(self.matriz)):
+            if distancia[v] < min and visitado[v] == False:
+                min = distancia[v]
+                min_index = v
+    
+        return min_index
+
+
     def dijkstra(self, inicio, fim):
+        """Algoritmo de Dijkstra para descobrir o menor caminho."""
+
+        if not(self.existe_vertice(inicio)) or not(self.existe_vertice(fim)):
+            return False
+
         matriz_dijkstra = self.gera_dijkstra()
+        self.mostra_dados(matriz_dijkstra)
         linha = len(matriz_dijkstra)
 
         distancia = [999] * linha
         self.predecessor = [None] * linha
-
         distancia[inicio] = 0
-        fila = []
-        visitado = []
-        fila = self.vertices
-        min_distancia = []
-        min_extract = -1
+        visitado = [False] * linha
         
-        while len(fila):
-            for i in range(linha):
-                print(i, distancia[i], min(distancia))
-                if distancia[i] == min(distancia) and distancia[i] not in min_distancia:
-                    min_distancia.append(distancia[i])
-                    min_extract = i
-                print(min_extract)
-
-            u = fila.pop(min_extract)
-            visitado.append(u)
-            for v, i in enumerate(matriz_dijkstra[u]):
-                print(matriz_dijkstra[u][v])
-                if distancia[v] > (distancia[u] + matriz_dijkstra[u][v]):
-                    distancia[v] = distancia[u] + matriz_dijkstra[u][v]
+        for i in range(linha):
+            u = self.minDistancia(distancia, visitado)
             
+            visitado[u] = True
 
+            for v in range(linha):
+                if matriz_dijkstra[u][v] > 0 and visitado[v] == False and \
+                    distancia[v] > distancia[u] + matriz_dijkstra[u][v]:
+                    distancia[v] = distancia[u] + matriz_dijkstra[u][v]
+                    self.predecessor[v] = u
 
+        self.mostra_dijkstra(distancia, inicio, fim)
 
+    
+    def mostra_dijkstra(self, distancia, inicio, fim):
+        """Mostra o resultado de todo o algoritmo de Dijkstra."""
 
+        linha = len(self.matriz)
+        caminho = []
 
+        print(f'\t\t{"Vértices":<15}', end='')
+        for i in range(linha):
+            print(f'\tV{i}', end='')
+
+        print(f'\n\t\t{"Predecessores:":<15}', end='')
+        for l in range(linha):
+            print(f'\t{self.predecessor[l]}', end='')
+
+        print(f'\n\t\t{"Distância:":<15}', end='')
+        for l in range(linha):
+            print(f'\t{distancia[l]}', end='')
+        print()
+
+        fimaux = fim
+        caminho.append(fim)
+
+        while True:
+            if self.predecessor[fimaux] != None:
+                pred = self.predecessor[fimaux]
+                caminho.append(pred)
+                fimaux = pred
+                if pred == inicio:
+                    break
+            else:
+                caminho.append(f'Impossivel chegar até')
+                break
+                
+        print(f'\n\t\tCaminho de {inicio} até {fim}: ', end='')
+        print(caminho[::-1])
+        print(f'\n\t\tDistância de {inicio} até {fim}: {distancia[fim]}')
+      
 
     def gera_aleatorio(self, tamanho):
         """Função para gerar um grafo aleatório.\n
