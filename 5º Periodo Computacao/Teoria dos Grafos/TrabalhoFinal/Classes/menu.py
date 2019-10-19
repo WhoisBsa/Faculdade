@@ -12,30 +12,31 @@ class Menu:
 
     def __init__(self):
         self.vertice = 0
-        self.opcao = -1
+        self.opcao = 0
 
 
     def mostra_menu(self, grafo):
         """Mostrar o menu com todas as opcoes na tela"""
 
-        while self.opcao != 0:
+        while self.opcao != -1:
             grafo.mostra_dados(grafo.matriz)
             print('\t', end='')
             print('='*34)
             print('\t=', f'{"Menu":^30}', '=')
             print('\t', end='')
             print('='*34)
-            print(f'\t| {"1 - Inserir vertice":<30}', '|')
-            print(f'\t| {"2 - Inserir aresta":<30}', '|')
-            print(f'\t| {"3 - Seu grafo é completo?":<30}', '|')
-            print(f'\t| {"4 - Gerar grafo complementar":<30}', '|')
-            print(f'\t| {"5 - Número de componentes":<30}', '|')
-            print(f'\t| {"6 - Seu grafo é uma árvore?":<30}', '|')
-            print(f'\t| {"7 - Busca em largura":<30}', '|')
-            print(f'\t| {"8 - Busca em profundidade":<30}', '|')
-            print(f'\t| {"9 - Algoritmo de Dijkstra":<30}', '|')
+            print(f'\t| {"01 - Inserir vertice":<30}', '|')
+            print(f'\t| {"02 - Inserir aresta":<30}', '|')
+            print(f'\t| {"03 - Seu grafo é completo?":<30}', '|')
+            print(f'\t| {"04 - Gerar grafo complementar":<30}', '|')
+            print(f'\t| {"05 - Número de componentes":<30}', '|')
+            print(f'\t| {"06 - Seu grafo é uma árvore?":<30}', '|')
+            print(f'\t| {"07 - Busca em largura":<30}', '|')
+            print(f'\t| {"08 - Busca em profundidade":<30}', '|')
+            print(f'\t| {"09 - Algoritmo de Dijkstra":<30}', '|')
             print(f'\t| {"10 - Gerar grafo aleatório":<30}', '|')
-            print(f'\t| {"0 - Sair":<30}', '|')
+            print(f'\t| {"11 - Visualizar grafo":<30}', '|')
+            print(f'\t| {"-1 - Sair":<30}', '|')
             print('\t', end='')
             print('='*34)
 
@@ -144,6 +145,13 @@ class Menu:
                         print('\tValor inválido, use apenas números!\n')
 
                 grafo.grafoera_aleatorio(tamanho)
+
+
+            elif self.opcao == 11:
+                if grafo.grafo_visual():
+                    pass
+                else:
+                    print('\t\tGrafo sem nenhum vertice.')
 
 
             input('\n\tPressione ENTER para continuar...')
