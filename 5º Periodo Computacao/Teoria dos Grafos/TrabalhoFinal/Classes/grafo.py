@@ -344,4 +344,3 @@ class Grafo:
             img.show()
 
         return True
-                
