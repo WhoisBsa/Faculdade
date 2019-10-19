@@ -5,6 +5,8 @@
 
 
 from random import randint
+import pygraphviz as pgv
+from PIL import Image
 
 
 class Grafo:
@@ -312,3 +314,34 @@ class Grafo:
                 print(f'\t{matriz[l][c]}', end='')
             print()
         print('\n')
+
+
+    def grafo_visual(self):
+        interface_grafo = pgv.AGraph()
+        interface_grafo.graph_attr['label'] = '\nTeoria dos Grafos\nMatheus Barbosa e Rafael Sidnei'
+        interface_grafo.graph_attr['dpi'] = 200
+        interface_grafo.node_attr['shape']  = 'circle'
+
+        
+        linha = coluna = len(self.matriz)
+
+        if linha == 0:
+            return False
+
+        [interface_grafo.add_node(x) for x in range(linha)]
+
+        for l in range(linha):
+            for c in range(l+1, coluna):
+                if self.matriz[l][c] == 1:  # troca onde for 1 por um peso aleatório
+                    interface_grafo.add_edge(l, c)
+
+        interface_grafo.layout(prog='dot')
+        interface_grafo.write('Imagens/grafo.dot')
+        interface_grafo.draw('Imagens/grafo.png')
+
+        
+        with Image.open('Imagens/grafo.png') as img:
+            img.show()
+
+        return True
+                
