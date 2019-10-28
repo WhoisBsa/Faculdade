@@ -5,6 +5,7 @@
 
 
 import subprocess as sp
+from PIL import Image
 
 
 class Menu:
@@ -149,9 +150,15 @@ class Menu:
 
             elif self.opcao == 11:
                 if grafo.grafo_visual():
-                    pass
+                    with Image.open('/home/matheus/Documentos/Faculdade/5º Periodo Computacao/' +
+                    'Teoria dos Grafos/TrabalhoFinal/Imagens/grafo.png') as img:
+                        img.show()
                 else:
                     print('\t\tGrafo sem nenhum vertice.')
+
+
+            elif self.opcao != -1:
+                print('\t\tOpção inválida!')
 
 
             input('\n\tPressione ENTER para continuar...')
