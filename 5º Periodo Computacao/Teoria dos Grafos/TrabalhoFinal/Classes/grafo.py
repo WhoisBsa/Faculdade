@@ -5,8 +5,11 @@
 
 
 from random import randint
+from time import sleep
+import glob
+import imageio
 import pygraphviz as pgv
-from PIL import Image
+from PIL import Image, ImageSequence
 
 
 class Grafo:
@@ -139,6 +142,29 @@ class Grafo:
             return False
 
         linha = len(self.matriz)
+        f = 1
+
+
+        # Criando grafo para executar a busa em largura
+        grafoV = self.grafo_visual()
+        sleep(1)
+        node = grafoV.get_node(indice)
+        node.attr['fillcolor'] = 'gray'
+
+        for i in range(linha):
+            node = grafoV.get_node(i)
+            if i == indice:
+                node.attr['label'] = '0'
+            else:
+                node.attr['label'] = '∞'
+            node.attr['fontcolor'] = 'crimson'
+
+        filename = f'grafo{f}.png'
+        grafoV.layout(prog='dot')
+        
+        grafoV.draw('/home/matheus/Documentos/Faculdade/5º Periodo Computacao/' +
+        'Teoria dos Grafos/TrabalhoFinal/Imagens/' + filename)
+
 
         cor = ['BRANCO'] * linha
         distancia = [999] * linha
@@ -152,6 +178,9 @@ class Grafo:
 
         while len(fila):
             u = fila.pop(0)
+            node = grafoV.get_node(u)
+            f += 1
+
             for v, i in enumerate(self.matriz[u]):
                 if i == 1:
                     if cor[v] in 'BRANCO':
@@ -159,9 +188,29 @@ class Grafo:
                         distancia[v] = distancia[u] + 1
                         self.predecessor[v] = u
                         fila.append(v)
+
+                        f += 1
+                        node = grafoV.get_node(v)
+                        node.attr['fillcolor'] = 'gray'
+
+                        filename = f'grafo{f}.png'
+                        grafoV.layout(prog='dot')
+                       
+                        grafoV.draw('/home/matheus/Documentos/Faculdade/5º Periodo Computacao/' +
+                        'Teoria dos Grafos/TrabalhoFinal/Imagens/' + filename)
+
+
+            cor[u] = 'PRETO'
+            node = grafoV.get_node(u)
+            node.attr['fillcolor'] = 'black'
+
+            filename = f'grafo{f}.png'
+            grafoV.layout(prog='dot')
             
-            cor[indice] = 'PRETO'
-        
+            grafoV.draw('/home/matheus/Documentos/Faculdade/5º Periodo Computacao/' +
+            'Teoria dos Grafos/TrabalhoFinal/Imagens/' + filename)           
+
+
         print('\n\tPredecessores:\n')
         for i in range(linha):
             print(f'\tV{i}', end='')
@@ -169,6 +218,21 @@ class Grafo:
         for pi in self.predecessor:
             print(f'\t{pi}', end='')
         print('\n')
+
+        path = '/home/matheus/Documentos/Faculdade/5º Periodo Computacao/Teoria dos Grafos/TrabalhoFinal/Imagens/'
+
+        files = [f for f in glob.glob(path + "**/*.png", recursive=True)]
+
+
+        images = []
+        kargs = { 'duration': 2 }
+        for filename in files[::-1]:
+            images.append(imageio.imread(filename))
+
+        imageio.mimsave('/home/matheus/Documentos/Faculdade/5º Periodo Computacao/' +
+            'Teoria dos Grafos/TrabalhoFinal/Imagens/grafo.gif', images, 'GIF', **kargs)
+
+
         return True
 
 
@@ -320,7 +384,11 @@ class Grafo:
         interface_grafo = pgv.AGraph()
         interface_grafo.graph_attr['label'] = '\nTeoria dos Grafos\nMatheus Barbosa e Rafael Sidnei'
         interface_grafo.graph_attr['dpi'] = 200
+        interface_grafo.graph_attr['bgcolor'] = 'mediumturquoise'
         interface_grafo.node_attr['shape']  = 'circle'
+        interface_grafo.node_attr['style']  = 'filled'
+        interface_grafo.node_attr['fillcolor']  = 'white'
+        interface_grafo.node_attr['fontcolor']  = 'white'
 
         
         linha = coluna = len(self.matriz)
@@ -328,19 +396,18 @@ class Grafo:
         if linha == 0:
             return False
 
-        [interface_grafo.add_node(x) for x in range(linha)]
+        [interface_grafo.add_node(x, xlabel = f'V{x}') for x in range(linha)]
 
         for l in range(linha):
             for c in range(l+1, coluna):
-                if self.matriz[l][c] == 1:  # troca onde for 1 por um peso aleatório
+                if self.matriz[l][c] == 1:
                     interface_grafo.add_edge(l, c)
 
         interface_grafo.layout(prog='dot')
-        interface_grafo.write('Imagens/grafo.dot')
-        interface_grafo.draw('Imagens/grafo.png')
+        interface_grafo.write('/home/matheus/Documentos/Faculdade/5º Periodo Computacao' +
+        '/Teoria dos Grafos/TrabalhoFinal/Imagens/grafo.dot')
 
-        
-        with Image.open('Imagens/grafo.png') as img:
-            img.show()
+        interface_grafo.draw('/home/matheus/Documentos/Faculdade/5º Periodo Computacao/' +
+        'Teoria dos Grafos/TrabalhoFinal/Imagens/grafo.png')
 
-        return True
+        return interface_grafo
