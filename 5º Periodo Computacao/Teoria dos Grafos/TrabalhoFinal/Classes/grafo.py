@@ -6,7 +6,7 @@
 
 from random import randint
 from time import sleep
-import glob
+import glob, os
 import imageio
 import pygraphviz as pgv
 from PIL import Image, ImageSequence
@@ -142,7 +142,7 @@ class Grafo:
             return False
 
         linha = len(self.matriz)
-        f = 1
+        f = 10
 
 
         # Criando grafo para executar a busa em largura
@@ -191,7 +191,10 @@ class Grafo:
 
                         f += 1
                         node = grafoV.get_node(v)
+                        edge = grafoV.get_edge(u, v)
                         node.attr['fillcolor'] = 'gray'
+                        node.attr['label'] = f'{distancia[v]}'
+                        edge.attr['color'] = 'crimson'
 
                         filename = f'grafo{f}.png'
                         grafoV.layout(prog='dot')
@@ -199,7 +202,7 @@ class Grafo:
                         grafoV.draw('/home/matheus/Documentos/Faculdade/5º Periodo Computacao/' +
                         'Teoria dos Grafos/TrabalhoFinal/Imagens/' + filename)
 
-
+            f += 1
             cor[u] = 'PRETO'
             node = grafoV.get_node(u)
             node.attr['fillcolor'] = 'black'
@@ -221,13 +224,15 @@ class Grafo:
 
         path = '/home/matheus/Documentos/Faculdade/5º Periodo Computacao/Teoria dos Grafos/TrabalhoFinal/Imagens/'
 
-        files = [f for f in glob.glob(path + "**/*.png", recursive=True)]
+        files = [f for f in glob.glob(path + "*.png", recursive=True)]
 
-
+        files.sort()
         images = []
         kargs = { 'duration': 2 }
-        for filename in files[::-1]:
+        for filename in files:
             images.append(imageio.imread(filename))
+            os.remove(filename)
+
 
         imageio.mimsave('/home/matheus/Documentos/Faculdade/5º Periodo Computacao/' +
             'Teoria dos Grafos/TrabalhoFinal/Imagens/grafo.gif', images, 'GIF', **kargs)
