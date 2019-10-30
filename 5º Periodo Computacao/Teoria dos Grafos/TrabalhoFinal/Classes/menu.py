@@ -111,18 +111,17 @@ class Menu:
 
 
             elif self.opcao == 8:
-                while True:
-                    try:
-                        indice = int(input('\t\tÍndice: '))
-                        break
-                    except (TypeError, ValueError):
-                        print('\t\tValor inválido, use apenas números!\n')
-
-                if grafo.dfs(indice):
-                    print('\n\tO caminhamento em profundidade do vértice é:')
-                    print(f'\n\t{grafo.dfs(indice)}')
+                if grafo.dfs():
+                    predecessor = grafo.dfs()
+                    print('\n\tPredecessores:\n')
+                    for i in range(self.vertice):
+                        print(f'\tV{i}', end='')
+                    print()
+                    for pi in predecessor:
+                        print(f'\t{pi}', end='')
+                    print('\n')
                 else:
-                    print('\t\tVértice inesistente!')
+                    print('\t\tVértices inesistentes!')
 
 
             elif self.opcao == 9:

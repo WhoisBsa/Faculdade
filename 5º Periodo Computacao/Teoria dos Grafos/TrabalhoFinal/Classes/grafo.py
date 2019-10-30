@@ -5,11 +5,10 @@
 
 
 from random import randint
-from time import sleep
 import glob, os
 import imageio
 import pygraphviz as pgv
-from PIL import Image, ImageSequence
+from PIL import Image
 
 
 class Grafo:
@@ -109,16 +108,9 @@ class Grafo:
     def num_componentes(self):
         """Função para contar o numero de componentes do grafo."""
 
-        linha = len(self.matriz)
-        visitado = self.dfs(0)
-        num = 1
+        visitado = self.dfs()
 
-        for v, i in enumerate(visitado):
-            if v not in visitado:
-                if i == None:
-                    num += 1
-                visitado = self.dfs(v)
-        return num
+        return visitado.count(None)
 
 
     def checa_arvore(self):
@@ -147,7 +139,6 @@ class Grafo:
 
         # Criando grafo para executar a busa em largura
         grafoV = self.grafo_visual()
-        sleep(1)
         node = grafoV.get_node(indice)
         node.attr['fillcolor'] = 'gray'
 
@@ -222,9 +213,10 @@ class Grafo:
             print(f'\t{pi}', end='')
         print('\n')
 
-        path = '/home/matheus/Documentos/Faculdade/5º Periodo Computacao/Teoria dos Grafos/TrabalhoFinal/Imagens/'
+        path = ('/home/matheus/Documentos/Faculdade/5º Periodo Computacao/' +
+        'Teoria dos Grafos/TrabalhoFinal/Imagens/')
 
-        files = [f for f in glob.glob(path + "*.png", recursive=True)]
+        files = [f for f in glob.glob(path + "*.png")]
 
         files.sort()
         images = []
@@ -233,40 +225,45 @@ class Grafo:
             images.append(imageio.imread(filename))
             os.remove(filename)
 
-
         imageio.mimsave('/home/matheus/Documentos/Faculdade/5º Periodo Computacao/' +
             'Teoria dos Grafos/TrabalhoFinal/Imagens/grafo.gif', images, 'GIF', **kargs)
-
 
         return True
 
 
-    def dfs(self, indice):
+    def dfs(self):
         """Busca em profundidade."""
 
-        if not(self.existe_vertice(indice)):
-            return False
+        linha = coluna = len(self.matriz)
+        cor = ['BRANCO'] * linha
+        self.predecessor = [None] * linha
+        time = 0
+        d = [None] * len(self.matriz)
+        f = [None] * len(self.matriz)
+        for u in self.vertices:
+            if cor[u] in 'BRANCO':
+                self.dfs_util(u, cor, time, d, f)
 
-        linha = len(self.matriz)
-        visitado = visitado_aux = [None] * linha
-        visitado_aux = self.dfs_util(indice, [])
+        return self.predecessor
 
-        for v, i in enumerate(visitado_aux):
-            visitado[v] = visitado_aux[v]
-
-        return visitado
-
-    
-    def dfs_util(self, indice, visitado):
+    def dfs_util(self, u, cor, time, d, f):
         """Função recursiva do algorimo de busta em profundidade."""
 
-        if indice not in visitado:
-            visitado.append(indice)
-            for v, i in enumerate(self.matriz[indice]):
-                if i == 1:
-                    self.dfs_util(v, visitado)
+        linha = coluna = len(self.matriz)
+        cor[u] = 'CINZA'
+        time += 1
+        d[u] = time
 
-        return visitado
+        for v, i in enumerate(self.matriz[u]):
+            if i == 1:
+                if cor[v] in 'BRANCO':
+                    self.predecessor[v] = u
+                    self.dfs_util(v, cor, time, d, f)
+        cor[u] = 'PRETO'
+        time += 1
+        f[u] = time
+
+        return self.predecessor, d, f, cor
 
 
     def gera_dijkstra(self):
