@@ -112,13 +112,27 @@ class Menu:
 
             elif self.opcao == 8:
                 if grafo.dfs():
-                    predecessor = grafo.dfs()
+                    predecessor, tempo1, tempo2 = grafo.dfs()
                     print('\n\tPredecessores:\n')
                     for i in range(self.vertice):
                         print(f'\tV{i}', end='')
                     print()
                     for pi in predecessor:
                         print(f'\t{pi}', end='')
+                    print('\n')
+                    print('\n\tTempo inicial:\n')
+                    for i in range(self.vertice):
+                        print(f'\tV{i}', end='')
+                    print()
+                    for d in tempo1:
+                        print(f'\t{d}', end='')
+                    print('\n')
+                    print('\n\tTempo final::\n')
+                    for i in range(self.vertice):
+                        print(f'\tV{i}', end='')
+                    print()
+                    for f in tempo2:
+                        print(f'\t{f}', end='')
                     print('\n')
                 else:
                     print('\t\tVértices inesistentes!')
