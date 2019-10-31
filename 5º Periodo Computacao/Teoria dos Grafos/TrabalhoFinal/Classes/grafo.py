@@ -16,6 +16,7 @@ class Grafo:
         self.vertices = []
         self.matriz = [[0]*0 for i in range(0)]
         self.predecessor = [None] * 0
+        self.time = 0
 
 
     def mostra_dados(self, matriz):
@@ -108,21 +109,21 @@ class Grafo:
     def num_componentes(self):
         """Função para contar o numero de componentes do grafo."""
 
-        visitado = self.dfs()
+        componentes = self.dfs()
 
-        return visitado.count(None)
+        return componentes.count(None)
 
 
     def checa_arvore(self):
         """Função para verificar se o grafo é uma arvore."""
 
-        self.busca_largura(0)
-        contNONE = 0
-        for i in self.predecessor:
-            if i == None:
-                contNONE += 1
-            if contNONE > 1:
-                return False
+        componentes, _, _ = self.dfs()
+
+        if componentes.count(None) > 1:
+            return False
+
+        # checar se há ciclos
+        
         
         return True
 
@@ -237,31 +238,32 @@ class Grafo:
         linha = coluna = len(self.matriz)
         cor = ['BRANCO'] * linha
         self.predecessor = [None] * linha
-        time = 0
         d = [None] * len(self.matriz)
         f = [None] * len(self.matriz)
         for u in self.vertices:
             if cor[u] in 'BRANCO':
-                self.dfs_util(u, cor, time, d, f)
+                self.dfs_util(u, cor, d, f)
 
-        return self.predecessor
+        self.time = 0
 
-    def dfs_util(self, u, cor, time, d, f):
+        return self.predecessor, d, f
+
+    def dfs_util(self, u, cor, d, f):
         """Função recursiva do algorimo de busta em profundidade."""
 
         linha = coluna = len(self.matriz)
         cor[u] = 'CINZA'
-        time += 1
-        d[u] = time
+        self.time += 1
+        d[u] = self.time
 
         for v, i in enumerate(self.matriz[u]):
             if i == 1:
                 if cor[v] in 'BRANCO':
                     self.predecessor[v] = u
-                    self.dfs_util(v, cor, time, d, f)
+                    self.dfs_util(v, cor, d, f)
         cor[u] = 'PRETO'
-        time += 1
-        f[u] = time
+        self.time += 1
+        f[u] = self.time
 
         return self.predecessor, d, f, cor
 
