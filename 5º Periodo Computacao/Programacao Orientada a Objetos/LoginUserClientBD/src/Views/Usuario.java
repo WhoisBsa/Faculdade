@@ -213,12 +213,16 @@ public class Usuario extends javax.swing.JFrame {
     private void btnDelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDelActionPerformed
         String id = txtId.getText();
         
-        String result = cliente.delete(id);
+        int input = JOptionPane.showConfirmDialog(rootPane, "Deseja mesmo excluir?", "Excluir", JOptionPane.YES_NO_OPTION);
         
-        if(result != null)
-                JOptionPane.showMessageDialog(rootPane, result);
-        else
-            JOptionPane.showMessageDialog(rootPane, "Houve algum erro de conexão, tente novamente!");
+        if(input == 0) {
+           String result = cliente.delete(id);
+
+           if(result != null)
+                   JOptionPane.showMessageDialog(rootPane, result);
+           else
+               JOptionPane.showMessageDialog(rootPane, "Houve algum erro de conexão, tente novamente!");  
+        }
     }//GEN-LAST:event_btnDelActionPerformed
 
     private void btnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditActionPerformed
@@ -235,17 +239,22 @@ public class Usuario extends javax.swing.JFrame {
 
     private void btnVizuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVizuActionPerformed
         String id = txtId.getText();
-        ResultSet rs = cliente.litar(id);
         
-        try {
-            while(rs.next()) {
-                JOptionPane.showMessageDialog(rootPane, "Nome: " + rs.getString("nome") + 
-                        "\nCPF: " + rs.getString("cpf") + "\nIdade: " + rs.getString("idade") + 
-                        "\nEndereço: " + rs.getString("endereco") + "\nTelefone: " + rs.getString("tel"));
+        if(cliente.checaId(id)){
+            ResultSet rs = cliente.litar(id);
+
+            try {
+                while(rs.next()) {
+                    JOptionPane.showMessageDialog(rootPane, "Nome: " + rs.getString("nome") + 
+                            "\nCPF: " + rs.getString("cpf") + "\nIdade: " + rs.getString("idade") + 
+                            "\nEndereço: " + rs.getString("endereco") + "\nTelefone: " + rs.getString("tel"));
+                }
+            } catch (SQLException ex) {
+                System.out.println(ex);
+                JOptionPane.showMessageDialog(rootPane, "Houve algum erro de conexão, tente novamente!");
             }
-        } catch (SQLException ex) {
-            System.out.println(ex);
-            JOptionPane.showMessageDialog(rootPane, "Houve algum erro de conexão, tente novamente!");
+        } else {
+            JOptionPane.showMessageDialog(rootPane, "Id inexistente!");
         }
     }//GEN-LAST:event_btnVizuActionPerformed
 
