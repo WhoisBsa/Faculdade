@@ -1,0 +1,33 @@
+				Exercício 17
+
+Hemílio Lauro e Matheus Barbosa - 5º Período.
+
+
+1) L1 = {w {0, 1}* | a soma dos símbolos de w é múltiplo de 3}
+
+	S → A1A1A1AS | ? 
+	A → 0 | ?
+
+
+2) L2 = {w.v {0, 1}* | w possui o substring 000 e v começa com 00 e termina com 11}
+
+	S → A000A00A11
+	A → 0A | 1A | ?
+
+
+3) L3 = {w {a, b}* | w possui a no início e b no final ou possui o substring bb}
+
+	S → aAb | bbA
+	A → aA | bA | ?
+
+
+4) L4 = {w1.w2.w3...wn {0, 1, 2}* | cada w possui a sequência 222, n >= 0}
+
+	S → A222AS | ?
+	A → 0A | 1A | 2A
+
+
+5) L5 = {w {a, b, c}* | onde o conjunto das cadeias de caracteres sobre o alfabeto não contém aa}
+
+	S → AS | ?
+	A → a | bA | cA
