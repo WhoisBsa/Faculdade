@@ -109,7 +109,7 @@ class Grafo:
     def num_componentes(self):
         """Função para contar o numero de componentes do grafo."""
 
-        componentes = self.dfs()
+        componentes, _, _ = self.dfs()
 
         return componentes.count(None)
 
@@ -117,15 +117,34 @@ class Grafo:
     def checa_arvore(self):
         """Função para verificar se o grafo é uma arvore."""
 
-        componentes, _, _ = self.dfs()
-
-        if componentes.count(None) > 1:
+        if self.num_componentes() > 1:
             return False
-
-        # checar se há ciclos
         
+        linha = len(self.matriz)
+        visitado = [False] * linha
+
+        for i in range(linha):
+            if visitado[i] == False:
+                if self.isCicle(i, visitado, -1):
+                    return False
         
         return True
+
+
+    def isCicle(self, u, visitado, visinho):
+        """Função recursiva para verificar se há ciclo no grafo"""
+
+        visitado[u] = True
+
+        for v, i in enumerate(self.matriz[u]):
+            if i == 1:
+                if not visitado[v]:
+                    if self.isCicle(v, visitado, u):
+                        return True
+                elif visinho != v:
+                    return True
+
+        return False
 
 
     def busca_largura(self, indice):
@@ -247,6 +266,7 @@ class Grafo:
         self.time = 0
 
         return self.predecessor, d, f
+
 
     def dfs_util(self, u, cor, d, f):
         """Função recursiva do algorimo de busta em profundidade."""
