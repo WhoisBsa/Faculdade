@@ -8,7 +8,6 @@ from random import randint
 import glob, os
 import imageio
 import pygraphviz as pgv
-from PIL import Image
 
 
 class Grafo:
@@ -99,11 +98,7 @@ class Grafo:
                 elif l != c:
                     matriz_aux[l][c] = 1
         print()
-        for l in range(linha):
-            for c in range(coluna):
-                print('\t', matriz_aux[l][c], end='')
-            print()
-        print('\n')
+        self.mostra_dados(matriz_aux)
 
 
     def num_componentes(self):
@@ -397,11 +392,7 @@ class Grafo:
                 
         linha = coluna = len(matriz)
         print()
-        for l in range(linha):
-            for c in range(coluna):
-                print(f'\t{matriz[l][c]}', end='')
-            print()
-        print('\n')
+        self.mostra_dados(matriz)
 
 
     def grafo_visual(self):

@@ -158,7 +158,7 @@ class Menu:
                     except (TypeError, ValueError):
                         print('\tValor inválido, use apenas números!\n')
 
-                grafo.grafoera_aleatorio(tamanho)
+                grafo.gera_aleatorio(tamanho)
 
 
             elif self.opcao == 11:
