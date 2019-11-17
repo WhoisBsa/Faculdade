@@ -4,8 +4,21 @@
 
 # _Arquivos das atividades de todos os semestres._
 
+## [5º Semestre:](https://github.com/WhoisBsa/Faculdade/tree/master/5%C2%BA%20Periodo%20Computacao)
+  >[Legislação e Ética](https://github.com/WhoisBsa/Faculdade/tree/master/5%C2%BA%20Periodo%20Computacao/Legisla%C3%A7%C3%A3o%20e%20%C3%89tica)
+  >
+  >[Programção Orientada a Objetos](https://github.com/WhoisBsa/Faculdade/tree/master/5%C2%BA%20Periodo%20Computacao/Programacao%20Orientada%20a%20Objetos)
+  >
+  >[Teoria da Computação](https://github.com/WhoisBsa/Faculdade/tree/master/5%C2%BA%20Periodo%20Computacao/Teoria%20da%20Computa%C3%A7%C3%A3o)
+  >
+  >[Teoria dos Grafos](https://github.com/WhoisBsa/Faculdade/tree/master/5%C2%BA%20Periodo%20Computacao/Teoria%20dos%20Grafos)
+
 ## [4º Semestre:](https://github.com/WhoisBsa/Faculdade/tree/master/4%C2%BA%20Periodo%20Computacao)
+  >[Algebra Linear](https://github.com/WhoisBsa/Faculdade/tree/master/4%C2%BA%20Periodo%20Computacao/%C3%81lgebra%20Linear)
+  >
   > [Engenharia de Software](https://github.com/WhoisBsa/Faculdade/tree/master/4%C2%BA%20Periodo%20Computacao/Engenharia%20de%20Software)
+  >
+  > [Mineração de Dados](https://github.com/WhoisBsa/Faculdade/tree/master/4%C2%BA%20Periodo%20Computacao/Minera%C3%A7%C3%A3o%20de%20Dados)
   >
   > [Projeto de Interface](https://github.com/WhoisBsa/Faculdade/tree/master/4%C2%BA%20Periodo%20Computacao/Projeto%20de%20Interface)
   >
