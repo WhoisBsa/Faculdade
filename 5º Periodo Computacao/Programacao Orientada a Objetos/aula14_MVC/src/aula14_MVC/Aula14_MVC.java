@@ -3,20 +3,20 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package aula13_loginbd;
+package aula14_MVC;
+
+import views.ViewCadCliente;
 
 /**
  *
  * @author matheus
  */
-public class Aula13_loginbd {
+public class Aula14_MVC {
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        InterfaceLogin login = new InterfaceLogin();
-        
-        login.setVisible(true);
+        new ViewCadCliente().setVisible(true);    
     }
 }
