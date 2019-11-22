@@ -1,9 +1,9 @@
 # !/bin/bash
 
-echo "Instalando arquivos.
-Isso pode demorar um pouco..."
+echo -e "Instalando arquivos.
+Isso pode demorar um pouco...\n\n"
 
-if ! apt-get update -y
+if ! (apt-get update -y)
 then
     echo -e "\n\nNão foi possível atualizar os repositórios. Verifique seu arquivo /etc/apt/sources.list\n\n"
     exit 1
@@ -11,7 +11,7 @@ fi
 echo -e "\n\nAtualização feita com sucesso\n\n"
 
 echo -e "\n\nAtualizando pacotes já instalados\n\n"
-if ! apt-get dist-upgrade -y
+if ! (apt-get dist-upgrade -y)
 then
     echo -e "\n\nNão foi possível atualizar pacotes.\n\n"
     exit 1
