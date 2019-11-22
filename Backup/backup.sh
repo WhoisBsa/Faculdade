@@ -121,11 +121,11 @@ git remote add upstream https://github.com/OsProgramadores/op-desafios
 
 
 # Aliases para o git
-git config --global alias.com     commit
-git config --global alias.s       status
-git config --global alias.pp      push
-git config --global alias.pl      pull
-git config --global alias.graph   log --oneline --graph
+git config --global alias.com commit
+git config --global alias.s status
+git config --global alias.pp push
+git config --global alias.pl pull
+git config --global alias.graph log --oneline --graph
 
 
 # Volta pra HOME
