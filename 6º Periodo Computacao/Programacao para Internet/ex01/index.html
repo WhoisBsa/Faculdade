@@ -3,7 +3,6 @@
 
 <head>
 	<title>LinkNews</title>
-	<!-- Required meta tags -->
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -45,7 +44,7 @@
 					<a class="nav-link  navlink" href="#games">Games <i class="fa fa-gamepad" aria-hidden="true"></i></a>
 				</li>
 				<li class="nav-item ">
-					<a class="nav-link  navlink" href="#cinema">Ciência <i class="fas fa-atom    "></i></a>
+					<a class="nav-link  navlink" href="#ciencia">Ciência <i class="fas fa-atom    "></i></a>
 				</li>
 			</ul>
 		</div>
@@ -55,73 +54,178 @@
 
 	<div class="anchor" id="destaques"></div>
 	<div class="text-white navegadores" style="background-color: #333333;">Destaques</div>
+	
+	<!--Noticias Destaques - Carrousel-->
 	<div class="container mt-2">
 		<div class="row justify-content-md-center">
-			<div class="col-sm-4 align-self-center">
-				<div class="card">
-						<img class="card-img-top" src="images/destaque1.jpg" alt="Card image cap">
-					<div class="card-body">
-						<h4 class="card-title">Físico “desconstrói” Paradoxo do Gato de Schrödinger para explicá-lo</h4>
-						<figcaption class="text-muted small">(Fonte: Smithsonian Magazine / Reprodução)</figcaption>
-					</div>
-					<div class="card-body">
-						<a href="https://www.tecmundo.com.br/ciencia/150681-fisico-desconstroi-paradoxo-gato-schrodinger-explica-lo.htm"
-							target="blank" class="btn btn-secondary">Saiba mais</a>
-					</div>
-				</div>
-			</div>
-			<div class="col-sm-6 align-self-center">
-				<div class="card">
-					<h5 class="card-header">Política</h5>
-					<div class="card-body">
-						<h5 class="card-title">Bolsonaro privilegia gastos com militares no primeiro ano de governo</h5>
-						<p class="card-text">Defesa registra maior reforço de caixa da Esplanada, com R$ 6,3 bi a mais gastos em 2019.</p>
-						<a href="https://www1.folha.uol.com.br/poder/2020/03/bolsonaro-privilegia-gastos-com-militares-no-primeiro-ano-de-governo.shtml" 
-							target="blank" class="btn btn-secondary">Saiba mais</a>
-					</div>
-				</div>
-				<div class="card">
-					<h5 class="card-header">Esportes</h5>
-					<div class="card-body">
-						<h5 class="card-title">FUTEBOL INTERNACIONAL</h5>
-						<p class="card-text">Em Madri, Barcelona tenta se aproveitar de instabilidade do Real.</p>
-						<a href="https://www1.folha.uol.com.br/esporte/2020/02/em-madri-barcelona-tenta-se-aproveitar-de-instabilidade-do-real.shtml"
-						 target="blank" class="btn btn-secondary">Saiba mais</a>
-					</div>
-				</div>
-				<div class="card">
-					<h5 class="card-header">Ciência</h5>
-					<div class="card-body">
-						<h5 class="card-title">Sapo-cururu pode ajudar no combate ao escorpião-amarelo</h5>
-						<p class="card-text">Pesquisa mostra que anfíbio devora aracnídeo com facilidade e não é afetado pelo veneno</p>
-						<a href="https://www1.folha.uol.com.br/ambiente/2020/02/sapo-cururu-pode-ajudar-no-combate-ao-escorpiao-amarelo.shtml"
-						 target="blank" class="btn btn-secondary">Saiba mais</a>
-					</div>
+			<div id="carouselExampleIndicators" class="carousel slide w-100" data-ride="carousel">
+				<ol class="carousel-indicators m-0 p-1 rounded-pill" style="background-color: #333333;">
+					<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+					<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+					<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+				</ol>
+				<div class="carousel-inner" role="listbox">
+				  <div class="carousel-item active">
+						<div class="row justify-content-md-center">
+							<div class="col-sm-4 align-self-center">
+								<div class="card">
+										<img class="card-img-top" src="images/destaque1.jpg" alt="Card image cap">
+									<div class="card-body">
+										<h4 class="card-title">Físico “desconstrói” Paradoxo do Gato de Schrödinger para explicá-lo</h4>
+										<figcaption class="text-muted small">(Fonte: Smithsonian Magazine / Reprodução)</figcaption>
+									</div>
+									<div class="card-body">
+										<a href="https://www.tecmundo.com.br/ciencia/150681-fisico-desconstroi-paradoxo-gato-schrodinger-explica-lo.htm"
+											target="blank" class="btn btn-secondary">Saiba mais</a>
+									</div>
+								</div>
+							</div>
+							<div class="col-sm-6 align-self-center">
+								<div class="card mb-1">
+									<h5 class="card-header">Política</h5>
+									<div class="card-body">
+										<h5 class="card-title">Bolsonaro privilegia gastos com militares no primeiro ano de governo</h5>
+										<p class="card-text">Defesa registra maior reforço de caixa da Esplanada, com R$ 6,3 bi a mais gastos em 2019.</p>
+										<a href="https://www1.folha.uol.com.br/poder/2020/03/bolsonaro-privilegia-gastos-com-militares-no-primeiro-ano-de-governo.shtml" 
+											target="blank" class="btn btn-secondary">Saiba mais</a>
+									</div>
+								</div>
+								<div class="card mb-1">
+									<h5 class="card-header">Esportes</h5>
+									<div class="card-body">
+										<h5 class="card-title">FUTEBOL INTERNACIONAL</h5>
+										<p class="card-text">Em Madri, Barcelona tenta se aproveitar de instabilidade do Real.</p>
+										<a href="https://www1.folha.uol.com.br/esporte/2020/02/em-madri-barcelona-tenta-se-aproveitar-de-instabilidade-do-real.shtml"
+										 target="blank" class="btn btn-secondary">Saiba mais</a>
+									</div>
+								</div>
+								<div class="card mb-5">
+									<h5 class="card-header">Ciência</h5>
+									<div class="card-body">
+										<h5 class="card-title">Sapo-cururu pode ajudar no combate ao escorpião-amarelo</h5>
+										<p class="card-text">Pesquisa mostra que anfíbio devora aracnídeo com facilidade e não é afetado pelo veneno</p>
+										<a href="https://www1.folha.uol.com.br/ambiente/2020/02/sapo-cururu-pode-ajudar-no-combate-ao-escorpiao-amarelo.shtml"
+										 target="blank" class="btn btn-secondary">Saiba mais</a>
+									</div>
+								</div>
+							</div>
+						</div>
+				  </div>
+					
+					<div class="carousel-item">
+						<div class="row justify-content-md-center">
+							<div class="col-sm-4 align-self-center">
+								<div class="card">
+										<img class="card-img-top" src="images/destaque1.jpg" alt="Card image cap">
+									<div class="card-body">
+										<h4 class="card-title">Físico “desconstrói” Paradoxo do Gato de Schrödinger para explicá-lo</h4>
+										<figcaption class="text-muted small">(Fonte: Smithsonian Magazine / Reprodução)</figcaption>
+									</div>
+									<div class="card-body">
+										<a href="https://www.tecmundo.com.br/ciencia/150681-fisico-desconstroi-paradoxo-gato-schrodinger-explica-lo.htm"
+											target="blank" class="btn btn-secondary">Saiba mais</a>
+									</div>
+								</div>
+							</div>
+							<div class="col-sm-6 align-self-center">
+								<div class="card mb-1">
+									<h5 class="card-header">Política</h5>
+									<div class="card-body">
+										<h5 class="card-title">Bolsonaro privilegia gastos com militares no primeiro ano de governo</h5>
+										<p class="card-text">Defesa registra maior reforço de caixa da Esplanada, com R$ 6,3 bi a mais gastos em 2019.</p>
+										<a href="https://www1.folha.uol.com.br/poder/2020/03/bolsonaro-privilegia-gastos-com-militares-no-primeiro-ano-de-governo.shtml" 
+											target="blank" class="btn btn-secondary">Saiba mais</a>
+									</div>
+								</div>
+								<div class="card mb-1">
+									<h5 class="card-header">Esportes</h5>
+									<div class="card-body">
+										<h5 class="card-title">FUTEBOL INTERNACIONAL</h5>
+										<p class="card-text">Em Madri, Barcelona tenta se aproveitar de instabilidade do Real.</p>
+										<a href="https://www1.folha.uol.com.br/esporte/2020/02/em-madri-barcelona-tenta-se-aproveitar-de-instabilidade-do-real.shtml"
+										 target="blank" class="btn btn-secondary">Saiba mais</a>
+									</div>
+								</div>
+								<div class="card mb-5">
+									<h5 class="card-header">Ciência</h5>
+									<div class="card-body">
+										<h5 class="card-title">Sapo-cururu pode ajudar no combate ao escorpião-amarelo</h5>
+										<p class="card-text">Pesquisa mostra que anfíbio devora aracnídeo com facilidade e não é afetado pelo veneno</p>
+										<a href="https://www1.folha.uol.com.br/ambiente/2020/02/sapo-cururu-pode-ajudar-no-combate-ao-escorpiao-amarelo.shtml"
+										 target="blank" class="btn btn-secondary">Saiba mais</a>
+									</div>
+								</div>
+							</div>
+						</div>
+				  </div>
+					
+					<div class="carousel-item">
+						<div class="row justify-content-md-center">
+							<div class="col-sm-4 align-self-center">
+								<div class="card">
+										<img class="card-img-top" src="images/destaque1.jpg" alt="Card image cap">
+									<div class="card-body">
+										<h4 class="card-title">Físico “desconstrói” Paradoxo do Gato de Schrödinger para explicá-lo</h4>
+										<figcaption class="text-muted small">(Fonte: Smithsonian Magazine / Reprodução)</figcaption>
+									</div>
+									<div class="card-body">
+										<a href="https://www.tecmundo.com.br/ciencia/150681-fisico-desconstroi-paradoxo-gato-schrodinger-explica-lo.htm"
+											target="blank" class="btn btn-secondary">Saiba mais</a>
+									</div>
+								</div>
+							</div>
+							<div class="col-sm-6 align-self-center">
+								<div class="card mb-1">
+									<h5 class="card-header">Política</h5>
+									<div class="card-body">
+										<h5 class="card-title">Bolsonaro privilegia gastos com militares no primeiro ano de governo</h5>
+										<p class="card-text">Defesa registra maior reforço de caixa da Esplanada, com R$ 6,3 bi a mais gastos em 2019.</p>
+										<a href="https://www1.folha.uol.com.br/poder/2020/03/bolsonaro-privilegia-gastos-com-militares-no-primeiro-ano-de-governo.shtml" 
+											target="blank" class="btn btn-secondary">Saiba mais</a>
+									</div>
+								</div>
+								<div class="card mb-1">
+									<h5 class="card-header">Esportes</h5>
+									<div class="card-body">
+										<h5 class="card-title">FUTEBOL INTERNACIONAL</h5>
+										<p class="card-text">Em Madri, Barcelona tenta se aproveitar de instabilidade do Real.</p>
+										<a href="https://www1.folha.uol.com.br/esporte/2020/02/em-madri-barcelona-tenta-se-aproveitar-de-instabilidade-do-real.shtml"
+										 target="blank" class="btn btn-secondary">Saiba mais</a>
+									</div>
+								</div>
+								<div class="card mb-5">
+									<h5 class="card-header">Ciência</h5>
+									<div class="card-body">
+										<h5 class="card-title">Sapo-cururu pode ajudar no combate ao escorpião-amarelo</h5>
+										<p class="card-text">Pesquisa mostra que anfíbio devora aracnídeo com facilidade e não é afetado pelo veneno</p>
+										<a href="https://www1.folha.uol.com.br/ambiente/2020/02/sapo-cururu-pode-ajudar-no-combate-ao-escorpiao-amarelo.shtml"
+										 target="blank" class="btn btn-secondary">Saiba mais</a>
+									</div>
+								</div>
+							</div>
+						</div>
+				  </div>
 				</div>
 			</div>
 		</div>
 	</div>
 
-	<div class="mt-5 p-4 rounded-top" style="background-color: #ebebe7;">
+	<!--Apresentação-->
+	<div class="mt-5 p-4 pb-0 rounded-top capa">
 		<div class="row">
 			<div class="col col-lg-5 m-5 align-middle">
-				<h1 class="font-weight-bold">LinkNews</h1>
+				<h1 class="font-weight-bold mb-3">LinkNews</h1>
 				<p class="">
 					O LinkNews é um site de notícias criado para
 					todo mundo. Nele você pode ver tudo sobre política, esportes, tecnologia,
-					jogos, cinema e várias outras matérias disponíveis.
+					jogos, ciencia e várias outras matérias disponíveis.
 				</p>
-				<p class="text-justify">Divirta-se :)</p>
-			</div>
-			<div class="col text-center mt-5">
-				<iframe src="https://giphy.com/embed/hpRMBbm9140MxLuvrT" frameBorder="0"
-					class="giphy-embed" allowFullScreen></iframe>
-				<p><a href="https://giphy.com/gifs/moodman-hpRMBbm9140MxLuvrT">via giphy</a></p>
 			</div>
 		</div>
 	</div>
 
-	<div class="anchor" id="politc"></div>
+	<!--Noticias - Politica-->
+	<div class="anchor mt-0" id="politc"></div>
 	<div class="navegadores" style="background-color: #9ba8a8;">Política</div>
 	<div class="container mt-2">
 		<div class="row justify-content-md-center">
@@ -139,7 +243,7 @@
 				</div>
 			</div>
 			<div class="col-sm-6 align-self-center">
-				<div class="card">
+				<div class="card mb-1">
 					<h5 class="card-header">Política</h5>
 					<div class="card-body">
 						<h5 class="card-title">Bolsonaro privilegia gastos com militares no primeiro ano de governo</h5>
@@ -148,7 +252,7 @@
 							target="blank" class="btn btn-secondary">Saiba mais</a>
 					</div>
 				</div>
-				<div class="card">
+				<div class="card mb-1">
 					<h5 class="card-header">Esportes</h5>
 					<div class="card-body">
 						<h5 class="card-title">FUTEBOL INTERNACIONAL</h5>
@@ -157,7 +261,7 @@
 						 target="blank" class="btn btn-secondary">Saiba mais</a>
 					</div>
 				</div>
-				<div class="card">
+				<div class="card mb-1">
 					<h5 class="card-header">Ciência</h5>
 					<div class="card-body">
 						<h5 class="card-title">Sapo-cururu pode ajudar no combate ao escorpião-amarelo</h5>
@@ -170,6 +274,7 @@
 		</div>
 	</div>
 
+	<!--Noticias - Esportes-->
 	<div class="anchor" id="esport"></div>
 	<div class="navegadores" style="background-color: #c8cec4;">Esportes</div>
 	<div class="container mt-2">
@@ -188,7 +293,7 @@
 				</div>
 			</div>
 			<div class="col-sm-6 align-self-center">
-				<div class="card">
+				<div class="card mb-1">
 					<h5 class="card-header">Política</h5>
 					<div class="card-body">
 						<h5 class="card-title">Bolsonaro privilegia gastos com militares no primeiro ano de governo</h5>
@@ -197,7 +302,7 @@
 							target="blank" class="btn btn-secondary">Saiba mais</a>
 					</div>
 				</div>
-				<div class="card">
+				<div class="card mb-1">
 					<h5 class="card-header">Esportes</h5>
 					<div class="card-body">
 						<h5 class="card-title">FUTEBOL INTERNACIONAL</h5>
@@ -206,7 +311,7 @@
 						 target="blank" class="btn btn-secondary">Saiba mais</a>
 					</div>
 				</div>
-				<div class="card">
+				<div class="card mb-1">
 					<h5 class="card-header">Ciência</h5>
 					<div class="card-body">
 						<h5 class="card-title">Sapo-cururu pode ajudar no combate ao escorpião-amarelo</h5>
@@ -219,6 +324,7 @@
 		</div>
 	</div>
 
+	<!--Noticias - Tecnologia-->
 	<div class="anchor" id="tecno"></div>
 	<div class="navegadores" style="background-color: #9ba8a8;">Tecnologia</div>
 	<div class="container mt-2">
@@ -237,7 +343,7 @@
 				</div>
 			</div>
 			<div class="col-sm-6 align-self-center">
-				<div class="card">
+				<div class="card mb-1">
 					<h5 class="card-header">Política</h5>
 					<div class="card-body">
 						<h5 class="card-title">Bolsonaro privilegia gastos com militares no primeiro ano de governo</h5>
@@ -246,7 +352,7 @@
 							target="blank" class="btn btn-secondary">Saiba mais</a>
 					</div>
 				</div>
-				<div class="card">
+				<div class="card mb-1">
 					<h5 class="card-header">Esportes</h5>
 					<div class="card-body">
 						<h5 class="card-title">FUTEBOL INTERNACIONAL</h5>
@@ -255,7 +361,7 @@
 						 target="blank" class="btn btn-secondary">Saiba mais</a>
 					</div>
 				</div>
-				<div class="card">
+				<div class="card mb-1">
 					<h5 class="card-header">Ciência</h5>
 					<div class="card-body">
 						<h5 class="card-title">Sapo-cururu pode ajudar no combate ao escorpião-amarelo</h5>
@@ -268,6 +374,7 @@
 		</div>
 	</div>
 
+	<!--Noticias - Games-->
 	<div class="anchor" id="games"></div>
 	<div class="navegadores" style="background-color: #c8cec4;">Games</div>
 	<div class="container mt-2">
@@ -286,7 +393,7 @@
 				</div>
 			</div>
 			<div class="col-sm-6 align-self-center">
-				<div class="card">
+				<div class="card mb-1">
 					<h5 class="card-header">Política</h5>
 					<div class="card-body">
 						<h5 class="card-title">Bolsonaro privilegia gastos com militares no primeiro ano de governo</h5>
@@ -295,7 +402,7 @@
 							target="blank" class="btn btn-secondary">Saiba mais</a>
 					</div>
 				</div>
-				<div class="card">
+				<div class="card mb-1">
 					<h5 class="card-header">Esportes</h5>
 					<div class="card-body">
 						<h5 class="card-title">FUTEBOL INTERNACIONAL</h5>
@@ -304,7 +411,7 @@
 						 target="blank" class="btn btn-secondary">Saiba mais</a>
 					</div>
 				</div>
-				<div class="card">
+				<div class="card mb-1">
 					<h5 class="card-header">Ciência</h5>
 					<div class="card-body">
 						<h5 class="card-title">Sapo-cururu pode ajudar no combate ao escorpião-amarelo</h5>
@@ -317,7 +424,8 @@
 		</div>
 	</div>
 
-	<div class="anchor" id="cinema"></div>
+	<!--Noticias - Ciência-->
+	<div class="anchor" id="ciencia"></div>
 	<div class="navegadores" style="background-color: #9ba8a8;">Ciência</div>
 	<div class="container mt-2">
 		<div class="row justify-content-md-center">
@@ -335,7 +443,7 @@
 				</div>
 			</div>
 			<div class="col-sm-6 align-self-center">
-				<div class="card">
+				<div class="card mb-1">
 					<h5 class="card-header">Política</h5>
 					<div class="card-body">
 						<h5 class="card-title">Bolsonaro privilegia gastos com militares no primeiro ano de governo</h5>
@@ -344,7 +452,7 @@
 							target="blank" class="btn btn-secondary">Saiba mais</a>
 					</div>
 				</div>
-				<div class="card">
+				<div class="card mb-1">
 					<h5 class="card-header">Esportes</h5>
 					<div class="card-body">
 						<h5 class="card-title">FUTEBOL INTERNACIONAL</h5>
@@ -353,7 +461,7 @@
 						 target="blank" class="btn btn-secondary">Saiba mais</a>
 					</div>
 				</div>
-				<div class="card">
+				<div class="card mb-1">
 					<h5 class="card-header">Ciência</h5>
 					<div class="card-body">
 						<h5 class="card-title">Sapo-cururu pode ajudar no combate ao escorpião-amarelo</h5>
@@ -407,6 +515,7 @@
 		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
 		crossorigin="anonymous"></script>
 	<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+	<script src="script.js"></script>
 </body>
 
 </html>
