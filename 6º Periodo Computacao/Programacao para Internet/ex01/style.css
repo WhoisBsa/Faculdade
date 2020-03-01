@@ -6,6 +6,11 @@ body {
     margin: 0;
 }
 
+h1, p {
+    color: #333333;
+    font-family: 'Roboto';
+}
+
 #navtitle {
     font-family: 'Saira Stencil One';
 }
@@ -32,6 +37,7 @@ body {
 }
 
 .navegadores {
+    color: #333333;
     padding: 0.5em;
     text-align: center;
     font-size: 1.5em;
@@ -46,11 +52,20 @@ body {
 footer {
     color: white;
     background-image: 
-        linear-gradient(to top, #4d7ef0, #57e2e5);
+        linear-gradient(to top, #9ba8a8, #c8cec4);
     padding: 3em 2em 5em 2em;
     margin-top: 5em;
 }
 
 .iconfooter {
-    color: white;
+    color: #ebebe7;
+    transition: 0.3s;
+}
+
+.iconfooter:hover {
+    color: #333333;
+}
+
+.news {
+    padding: 0;
 }
