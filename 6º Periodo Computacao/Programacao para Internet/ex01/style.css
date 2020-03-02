@@ -29,12 +29,6 @@ h1, p {
   }
 
 .navlink:hover:after { transform: scaleX(1); }
-.navlink.fromRight:after{ transform-origin:100% 50%; }
-.navlink.fromLeft:after{  transform-origin:  0% 50%; }
-
-#gif {
-    margin: auto;
-}
 
 .navegadores {
     color: #333333;
@@ -74,4 +68,8 @@ footer {
 .capa {
     background: url("images/capa.png") no-repeat;
     width: 100%;
+}
+
+.capa:p {
+    
 }
