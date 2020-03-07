@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<title>Aula JavaScript</title>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+	<h1>Essa é uma aula de JavaScript</h1>
+	<div id="res"></div>
+
+	<script>
+
+		// var frase = "Bem Vindo!";
+		// alert(frase);
+
+		var nome = "Matheus";
+		var sobrenome = "Barbosa";
+		var codigo = 123456;
+		var qtdCompras = 50;
+		var totalCompras = 3500.00;
+		var infos = `<h3>${codigo}: ${nome} ${sobrenome} você fez um total de 
+						${qtdCompras} compras e gastou R$${totalCompras} conosco, `;
+
+
+		if (qtdCompras >= 30 && totalCompras >= 5000) {
+			infos += "você é um usuário VIP!</h3>"
+		} else if (qtdCompras >= 30) {
+			infos +=  `falta gastar R$${5000 - totalCompras} para se tornar VIP.</h3>`
+		} else if (totalCompras >= 5000) {
+			infos += `falta ${30 - qtdCompras} compras para se tornar VIP.</h3>`
+		} else {
+			infos += `falta ${30 - qtdCompras} compras e gastar R$${5000 - totalCompras} para se tornar VIP.</h3>`
+		}
+
+		document.write("<h2>Esse texto foi adicionado com JavaScript!</h2>");
+
+		var res = document.getElementById("res");
+
+		res.innerHTML = infos;
+
+	</script>
+	<!-- Optional JavaScript -->
+	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+		crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+		integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+		crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+		crossorigin="anonymous"></script>
+</body>
+
+</html>
