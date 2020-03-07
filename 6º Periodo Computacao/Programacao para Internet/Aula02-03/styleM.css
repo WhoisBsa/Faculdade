@@ -1,0 +1,21 @@
+@media only screen and (min-width:200px) and (max-width: 791px) {
+    header {
+        height: 70px;
+    }
+
+    header h1 {
+        margin-top: 15px;
+    }
+
+    .cont h1 {
+        position: absolute;
+        z-index: 1;
+        width: 100%;
+    }
+
+    .cont img {
+        width: 100%;
+        position: absolute;
+        opacity: 0.6;
+    }
+}
