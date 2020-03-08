@@ -36,6 +36,7 @@ h1, p {
     text-align: center;
     font-size: 1.5em;
     font-weight: bold;
+    background-image: linear-gradient(to right, #333333 15%,#9ba8a8, #333333 85%);
 }
 
 .anchor {
