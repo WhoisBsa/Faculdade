@@ -1,0 +1,32 @@
+1 – Cite pelo menos 5 vantagens de saber desenvolver aplicativos na plataforma Android.
+
+	É um dominio a mais de linguagem (java e/ou kotlin)
+	É rentável.
+	Seu app pode ser jogado na google play, podendo ser reconhecido.
+	Oportunidade de emprego.
+	Compatível com vários recursos e dispositivos.
+
+
+2 – Pesquise as vagas oferecidas na área, detalhe principalmente os requisitos da vaga e o salário médio.
+	
+	https://www.catho.com.br/vagas/programador-mobile/
+
+	Programação (Obrigatório). frontend (Preferencial). 
+	Sistemas (Preferencial). Desenvolvimento de apps (Preferencial). 
+	backend (Preferencial). Conhecimentos necessários: Programação voltada a criação de Apps Android / IOS. 
+	Git (operações básicas. PostgreSQL. Frontend (HTML5 / CSS3 / jQuery / Bootstrap).
+
+	Salário: de R$2.500,00 a R$4.000,00 /mês.
+
+
+3 – Pesquise o tempo médio para desenvolver um aplicativo e o custo médio.
+
+	Um aplicativo de celular de pequeno porte consome de 150 a 500 horas para ser desenvolvido. 
+	Tem o custo aproximado entre R$ 25 mil e R$ 80 mil. Aplicativos mais complexos podem custar 
+	entre R$ 150 mil e R$ 300 mil.
+
+
+4 – Qual a melhor escolha, desenvolver para Android ou para iOS? Justifique sua resposta.
+
+	Android; Pois para a apple o app tem que seguir todos os requisitos impostos por ela. Se não
+	atender um sequer seu app é rejeitado. Já o android tem mais liberdade de desenvolvimento.
