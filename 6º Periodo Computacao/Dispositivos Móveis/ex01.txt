@@ -1,0 +1,42 @@
+Matheus Barbosa Souza
+
+
+1) 	Sinal analógico ocila em forma de onda causando ocilação, logo, com a frequência aumentada a perda de qualidade é inevitável.
+	Sinal digital é preciso, assumindo apenas números inteiros a a qualidade não ocila e os custos são menores.
+
+
+2)	Medida de ocilações completas de uma onda por segundo; Hz.
+
+
+3)	Antes do início da transmissão de dados, é necessário que os dispositivos que irão se conectar passem por um processo de reconhecimento e pareamento.
+
+
+4)	É designada como banda de frequência de rádio. Essas bandas de frequência foram reservadas para uso de RF para outros fins que não telecomunicações.
+
+
+5)	1G - Sinal de telefonia analógico.
+	2G - Chamadas de voz e transações via POS (Point-of-Sales) - maquininhas de cartão de crédito.
+	3G - Terceira geração das redes móveis. Rede maior por causa da melhora na eficiência espectral.
+	4G - LTE, atinge velocidade de 150mb/s - 10x 3G.
+	5G - Futuro, podendo chegar a 10Gb/s com latencias baixíssimas.
+
+
+6)	Usado para minimizar interferências permitindo a utilização de um mesmo canal por mais de um usuário ao mesmo tempo obedecendo uma distância mínima 
+	entre eles a fim de manter a qualidade de trocas de dados bem como a capacidade de tráfego de comunicação na área de cobertura de cada célula.
+
+
+7)	. Prover a interface entre a rede telefônica e o sistema celular;
+	. Comunicar-se com outros sistemas celulares;
+	. Controlar as ERB’s;
+	. Monitorar e controlar as chamadas;
+	. Interligar as várias ERB’s;
+	. Supervisionar o estado do sistema;
+	. Controlar e comutar o hand-off de chamadas;
+	. Administrar o sistema.
+
+	Imagine ligar para um amigo do outro lado da cidade. À medida que você conversa, seu telefone converte sua voz em um sinal elétrico, que é transmitido 
+	como ondas de rádio e convertido novamente em som pelo telefone do seu amigo. Um telefone celular básico é, portanto, pouco mais que um transmissor de 
+	rádio e um receptor de rádio combinados, bastante semelhantes a um rádio walkie-talkie ou CB.
+
+
+8)	Trata a transição de uma unidade móvel (UM) de uma célula para outra de forma transparente ao utilizador.
