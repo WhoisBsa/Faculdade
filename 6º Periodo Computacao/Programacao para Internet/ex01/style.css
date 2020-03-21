@@ -1,4 +1,5 @@
 html {
+    /* CONTROLE DE VELOCIDADE DO SCROLL */
     scroll-behavior: smooth;
 }
 
@@ -28,8 +29,11 @@ h1, p {
     transition: transform 250ms ease-in-out;
   }
 
+/* TRANSFORM PERMITE MODIFICAR, RODAR E ALTERAR A ESCALA DOS ELEMENTOS */
 .navlink:hover:after { transform: scaleX(1); }
 
+
+/* CLASSE PARA CATEGORIAS */
 .navegadores {
     color: #333333;
     padding: 0.5em;
@@ -39,10 +43,12 @@ h1, p {
     background-image: linear-gradient(to right, #333333 15%,#9ba8a8, #333333 85%);
 }
 
+/* DISTÂNCIA ENTRE ÁREAS DE CADA CATEGORIA */
 .anchor {
     padding: 29.5px;
 }
 
+/* RODAPÉ DA PÁGINA */
 footer {
     color: white;
     background-image: 
