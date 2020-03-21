@@ -1,0 +1,84 @@
+1- O que e para que serve a Computação Móvel?
+	
+	Portabilidade; disponibilização e recursos computacionais onde o usuário esteja.
+
+
+
+2- Por que existem limitações nos dispositivos para computação móvel?
+	
+	Ainda não foram criadas baterias com "super" resistência (o que pode ser também uma manobra do toyotismo). Segurança a respeito de redes de Wi-Fi entre outros. Recursos de hardware não tão potentes quanto ao de um computador, etc.
+
+
+
+3- Qual o motivo de uma rede móvel ter uma taxa de erros muito acima de uma rede fixa? E por que a velocidade também tende a ser menor na rede móvel?
+	
+	Pois ela não é cabeada, logo, depende de vários fatores para o seu funcionamento tais como, sinal, canal e frequência, sendo que por qualquer outro aparelho que esteja numa mesma frequência poderá ocorrer um problema.
+
+
+
+4- Liste desafios enfrentados pela computação móvel e proponha soluções para estes desafios.
+	
+	- Bateria
+
+	- Hardware
+
+	- Segurança
+
+	
+	
+	Bateria: ainda não é concluído de fato a pesquisa para uma super bateria que possa durar dias e dias, porém, com o avanço da tecnologia esse recurso não está muito distante. Focar nesse desenvolvimento é o que mais vai atrair consumidores.
+	
+	Hardware: Hoje em dia existem computadores excepcionais, os celulares estão um pouco atrás e por isso um abranjente estudo sobre como melhorar isso deve vir à tona. Redes móveis são a revolução, porém não é tão estável quanto a cabeada, tendo em vista que uma conexão estável é o manda o mercado.
+	
+	Segurança: Seu aparelho pode cair. Resistência é a chave.
+
+
+
+5- Quais os principais padrões de rede sem fio homologados pela IEEE? Liste o número do padrão, a velocidade mínima e máxima e o alcance.
+	
+	
+	802.11
+1 Mbit/s ~ 0.12 MB/s
+					
+2 Mbit/s ~ 0.24 MB/s; 20 a 100
+
+	
+
+	802.11a
+6 Mbit/s ~ 0.72 MB/s
+					
+9 Mbit/s ~ 1.07 MB/s
+					
+12 Mbit/s ~ 1.43 MB/s
+					
+18 Mbit/s ~ 2.15 MB/s
+					
+24 Mbit/s ~ 2.86 MB/s
+					
+36 Mbit/s ~ 4.29 MB/s
+					
+48 Mbit/s ~ 5.72 MB/s
+					
+54 Mbit/s ~ 6.44 MB/s, 5000
+
+
+	
+	802.11b
+1 Mbit/s ~ 0.12 MB/s
+					
+2 Mbit/s ~ 0.24 MB/s
+					
+5.5 Mbit/s ~ 0.66 MB/s
+					
+11 Mbit/s ~ 1.31 MB/s, 35 
+
+   	a140
+
+	802.11ad
+6912 Mbit/s ~ 823.97 MB/s; -
+
+
+
+6- Pesquise sobre o futuro da computação móvel. Na sua opnião, o que de mais interessante/importante está por vir?
+	
+	Produtividade. Fazer o que precisa de onde estiver quando quiser.
