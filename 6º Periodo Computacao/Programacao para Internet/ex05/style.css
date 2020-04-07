@@ -1,0 +1,77 @@
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+#app {
+  display: grid;
+  justify-content: center;
+  background-color: #333;
+  padding: 1em;
+}
+
+#app h1 {
+  color: #eff;
+  margin: 5px;
+}
+
+#app input {
+  width: 50vh ;
+  margin: 5px;
+  border-radius: 5px;
+  border: none;
+  padding: 8px;
+  color: #333;
+}
+
+#app button {
+  margin: 5px;
+  margin-bottom: 5px;
+  padding: 8px;
+  border-radius: 5px;
+  color: #333;
+  background-color: #fff;
+  border: none;
+  font-size: medium;
+  font-weight: bold;
+  transition: 1s;
+}
+
+#app button:hover {
+  color: #fff;
+  background-color: #444;
+  transition: 0.3s;
+}
+
+#lista {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 1fr;
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+}
+
+.divElement {
+  background-color: #333;
+  margin: 20px;
+  display: grid;
+  justify-content: center;
+  justify-items: center;
+  padding: 1em;
+}
+
+.divHeader {
+  font-size: 3em;
+  color: #fff;
+
+}
+
+.divBody {
+  font-size: 2em;
+  color: #fff;
+}
+
+.divPreco {
+  font-size: 2em;
+  color: #fff;
+}
