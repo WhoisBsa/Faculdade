@@ -1,0 +1,3 @@
+O contador de objetos seguirá normalmento no if que checa se é branco.
+Quando o contador chega à 254 ele cairá em um if nesse mesmo bloco que setará
+seu valor para o início (1).
