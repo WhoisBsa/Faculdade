@@ -32,10 +32,35 @@ void desenha(void)
 
 	// Desenha um quadrado preenchido com a cor corrente
 	glBegin(GL_QUADS);
-	glVertex2i(120, 400);
-	glVertex2i(120, 120);
-	glVertex2i(400, 120);
-	glVertex2i(400, 400);
+		glColor3f(0, 0, 1);
+		glVertex2i(60, 340);
+		glVertex2i(60, 200);
+		glVertex2i(200, 200);
+		glVertex2i(200, 340);
+	glEnd();
+
+	glBegin(GL_QUADS);
+		glColor3f(1, 1, 0);
+		glVertex2i(60, 200);
+		glVertex2i(60, 60);
+		glVertex2i(200, 60);
+		glVertex2i(200, 200);
+	glEnd();
+
+	glBegin(GL_QUADS);
+		glColor3f(0, 1, 0);
+		glVertex2i(200, 200);
+		glVertex2i(200, 60);
+		glVertex2i(340, 60);
+		glVertex2i(340, 200);
+	glEnd();
+
+	glBegin(GL_QUADS);
+		glColor3f(1, 0, 0);
+		glVertex2i(200, 340);
+		glVertex2i(200, 200);
+		glVertex2i(340, 200);
+		glVertex2i(340, 340);
 	glEnd();
 
 	//Habilita a execu��o de comandos OpenGL

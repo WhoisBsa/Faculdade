@@ -1,17 +1,18 @@
 {
   "version": "2.0.0",
+  "command": "bash",
   "tasks": [
     {
       "type": "cppbuild",
       "label": "C/C++: g++ arquivo de build ativo",
       "command": "/usr/bin/gcc",
       "args": [
-				"${file}",
+        "${file}",
         "-o",
         "${fileDirname}/${fileBasenameNoExtension}",
-				"-lGL",
-				"-lGLU",
-        "-lglut",
+        "-lGL",
+        "-lGLU",
+        "-lglut"
       ],
       "options": {
         "cwd": "${workspaceFolder}"
