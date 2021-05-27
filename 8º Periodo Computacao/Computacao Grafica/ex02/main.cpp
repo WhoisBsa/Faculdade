@@ -10,7 +10,7 @@ float rotationX = 25.0, rotationY = 0.0;
 int last_x, last_y;
 int width = 640, height = 480;
 float eixo_x = 1.0, eixo_y = 1.0, eixo_z = 1.0;
-float a= 45.10, b= -8.80, c = -81.20;
+float a = 28, b = -21.2, c = 1;
 
 int distOrigem = 45;
 
@@ -68,6 +68,106 @@ void desenha(void)
    glVertex3f(-21.000000, -15.800000, 12.000000);
    glEnd();
 
+   glBegin(GL_QUADS);
+   glColor3f(1, 0, 0);
+   glVertex3f(-57.10, -26.40, -81.20);
+   glVertex3f(-23.50, -26.80, -81.20);
+   glVertex3f(-19.10, -10.80, -81.20);
+   glVertex3f(-47.10, -10.80, -81.20);
+   glVertex3f(-57.10, -26.40, -81.20);
+   glEnd();
+
+   glBegin(GL_QUADS);
+   glColor3f(1, 0, 1);
+   glVertex3f(-45.70, -8.80, -81.20);
+   glVertex3f(-18.30, -8.40, -81.20);
+   glVertex3f(-15.90, -0.20, -81.2);
+   glVertex3f(-40.10, -0.40, -81.20);
+   glVertex3f(-45.70, -8.80, -81.20);
+   glEnd();
+
+   //asdfasdfasdf
+   glBegin(GL_QUADS);
+   glColor3f(0, 0, 1);
+   glVertex3f(-38.10, 2.20, -81.20);
+   glVertex3f(-15.70, 2.00, -81.20);
+   glVertex3f(-13.30, 10.20, -81.20);
+   glVertex3f(-33.30, 10.00, -81.20);
+   glVertex3f(-38.10, 2.20, -81.20);
+   glEnd();
+
+   glBegin(GL_QUADS);
+   glColor3f(0.6, 0.3, 1);
+   glVertex3f(-22.90, -61.00, -81.20);
+   glVertex3f(23.70, -60.00, -80.60);
+   glVertex3f(17.70, -29.80, -81.20);
+   glVertex3f(-17.30, -26.60, -67.80);
+   glVertex3f(-22.90, -61.00, -81.20);
+   glEnd();
+
+   glBegin(GL_QUADS);
+   glColor3f(0.2, 1, 0.7);
+   glVertex3f(-16.70, -26.40, -81.20);
+   glVertex3f(17.30, -26.40, -81.20);
+   glVertex3f(14.30, -11.00, -81.20);
+   glVertex3f(-13.90, -10.80, -81.20);
+   glVertex3f(-16.70, -26.40, -81.20);
+   glEnd();
+
+   glBegin(GL_QUADS);
+   glColor3f(0.8, 0.4, 1);
+   glVertex3f(-5.2, -3.60, -2.20);
+   glVertex3f(5.2, -3.60, -2.20);
+   glVertex3f(4.60, 0.00, -1.20);
+   glVertex3f(-4.60, 0.00, -1.20);
+   glVertex3f(-5.2, -3.00, -1.20);
+   glEnd();
+
+
+   glBegin(GL_QUADS);
+   glColor3f(0.4, 0.4, 1);
+   glVertex3f(-5.00, 1.00, -8.60);
+   glVertex3f(5.00, 1.00, -8.60);
+   glVertex3f(7.0, 6.60, -41.60);
+   glVertex3f(-12.40, 11.80, -109.60);
+   glVertex3f(-5.00, 1.00, -8.60);
+   glEnd();
+
+
+
+glBegin(GL_QUADS);
+   glColor3f(0.5, 1, 1);
+   glVertex3f(11.00, -21.20, 1.00);
+   glVertex3f(28.00, -21.20, 1.00);
+   glVertex3f(20.80, -10.40, 1.00);
+   glVertex3f(8.40, -10.40, 1.00);
+   glVertex3f(11.00, -21.20, 1.00);
+   glEnd();
+
+
+   glBegin(GL_QUADS);
+   glColor3f(0.41, 0.23, 0.55);
+   glVertex3f(8.20, -9.20, 1.00);
+   glVertex3f(19.80, -9.20, 1.00);
+   glVertex3f(17.00, -4.00, -1.40);
+   glVertex3f(7.00, -4.0, -1.40);
+   glVertex3f(8.20, -9.20, 1.00);
+   glEnd();
+
+
+   
+
+
+
+glBegin(GL_QUADS);
+   glColor3f(0.45, 0.2, 0.2);
+   glVertex3f(7.20, -3.40, -4.00);
+   glVertex3f(23.00, -4.40, -20.20);
+   glVertex3f(13.60, 0.20, 0.20);
+   glVertex3f(7.20, 0.20, -11.20);
+   glVertex3f(7.20, -3.40, -4.00);
+   glEnd();
+
    glColor3f(0.5, 0.5, 0.5);
    glBegin(GL_QUADS);
    glVertex3f(-11.5, -21.2, 1.0);  // 1
@@ -108,7 +208,6 @@ void desenha(void)
    glVertex3f(-56.10, 3.40, -139.20);
    glVertex3f(-39.10, -0.40, -78.20);
    glEnd();
-
 
    //realiza as transforma��es e desenha o cubo
    glPushMatrix();
@@ -170,13 +269,13 @@ void specialKeys(int key, int x, int y)
    {
    case GLUT_KEY_UP:
       //seta para cima
-      eixo_z -= dist-1;
+      eixo_z -= dist - 1;
       if (eixo_z < -16.0)
          eixo_z = -16.0;
       break;
    case GLUT_KEY_DOWN:
       //seta para baixo
-      eixo_z += dist-1;
+      eixo_z += dist - 1;
       if (eixo_z > 17.0)
          eixo_z = 17.0;
       break;
