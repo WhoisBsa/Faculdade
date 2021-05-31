@@ -12,7 +12,7 @@
         "${fileDirname}/${fileBasenameNoExtension}",
         "-lGL",
         "-lGLU",
-        "-lglut"
+        "-lglut",
       ],
       "options": {
         "cwd": "${workspaceFolder}"
